@@ -1,0 +1,6 @@
+@MonsterSlayersAPI_HostAddress = http://localhost:5255
+
+GET {{MonsterSlayersAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
