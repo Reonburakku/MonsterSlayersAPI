@@ -20,6 +20,6 @@ namespace MonsterSlayersAPI.BLL.Entities
 
 
         [ForeignKey(nameof(LanguageId))]
-        public Language Language { get; set; }
+        public virtual Language? Language { get; set; }
     }
 }

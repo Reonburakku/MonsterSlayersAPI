@@ -51,29 +51,31 @@ builder.Services.AddAuthentication(options =>
 builder.Services.AddAuthorization();
 
 // Repositories
+builder.Services.AddScoped(typeof(IAbilityRepository), typeof(AbilityRepository));
+builder.Services.AddScoped(typeof(IAbilityResourceRepository), typeof(AbilityResourceRepository));
 builder.Services.AddScoped(typeof(IUnityOfWork), typeof(UnityOfWork));
 builder.Services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
 builder.Services.AddScoped(typeof(IBattleRepository), typeof(BattleRepository));
 builder.Services.AddScoped(typeof(IBattleActionRepository), typeof(BattleActionRepository));
 builder.Services.AddScoped(typeof(IBattleParticipantRepository), typeof(BattleParticipantRepository));
 builder.Services.AddScoped(typeof(ICharacterRepository), typeof(CharacterRepository));
+builder.Services.AddScoped(typeof(ICharacterAbilityRepository), typeof(CharacterAbilityRepository));
 builder.Services.AddScoped(typeof(ICharacterResistanceRepository), typeof(CharacterResistanceRepository));
 builder.Services.AddScoped(typeof(ICharacterSkillRepository), typeof(CharacterSkillRepository));
 builder.Services.AddScoped(typeof(IClassRepository), typeof(ClassRepository));
+builder.Services.AddScoped(typeof(IClassAbilityRepository), typeof(ClassAbilityRepository));
 builder.Services.AddScoped(typeof(IClassResourceRepository), typeof(ClassResourceRepository));
-builder.Services.AddScoped(typeof(IClassSkillRepository), typeof(ClassSkillRepository));
 builder.Services.AddScoped(typeof(ICreatureRepository), typeof(CreatureRepository));
 builder.Services.AddScoped(typeof(IDamageTypeRepository), typeof(DamageTypeRepository));
 builder.Services.AddScoped(typeof(IDamageTypeResourceRepository), typeof(DamageTypeResourceRepository));
 builder.Services.AddScoped(typeof(ILanguageRepository), typeof(LanguageRepository));
 builder.Services.AddScoped(typeof(IMonsterRepository), typeof(MonsterRepository));
+builder.Services.AddScoped(typeof(IMonsterAbilityRepository), typeof(MonsterAbilityRepository));
 builder.Services.AddScoped(typeof(IMonsterResourceRepository), typeof(MonsterResourceRepository));
 builder.Services.AddScoped(typeof(IMonsterResistanceRepository), typeof(MonsterResistanceRepository));
-builder.Services.AddScoped(typeof(IMonsterSkillRepository), typeof(MonsterSkillRepository));
 builder.Services.AddScoped(typeof(IMonsterZoneRepository), typeof(MonsterZoneRepository));
 builder.Services.AddScoped(typeof(IResourceTypeRepository), typeof(ResourceTypeRepository));
 builder.Services.AddScoped(typeof(ISkillRepository), typeof(SkillRepository));
-builder.Services.AddScoped(typeof(ISkillResourceRepository), typeof(SkillResourceRepository));
 builder.Services.AddScoped(typeof(IUserRepository), typeof(UserRepository));
 builder.Services.AddScoped(typeof(IZoneRepository), typeof(ZoneRepository));
 builder.Services.AddScoped(typeof(IZoneResourceRepository), typeof(ZoneResourceRepository));

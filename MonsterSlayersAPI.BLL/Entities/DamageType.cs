@@ -20,6 +20,6 @@ namespace MonsterSlayersAPI.BLL.Entities
         public virtual ICollection<DamageTypeResource>? DamageTypeResources { get; set; }
         public virtual ICollection<MonsterResistance>? MonsterResistances { get; set; }
         public virtual ICollection<CharacterResistance>? CharacterResistances { get; set; }
-        public virtual ICollection<Skill>? Skills { get; set; }
+        public virtual ICollection<Ability>? Abilitys { get; set; }
     }
 }

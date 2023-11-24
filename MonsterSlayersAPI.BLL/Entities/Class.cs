@@ -15,17 +15,13 @@ namespace MonsterSlayersAPI.BLL.Entities
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ClassId { get; set; }
         public string Name { get; set; }
-        public string Logo { get; set; }
-        public double StrengthRate { get; set; }
-        public double DexterityRate { get; set; }
-        public double HPRate { get; set; }
-        public double FaithhRate { get; set; }
-        public double IntelligenceRate { get; set; }
+        public string Image { get; set; }
         public bool ForPlayer { get; set; }
 
 
         public virtual ICollection<ClassResource>? ClassResources { get; set; }
         public virtual ICollection<User>? Users { get; set; }
-        public virtual ICollection<CharacterSkill>? CharacterSkill { get; set; }
+        public virtual ICollection<CharacterAbility>? CharacterAbility { get; set; }
+        public virtual ICollection<ClassSkill>? ClassSkills { get; set; }
     }
 }

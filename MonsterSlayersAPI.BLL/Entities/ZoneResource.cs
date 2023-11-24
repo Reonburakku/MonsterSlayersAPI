@@ -21,12 +21,12 @@ namespace MonsterSlayersAPI.BLL.Entities
 
         [ForeignKey(nameof(ZoneId))]
         [DeleteBehavior(DeleteBehavior.Restrict)]
-        public Zone Zone { get; set; }
+        public virtual Zone? Zone { get; set; }
         [ForeignKey(nameof(LanguageId))]
         [DeleteBehavior(DeleteBehavior.Restrict)]
-        public Language Language { get; set; }
+        public virtual Language? Language { get; set; }
         [ForeignKey(nameof(ResourceTypeId))]
         [DeleteBehavior(DeleteBehavior.Restrict)]
-        public ResourceType ResourceType { get; set; }
+        public virtual ResourceType? ResourceType { get; set; }
     }
 }

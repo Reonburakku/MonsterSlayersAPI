@@ -14,6 +14,7 @@ namespace MonsterSlayersAPI.BLL.Entities
     {
         public int ClassId { get; set; }
         public int SkillId { get; set; }
+        public double Rate { get; set; }
 
 
         [ForeignKey(nameof(ClassId))]
@@ -22,5 +23,6 @@ namespace MonsterSlayersAPI.BLL.Entities
         [ForeignKey(nameof(SkillId))]
         [DeleteBehavior(DeleteBehavior.Restrict)]
         public virtual Skill? Skill { get; set; }
+
     }
 }

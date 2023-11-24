@@ -15,7 +15,7 @@ namespace MonsterSlayersAPI.BLL.Entities
         public string Name { get; set; }
         public string Image { get; set; }
 
-        public ICollection<ZoneResource>? ZoneResources { get; set; }
-        public ICollection<MonsterZone>? MonsterZones { get; set; }
+        public virtual ICollection<ZoneResource>? ZoneResources { get; set; }
+        public virtual ICollection<MonsterZone>? MonsterZones { get; set; }
     }
 }

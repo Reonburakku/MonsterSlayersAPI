@@ -10,5 +10,7 @@ namespace MonsterSlayersAPI.BLL.Interfaces.Repositories
 {
     public interface ISkillRepository : IBaseRepository<Skill>
     {
+        ValueTask<Skill> GetByIdAsync(int skillId, int languageId);
+        Task<IEnumerable<Skill>> GetByCharacterIdAsync(int characterId, int languageId);
     }
 }

@@ -15,17 +15,17 @@ namespace MonsterSlayersAPI.BLL.Entities
         [Key]
         public int BattleActionId { get; set; }
         public int BattleId { get; set; }
-        public int SkillId { get; set; }
-        public int Value { get; set; }
+        public int AbilityId { get; set; }
+        public double Value { get; set; }
 
 
         [ForeignKey(nameof(BattleId))]
         [DeleteBehavior(DeleteBehavior.Restrict)]
-        public Battle Battle { get; set; }
-        [ForeignKey(nameof(SkillId))]
+        public virtual Battle? Battle { get; set; }
+        [ForeignKey(nameof(AbilityId))]
         [DeleteBehavior(DeleteBehavior.Restrict)]
-        public Skill Skill { get; set; }
+        public virtual Ability? Ability { get; set; }
 
-        public List<BattleActionAffected> BattleActionAffecteds { get; set; }
+        public virtual ICollection<BattleActionAffected>? BattleActionAffecteds { get; set; }
     }
 }

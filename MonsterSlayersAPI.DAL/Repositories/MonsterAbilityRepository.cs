@@ -10,8 +10,8 @@ using System.Threading.Tasks;
 
 namespace MonsterSlayersAPI.DAL.Repositories
 {
-    public class SkillResourceRepository : BaseRepository<SkillResource>, ISkillResourceRepository
+    public class MonsterAbilityRepository : BaseRepository<MonsterAbility>, IMonsterAbilityRepository
     {
-        public SkillResourceRepository(MonsterSlayersContext context) : base(context) { }
+        public MonsterAbilityRepository(MonsterSlayersContext context) : base(context) { }
     }
 }

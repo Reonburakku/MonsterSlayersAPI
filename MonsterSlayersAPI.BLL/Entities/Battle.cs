@@ -22,8 +22,8 @@ namespace MonsterSlayersAPI.BLL.Entities
 
         [ForeignKey(nameof(ZoneId))]
         [DeleteBehavior(DeleteBehavior.Restrict)]
-        public Zone Zone { get; set; }
-        public ICollection<BattleParticipant>? BattleParticipants { get; set; }
-        public ICollection<BattleAction>? BattleActions { get; set; }
+        public virtual Zone? Zone { get; set; }
+        public virtual ICollection<BattleParticipant>? BattleParticipants { get; set; }
+        public virtual ICollection<BattleAction>? BattleActions { get; set; }
     }
 }

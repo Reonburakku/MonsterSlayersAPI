@@ -15,7 +15,7 @@ namespace MonsterSlayersAPI.BLL.Interfaces.Services
         Task<IEnumerable<MonsterResultModel>> GetMonstersByZoneId(GetMonstersByZoneIdModel model);
         Task<bool> SetCharacterZoneId(SetCharacterZoneIdModel model);
         Task<BattleResultModel> StartBattle(StartBattleModel model);
-        Task<AttackResultModel> UseHability(UseHabilityModel model);
+        Task<AttackResultModel> UseAbility(UseAbilityModel model);
         Task<bool> EndTurn(EndTurnModel model);
 
     }

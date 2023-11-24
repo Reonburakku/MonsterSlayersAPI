@@ -13,5 +13,15 @@ namespace MonsterSlayersAPI.DAL.Repositories
     public class SkillRepository : BaseRepository<Skill>, ISkillRepository
     {
         public SkillRepository(MonsterSlayersContext context) : base(context) { }
+
+        public async Task<IEnumerable<Skill>> GetByCharacterIdAsync(int characterId, int languageId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async ValueTask<Skill> GetByIdAsync(int skillId, int languageId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

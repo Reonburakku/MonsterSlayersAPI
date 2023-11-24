@@ -54,9 +54,9 @@ namespace MonsterSlayersAPI.Controllers
 
         [HttpPost]
         [Route("Attack")]
-        public async Task<IActionResult> UseHability([FromBody] UseHabilityModel model)
+        public async Task<IActionResult> UseAbility([FromBody] UseAbilityModel model)
         {
-            var zones = await battleService.UseHability(model);
+            var zones = await battleService.UseAbility(model);
             return Ok(zones);
         }
 

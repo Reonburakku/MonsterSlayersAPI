@@ -22,16 +22,6 @@ namespace MonsterSlayersAPI.BLL.Entities
         public int Nivel { get; set; }
         public int Experience { get; set; }
         public string Image { get; set; }
-        public int StrengthPoints { get; set; }
-        public int DexterityPoints { get; set; }
-        public int VitalityPoints { get; set; }
-        public int IntelligencePoints { get; set; }
-        public int FaithPoints { get; set; }
-        public int Strength { get; set; }
-        public int Dexterity { get; set; }
-        public int Vitality { get; set; }
-        public int Intelligence { get; set; }
-        public int Faith { get; set; }
         public int HP { get; set; }
         public int CurrentHP { get; set; }
         public int Speed { get; set; }
@@ -43,17 +33,18 @@ namespace MonsterSlayersAPI.BLL.Entities
 
         [ForeignKey(nameof(CreatureId))]
         [DeleteBehavior(DeleteBehavior.Restrict)]
-        public Creature Creature { get; set; }
+        public virtual Creature? Creature { get; set; }
         [ForeignKey(nameof(UserId))]
         [DeleteBehavior(DeleteBehavior.Restrict)]
-        public User User { get; set; }
+        public virtual User? User { get; set; }
         [ForeignKey(nameof(ClassId))]
         [DeleteBehavior(DeleteBehavior.Restrict)]
-        public Class Class { get; set; }
+        public virtual Class? Class { get; set; }
         [ForeignKey(nameof(ZoneId))]
         [DeleteBehavior(DeleteBehavior.Restrict)]
-        public Zone Zone { get; set; }
+        public virtual Zone? Zone { get; set; }
         public virtual ICollection<CharacterResistance>? CharacterResistances { get; set;}
-        public virtual ICollection<CharacterSkill>? CharacterSkills { get; set;}
+        public virtual ICollection<CharacterAbility>? CharacterAbilitys { get; set; }
+        public virtual ICollection<CharacterSkill>? CharacterSkills { get; set; }
     }
 }

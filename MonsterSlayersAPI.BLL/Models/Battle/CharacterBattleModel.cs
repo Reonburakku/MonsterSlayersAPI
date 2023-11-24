@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MonsterSlayersAPI.BLL.Models.Result
+namespace MonsterSlayersAPI.BLL.Models.Battle
 {
-    public class CharacterInfoResultModel : BaseResultModel
+    public class CharacterBattleModel
     {
         public int CharacterId { get; set; }
         public int UserId { get; set; }
@@ -19,16 +19,6 @@ namespace MonsterSlayersAPI.BLL.Models.Result
         public int Nivel { get; set; }
         public int Experience { get; set; }
         public string Image { get; set; }
-        public int StrengthPoints { get; set; }
-        public int DexterityPoints { get; set; }
-        public int VitalityPoints { get; set; }
-        public int IntelligencePoints { get; set; }
-        public int FaithPoints { get; set; }
-        public int Strength { get; set; }
-        public int Dexterity { get; set; }
-        public int Vitality { get; set; }
-        public int Intelligence { get; set; }
-        public int Faith { get; set; }
         public int HP { get; set; }
         public int CurrentHP { get; set; }
         public int Speed { get; set; }
@@ -36,5 +26,7 @@ namespace MonsterSlayersAPI.BLL.Models.Result
         public int CritDamage { get; set; }
         public int Stamina { get; set; }
         public int Mana { get; set; }
+        public List<SkillBattleModel> skillBattleModels { get; set; }
+        public List<ResistanceBattleModel> ResistanceBattleModels { get; set; }
     }
 }

@@ -10,9 +10,11 @@ namespace MonsterSlayersAPI.BLL.Interfaces.Repositories
 {
     public interface ICharacterRepository : IBaseRepository<Character>
     {
-        Task<IEnumerable<Character>> GetByIdRangeAsync(IEnumerable<int> CharacterIds);
+        Task<IEnumerable<Character>> GetByIdRangeAsync(IEnumerable<int> CharacterIds, int languageId);
         Task<Character> GetFullById(int characterId, int languageId);
         Task<IEnumerable<Character>> GetInfoByIdRange(IEnumerable<int> CharacterIds, int languageId);
         Task<Character> UpdateZone(int CharacterId, int zoneId);
+
+        Task<IEnumerable<CharacterSkill>> GetSkillsByCharacterId(int characterId, int languageId);
     }
 }

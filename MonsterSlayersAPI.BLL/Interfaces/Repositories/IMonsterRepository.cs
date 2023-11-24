@@ -11,7 +11,7 @@ namespace MonsterSlayersAPI.BLL.Interfaces.Repositories
     public interface IMonsterRepository : IBaseRepository<Monster>
     {
         Task<IEnumerable<Monster>> GetAllByZoneId(int zoneId, int languageId);
-        Task<IEnumerable<Monster>> GetByIdRangeAsync(IEnumerable<int> monsterIds);
+        Task<IEnumerable<Monster>> GetByIdRangeAsync(IEnumerable<int> monsterIds, int languageId);
         Task<Monster> GetFullById(int monsterId, int languageId);
         Task<IEnumerable<Monster>> GetInfoByIdRange(IEnumerable<int> monsterIds, int languageId);
     }

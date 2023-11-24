@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MonsterSlayersAPI.BLL.Interfaces.Repositories
 {
-    public interface IClassSkillRepository : IBaseRepository<ClassSkill>
+    public interface IAbilityResourceRepository : IBaseRepository<AbilityResource>
     {
     }
 }

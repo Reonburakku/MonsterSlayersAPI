@@ -26,6 +26,6 @@ namespace MonsterSlayersAPI.DAL.Repositories
                 EndDate = x.EndDate,
                 Zone = x.Zone
             }).Where(x => x.BattleId == id).FirstAsync();
+        }
     }
-}
 }

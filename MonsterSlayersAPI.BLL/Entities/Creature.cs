@@ -14,9 +14,9 @@ namespace MonsterSlayersAPI.BLL.Entities
         public int CreatureId { get; set; }
 
 
-        public ICollection<Character>? Characters { get; set; }
-        public ICollection<Monster>? Monsters { get; set; }
-        public ICollection<BattleParticipant> BattleParticipants { get; set; }
-        public ICollection<BattleActionAffected>? BattleActionAffected { get; set; }
+        public virtual ICollection<Character>? Characters { get; set; }
+        public virtual ICollection<Monster>? Monsters { get; set; }
+        public virtual ICollection<BattleParticipant>? BattleParticipants { get; set; }
+        public virtual ICollection<BattleActionAffected>? BattleActionAffected { get; set; }
     }
 }

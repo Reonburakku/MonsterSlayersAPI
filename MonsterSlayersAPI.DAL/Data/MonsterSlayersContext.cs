@@ -18,25 +18,29 @@ namespace MonsterSlayersAPI.Security.DAL.Data
         }
 
 
+        DbSet<Ability> Abilitys { get; set; }
+        DbSet<AbilityResource> AbilityResources { get; set; }
         DbSet<Battle> Battles { get; set; }
         DbSet<BattleAction> BattleActions { get; set; }
         DbSet<BattleActionAffected> BattleActionAffecteds { get; set; }
         DbSet<BattleParticipant> BattleParticipants { get; set; }
         DbSet<Character> Characters { get; set; }
+        DbSet<CharacterAbility> CharacterAbilitys { get; set; }
         DbSet<CharacterResistance> CharacterResistances { get; set; }
         DbSet<CharacterSkill> CharacterSkills { get; set; }
         DbSet<Class> Classes { get; set; }
         DbSet<ClassResource> ClassResources { get; set; }
+        DbSet<ClassAbility> ClassAbilitys { get; set; }
         DbSet<ClassSkill> ClassSkills { get; set; }
         DbSet<Creature> Creatures { get; set; }
         DbSet<DamageType> DamageTypes { get; set; }
         DbSet<DamageTypeResource> DamageTypeResources { get; set; }
         DbSet<Language> Languages { get; set; }
         DbSet<MessageResource> MessageResources { get; set; }
+        DbSet<MonsterAbility> MonsterAbilitys { get; set; }
         DbSet<Monster> Monsters { get; set; }
         DbSet<MonsterResistance> MonsterResistances { get; set; }
         DbSet<MonsterResource> MonsterResources { get; set; }
-        DbSet<MonsterSkill> MonsterSkills { get; set; }
         DbSet<MonsterZone> MonsterZones { get; set; }
         DbSet<ResourceType> ResourceTypes { get; set; }
         DbSet<Skill> Skills { get; set; }
@@ -47,14 +51,18 @@ namespace MonsterSlayersAPI.Security.DAL.Data
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
+            builder.Entity<Ability>().ToTable("Ability");
+            builder.Entity<AbilityResource>().ToTable("AbilityResource");
             builder.Entity<Battle>().ToTable("Battle");
             builder.Entity<BattleAction>().ToTable("BattleAction");
             builder.Entity<BattleActionAffected>().ToTable("BattleActionAffected");
             builder.Entity<BattleParticipant>().ToTable("BattleParticipant");
             builder.Entity<Character>().ToTable("Character");
             builder.Entity<CharacterResistance>().ToTable("CharacterResistance");
+            builder.Entity<CharacterAbility>().ToTable("CharacterAbility");
             builder.Entity<CharacterSkill>().ToTable("CharacterSkill");
             builder.Entity<Class>().ToTable("Class");
+            builder.Entity<ClassAbility>().ToTable("ClassAbility");
             builder.Entity<ClassResource>().ToTable("ClassResource");
             builder.Entity<ClassSkill>().ToTable("ClassSkill");
             builder.Entity<Creature>().ToTable("Creature");
@@ -63,9 +71,9 @@ namespace MonsterSlayersAPI.Security.DAL.Data
             builder.Entity<Language>().ToTable("Language");
             builder.Entity<MessageResource>().ToTable("MessageResource");
             builder.Entity<Monster>().ToTable("Monster");
+            builder.Entity<MonsterAbility>().ToTable("MonsterAbility");
             builder.Entity<MonsterResource>().ToTable("MonsterResource");
             builder.Entity<MonsterResistance>().ToTable("MonsterResistance");
-            builder.Entity<MonsterSkill>().ToTable("MonsterSkill");
             builder.Entity<MonsterZone>().ToTable("MonsterZone");
             builder.Entity<ResourceType>().ToTable("ResourceType");
             builder.Entity<Skill>().ToTable("Skill");
@@ -79,11 +87,16 @@ namespace MonsterSlayersAPI.Security.DAL.Data
             SeedUser(builder);
             SeedCreature(builder);
             SeedCharacter(builder);
+            SeedSkill(builder);
+            SeedSkillResource(builder);
+            SeedCharacterSkill(builder);
             SeedLanguage(builder);
             SeedResourceType(builder);
             SeedDamageType(builder);
             SeedDamageTypeResource(builder);
+            SeedCharacterResistances(builder);
             SeedClass(builder);
+            SeedClassSkill(builder);
             SeedClassResource(builder);
             SeedZone(builder);
             SeedZoneResource(builder);
@@ -92,9 +105,9 @@ namespace MonsterSlayersAPI.Security.DAL.Data
             SeedMonsterResource(builder);
             SeedMonsterResistance(builder);
             SeedMonsterZone(builder);
-            SeedSkill(builder);
-            SeedSkillResource(builder);
-            SeedMonsterSkill(builder);
+            SeedAbility(builder);
+            SeedAbilityResource(builder);
+            SeedMonsterAbility(builder);
         }
         private void SeedUser(ModelBuilder builder)
         {
@@ -148,26 +161,257 @@ namespace MonsterSlayersAPI.Security.DAL.Data
                 Nivel = 1,
                 Experience = 0,
                 Image = "ImageR",
-                StrengthPoints = 1,
-                DexterityPoints = 1,
-                VitalityPoints = 1,
-                IntelligencePoints = 1,
-                FaithPoints = 1,
-                Strength = 1,
-                Dexterity = 1,
-                Vitality = 1,
-                Intelligence = 1,
-                Faith = 1,
                 HP = 10,
                 Speed = 20,
                 CritRate = 2,
                 CritDamage = 2,
                 Stamina = 6,
-                Mana = 10,
+                Mana = 20,
                 CurrentHP = 10,
                 CreatedBy = "Seed",
                 CreatedOn = DateTime.Now
 
+            });
+        }
+        private void SeedSkill(ModelBuilder builder)
+        {
+            builder.Entity<Skill>().HasData(new Skill()
+            {
+                SkillId = 1,
+                CreatedBy = "Seed",
+                CreatedOn = DateTime.Now
+            });
+            builder.Entity<Skill>().HasData(new Skill()
+            {
+                SkillId = 2,
+                CreatedBy = "Seed",
+                CreatedOn = DateTime.Now
+            });
+            builder.Entity<Skill>().HasData(new Skill()
+            {
+                SkillId = 3,
+                CreatedBy = "Seed",
+                CreatedOn = DateTime.Now
+            });
+            builder.Entity<Skill>().HasData(new Skill()
+            {
+                SkillId = 4,
+                CreatedBy = "Seed",
+                CreatedOn = DateTime.Now
+            });
+            builder.Entity<Skill>().HasData(new Skill()
+            {
+                SkillId = 5,
+                CreatedBy = "Seed",
+                CreatedOn = DateTime.Now
+            });
+        }
+        private void SeedSkillResource(ModelBuilder builder)
+        {
+            builder.Entity<SkillResource>().HasData(new SkillResource()
+            {
+                LanguageId = 1,
+                ResourceTypeId = 1,
+                SkillId = 1,
+                Value = "Fuerza",
+                CreatedBy = "Seed",
+                CreatedOn = DateTime.Now
+            });
+            builder.Entity<SkillResource>().HasData(new SkillResource()
+            {
+                LanguageId = 1,
+                ResourceTypeId = 1,
+                SkillId = 2,
+                Value = "Destreza",
+                CreatedBy = "Seed",
+                CreatedOn = DateTime.Now
+            });
+            builder.Entity<SkillResource>().HasData(new SkillResource()
+            {
+                LanguageId = 1,
+                ResourceTypeId = 1,
+                SkillId = 3,
+                Value = "Vitalidad",
+                CreatedBy = "Seed",
+                CreatedOn = DateTime.Now
+            });
+            builder.Entity<SkillResource>().HasData(new SkillResource()
+            {
+                LanguageId = 1,
+                ResourceTypeId = 1,
+                SkillId = 4,
+                Value = "Inteligencia",
+                CreatedBy = "Seed",
+                CreatedOn = DateTime.Now
+            });
+            builder.Entity<SkillResource>().HasData(new SkillResource()
+            {
+                LanguageId = 1,
+                ResourceTypeId = 1,
+                SkillId = 5,
+                Value = "Fé",
+                CreatedBy = "Seed",
+                CreatedOn = DateTime.Now
+            });
+            builder.Entity<SkillResource>().HasData(new SkillResource()
+            {
+                LanguageId = 2,
+                ResourceTypeId = 1,
+                SkillId = 1,
+                Value = "Strength",
+                CreatedBy = "Seed",
+                CreatedOn = DateTime.Now
+            });
+            builder.Entity<SkillResource>().HasData(new SkillResource()
+            {
+                LanguageId = 2,
+                ResourceTypeId = 1,
+                SkillId = 2,
+                Value = "Dexterity",
+                CreatedBy = "Seed",
+                CreatedOn = DateTime.Now
+            });
+            builder.Entity<SkillResource>().HasData(new SkillResource()
+            {
+                LanguageId = 2,
+                ResourceTypeId = 1,
+                SkillId = 3,
+                Value = "Vitality",
+                CreatedBy = "Seed",
+                CreatedOn = DateTime.Now
+            });
+            builder.Entity<SkillResource>().HasData(new SkillResource()
+            {
+                LanguageId = 2,
+                ResourceTypeId = 1,
+                SkillId = 4,
+                Value = "Intelligence",
+                CreatedBy = "Seed",
+                CreatedOn = DateTime.Now
+            });
+            builder.Entity<SkillResource>().HasData(new SkillResource()
+            {
+                LanguageId = 2,
+                ResourceTypeId = 1,
+                SkillId = 5,
+                Value = "Faith",
+                CreatedBy = "Seed",
+                CreatedOn = DateTime.Now
+            });
+        }
+        private void SeedCharacterResistances(ModelBuilder builder)
+        {
+            builder.Entity<CharacterResistance>().HasData(new CharacterResistance()
+            {
+                CharacterId = 1,
+                DamageTypeId = 1,
+                Value = 0,
+                CreatedBy = "Seed",
+                CreatedOn = DateTime.Now
+            });
+            builder.Entity<CharacterResistance>().HasData(new CharacterResistance()
+            {
+                CharacterId = 1,
+                DamageTypeId = 2,
+                Value = 0,
+                CreatedBy = "Seed",
+                CreatedOn = DateTime.Now
+            });
+            builder.Entity<CharacterResistance>().HasData(new CharacterResistance()
+            {
+                CharacterId = 1,
+                DamageTypeId = 3,
+                Value = 0,
+                CreatedBy = "Seed",
+                CreatedOn = DateTime.Now
+            });
+            builder.Entity<CharacterResistance>().HasData(new CharacterResistance()
+            {
+                CharacterId = 1,
+                DamageTypeId = 4,
+                Value = 0,
+                CreatedBy = "Seed",
+                CreatedOn = DateTime.Now
+            });
+            builder.Entity<CharacterResistance>().HasData(new CharacterResistance()
+            {
+                CharacterId = 1,
+                DamageTypeId = 5,
+                Value = 0,
+                CreatedBy = "Seed",
+                CreatedOn = DateTime.Now
+            });
+            builder.Entity<CharacterResistance>().HasData(new CharacterResistance()
+            {
+                CharacterId = 1,
+                DamageTypeId = 6,
+                Value = 0,
+                CreatedBy = "Seed",
+                CreatedOn = DateTime.Now
+            });
+            builder.Entity<CharacterResistance>().HasData(new CharacterResistance()
+            {
+                CharacterId = 1,
+                DamageTypeId = 7,
+                Value = 0,
+                CreatedBy = "Seed",
+                CreatedOn = DateTime.Now
+            });
+            builder.Entity<CharacterResistance>().HasData(new CharacterResistance()
+            {
+                CharacterId = 1,
+                DamageTypeId = 8,
+                Value = 0,
+                CreatedBy = "Seed",
+                CreatedOn = DateTime.Now
+            });
+        }
+        private void SeedCharacterSkill(ModelBuilder builder)
+        {
+            builder.Entity<CharacterSkill>().HasData(new CharacterSkill()
+            {
+                CharacterId = 1,
+                SkillId = 1,
+                Total = 1,
+                Real = 1,
+                CreatedBy = "Seed",
+                CreatedOn = DateTime.Now
+            });
+            builder.Entity<CharacterSkill>().HasData(new CharacterSkill()
+            {
+                CharacterId = 1,
+                SkillId = 2,
+                Total = 1,
+                Real = 2,
+                CreatedBy = "Seed",
+                CreatedOn = DateTime.Now
+            });
+            builder.Entity<CharacterSkill>().HasData(new CharacterSkill()
+            {
+                CharacterId = 1,
+                SkillId = 3,
+                Total = 1,
+                Real = 1,
+                CreatedBy = "Seed",
+                CreatedOn = DateTime.Now
+            });
+            builder.Entity<CharacterSkill>().HasData(new CharacterSkill()
+            {
+                CharacterId = 1,
+                SkillId = 4,
+                Total = 1,
+                Real = 3,
+                CreatedBy = "Seed",
+                CreatedOn = DateTime.Now
+            });
+            builder.Entity<CharacterSkill>().HasData(new CharacterSkill()
+            {
+                CharacterId = 1,
+                SkillId = 5,
+                Total = 1,
+                Real = 1,
+                CreatedBy = "Seed",
+                CreatedOn = DateTime.Now
             });
         }
         private void SeedLanguage(ModelBuilder builder)
@@ -424,13 +668,8 @@ namespace MonsterSlayersAPI.Security.DAL.Data
             {
                 ClassId = 1,
                 Name = "Monster",
-                DexterityRate = 1.0,
-                FaithhRate = 1.0,
-                HPRate = 1.0,
-                IntelligenceRate = 1.0,
-                StrengthRate = 1.0,
                 ForPlayer = false,
-                Logo = "MonsterLogo",
+                Image = "MonsterLogo",
                 CreatedBy = "Seed",
                 CreatedOn = DateTime.Now
             });
@@ -438,13 +677,8 @@ namespace MonsterSlayersAPI.Security.DAL.Data
             {
                 ClassId = 2,
                 Name = "Mage",
-                DexterityRate = 1.0,
-                FaithhRate = 1.0,
-                HPRate = 1.0,
-                IntelligenceRate = 1.0,
-                StrengthRate = 1.0,
                 ForPlayer = true,
-                Logo = "MageLogo",
+                Image = "MageLogo",
                 CreatedBy = "Seed",
                 CreatedOn = DateTime.Now
             });
@@ -452,13 +686,8 @@ namespace MonsterSlayersAPI.Security.DAL.Data
             {
                 ClassId = 3,
                 Name = "Warrior",
-                DexterityRate = 1.0,
-                FaithhRate = 1.0,
-                HPRate = 1.0,
-                IntelligenceRate = 1.0,
-                StrengthRate = 1.0,
                 ForPlayer = true,
-                Logo = "WarriorLogo",
+                Image = "WarriorLogo",
                 CreatedBy = "Seed",
                 CreatedOn = DateTime.Now
             });
@@ -466,13 +695,8 @@ namespace MonsterSlayersAPI.Security.DAL.Data
             {
                 ClassId = 4,
                 Name = "Cleric",
-                DexterityRate = 1.0,
-                FaithhRate = 1.0,
-                HPRate = 1.0,
-                IntelligenceRate = 1.0,
-                StrengthRate = 1.0,
                 ForPlayer = true,
-                Logo = "ClericLogo",
+                Image = "ClericLogo",
                 CreatedBy = "Seed",
                 CreatedOn = DateTime.Now
             });
@@ -620,6 +844,49 @@ namespace MonsterSlayersAPI.Security.DAL.Data
                 ResourceTypeId = 2,
                 ClassId = 4,
                 Value = "For many, sent from the gods, specialists in healing and improving humans.",
+                CreatedBy = "Seed",
+                CreatedOn = DateTime.Now
+            });
+        }
+        private void SeedClassSkill(ModelBuilder builder)
+        {
+            builder.Entity<ClassSkill>().HasData(new ClassSkill()
+            {
+                ClassId = 1,
+                SkillId = 1,
+                Rate = 1.0,
+                CreatedBy = "Seed",
+                CreatedOn = DateTime.Now
+            });
+            builder.Entity<ClassSkill>().HasData(new ClassSkill()
+            {
+                ClassId = 1,
+                SkillId = 2,
+                Rate = 2.0,
+                CreatedBy = "Seed",
+                CreatedOn = DateTime.Now
+            });
+            builder.Entity<ClassSkill>().HasData(new ClassSkill()
+            {
+                ClassId = 1,
+                SkillId = 3,
+                Rate = 1.0,
+                CreatedBy = "Seed",
+                CreatedOn = DateTime.Now
+            });
+            builder.Entity<ClassSkill>().HasData(new ClassSkill()
+            {
+                ClassId = 1,
+                SkillId = 4,
+                Rate = 3.0,
+                CreatedBy = "Seed",
+                CreatedOn = DateTime.Now
+            });
+            builder.Entity<ClassSkill>().HasData(new ClassSkill()
+            {
+                ClassId = 1,
+                SkillId = 5,
+                Rate = 1.0,
                 CreatedBy = "Seed",
                 CreatedOn = DateTime.Now
             });
@@ -1149,126 +1416,132 @@ namespace MonsterSlayersAPI.Security.DAL.Data
                 CreatedOn = DateTime.Now
             });
         }
-        private void SeedSkill(ModelBuilder builder)
+        private void SeedAbility(ModelBuilder builder)
         {
-            builder.Entity<Skill>().HasData(new Skill()
+            builder.Entity<Ability>().HasData(new Ability()
             {
-                SkillId = 1,
+                AbilityId = 1,
                 Name = "Punch",
                 Image = "PunchLogo",
                 DamageTypeId = 7,
                 DamageDice = 1,
                 ManaCost = 0,
+                StaminaCost = 3,
+                SkillId = 1,
                 CreatedBy = "Seed",
                 CreatedOn = DateTime.Now
             });
-            builder.Entity<Skill>().HasData(new Skill()
+            builder.Entity<Ability>().HasData(new Ability()
             {
-                SkillId = 2,
+                AbilityId = 2,
                 Name = "AcidPunch",
                 Image = "AcidPunchLogo",
                 DamageTypeId = 8,
                 DamageDice = 1,
-                ManaCost = 0,
+                ManaCost = 2,
+                StaminaCost = 3,
+                SkillId = 4,
                 CreatedBy = "Seed",
                 CreatedOn = DateTime.Now
             });
-            builder.Entity<Skill>().HasData(new Skill()
+            builder.Entity<Ability>().HasData(new Ability()
             {
-                SkillId = 3,
+                AbilityId = 3,
                 Name = "Bite",
                 Image = "BiteLogo",
                 DamageTypeId = 7,
                 DamageDice = 1,
                 ManaCost = 0,
+                StaminaCost = 3,
+                SkillId = 1,
                 CreatedBy = "Seed",
                 CreatedOn = DateTime.Now
             });
         }
-        private void SeedSkillResource(ModelBuilder builder)
+        private void SeedAbilityResource(ModelBuilder builder)
         {
-            builder.Entity<SkillResource>().HasData(new SkillResource()
+            builder.Entity<AbilityResource>().HasData(new AbilityResource()
             {
                 LanguageId = 1,
                 ResourceTypeId = 1,
-                SkillId = 1,
+                AbilityId = 1,
                 Value = "Punch",
                 CreatedBy = "Seed",
                 CreatedOn = DateTime.Now
             });
-            builder.Entity<SkillResource>().HasData(new SkillResource()
+            builder.Entity<AbilityResource>().HasData(new AbilityResource()
             {
                 LanguageId = 2,
                 ResourceTypeId = 1,
-                SkillId = 1,
+                AbilityId = 1,
                 Value = "Puño",
                 CreatedBy = "Seed",
                 CreatedOn = DateTime.Now
             });
-            builder.Entity<SkillResource>().HasData(new SkillResource()
+            builder.Entity<AbilityResource>().HasData(new AbilityResource()
             {
                 LanguageId = 1,
                 ResourceTypeId = 1,
-                SkillId = 2,
+                AbilityId = 2,
                 Value = "Puño ácido",
                 CreatedBy = "Seed",
                 CreatedOn = DateTime.Now
             });
-            builder.Entity<SkillResource>().HasData(new SkillResource()
+            builder.Entity<AbilityResource>().HasData(new AbilityResource()
             {
                 LanguageId = 2,
                 ResourceTypeId = 1,
-                SkillId = 2,
+                AbilityId = 2,
                 Value = "Acid punch",
                 CreatedBy = "Seed",
                 CreatedOn = DateTime.Now
             });
-            builder.Entity<SkillResource>().HasData(new SkillResource()
+            builder.Entity<AbilityResource>().HasData(new AbilityResource()
             {
                 LanguageId = 1,
                 ResourceTypeId = 1,
-                SkillId = 3,
+                AbilityId = 3,
                 Value = "Mordisco",
                 CreatedBy = "Seed",
                 CreatedOn = DateTime.Now
             });
-            builder.Entity<SkillResource>().HasData(new SkillResource()
+            builder.Entity<AbilityResource>().HasData(new AbilityResource()
             {
                 LanguageId = 2,
                 ResourceTypeId = 1,
-                SkillId = 3,
+                AbilityId = 3,
                 Value = "Bite",
                 CreatedBy = "Seed",
                 CreatedOn = DateTime.Now
             });
         }
-        private void SeedMonsterSkill(ModelBuilder builder)
+        private void SeedMonsterAbility(ModelBuilder builder)
         {
-            builder.Entity<MonsterSkill>().HasData(new MonsterSkill()
+            builder.Entity<MonsterAbility>().HasData(new MonsterAbility()
             {
                 MonsterId = 1,
-                SkillId = 1,
+                AbilityId = 1,
                 CreatedBy = "Seed",
                 CreatedOn = DateTime.Now
             });
-            builder.Entity<MonsterSkill>().HasData(new MonsterSkill()
+            builder.Entity<MonsterAbility>().HasData(new MonsterAbility()
             {
                 MonsterId = 1,
-                SkillId = 3,
+                AbilityId = 3,
                 CreatedBy = "Seed",
                 CreatedOn = DateTime.Now
             });
-            builder.Entity<MonsterSkill>().HasData(new MonsterSkill()
+            builder.Entity<MonsterAbility>().HasData(new MonsterAbility()
             {
                 MonsterId = 2,
-                SkillId = 2,
+                AbilityId = 2,
                 CreatedBy = "Seed",
                 CreatedOn = DateTime.Now
             });
-            builder.Entity<MonsterSkill>().HasData(new MonsterSkill()
+            builder.Entity<MonsterAbility>().HasData(new MonsterAbility()
             {
                 MonsterId = 3,
-                SkillId = 3,
+                AbilityId = 3,
                 CreatedBy = "Seed",
                 CreatedOn = DateTime.Now
             });

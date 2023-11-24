@@ -16,10 +16,55 @@ namespace MonsterSlayersAPI.DAL.Repositories
     {
         public CharacterRepository(MonsterSlayersContext context) : base(context) { }
 
-        public async Task<IEnumerable<Character>> GetByIdRangeAsync(IEnumerable<int> CharacterIds)
+        public async Task<IEnumerable<Character>> GetByIdRangeAsync(IEnumerable<int> CharacterIds, int languageId)
         {
 
-            return await dbSet.Where(x => CharacterIds.Contains(x.CharacterId)).ToArrayAsync();
+            return await dbSet.Select(c => new Character
+            {
+                CharacterId = c.CharacterId,
+                CharacterResistances = c.CharacterResistances.Select(cr => new CharacterResistance
+                {
+                    CharacterId = cr.CharacterId,
+                    DamageType = new DamageType
+                    {
+                        DamageTypeId = cr.DamageTypeId,
+                        Image = cr.DamageType.Image,
+                        DamageTypeResources = cr.DamageType.DamageTypeResources.Where(dtr => dtr.LanguageId == languageId).ToArray(),
+                        Name = cr.DamageType.Name
+                    },
+                    DamageTypeId = cr.DamageTypeId,
+                    Value = cr.Value,
+                }).ToArray(),
+                Class = c.Class,
+                ClassId = c.ClassId,
+                CharacterAbilitys = c.CharacterAbilitys,
+                CreatureId = c.ClassId,
+                CritDamage = c.CritDamage,
+                CritRate = c.CritRate,
+                CurrentHP = c.CurrentHP,
+                Experience = c.Experience,
+                HP = c.HP,
+                Image = c.Image,
+                Mana = c.Mana,
+                Name = c.Name,
+                Nivel = c.Nivel,
+                CharacterSkills = c.CharacterSkills.Select(cs => new CharacterSkill
+                {
+                    CharacterId = cs.CharacterId,
+                    SkillId = cs.SkillId,
+                    Total = cs.Total,
+                    Real = cs.Real,
+                    Skill = new Skill
+                    {
+                        SkillId = cs.SkillId,
+                        SkillResources = cs.Skill.SkillResources.Where(sr => sr.LanguageId == languageId).ToArray()
+                    }
+                }).ToArray(),
+                Speed = c.Speed,
+                Stamina = c.Stamina,
+                Zone = c.Zone,
+                ZoneId = c.ZoneId
+            }).Where(x => CharacterIds.Contains(x.CharacterId)).ToArrayAsync();
         }
 
         public async Task<Character> GetFullById(int characterId, int languageId)
@@ -44,52 +89,49 @@ namespace MonsterSlayersAPI.DAL.Repositories
                 {
                     ClassId = c.ClassId,
                     ClassResources = c.Class.ClassResources.Where(cr => cr.LanguageId == languageId).ToArray(),
-                    DexterityRate = c.Class.DexterityRate,
-                    FaithhRate = c.Class.FaithhRate,
-                    HPRate = c.Class.HPRate,
-                    IntelligenceRate = c.Class.IntelligenceRate,
-                    Logo = c.Class.Logo,
-                    Name = c.Class.Name,
-                    StrengthRate = c.Class.StrengthRate
+                    ForPlayer = c.Class.ForPlayer,
+                    Image = c.Image
                 },
                 ClassId = c.ClassId,
-                CharacterSkills = c.CharacterSkills.Select(cs => new CharacterSkill
+                CharacterAbilitys = c.CharacterAbilitys.Select(ch => new CharacterAbility
                 {
-                    SkillId = cs.SkillId,
-                    Skill = new Skill
+                    AbilityId = ch.AbilityId,
+                    Ability = new Ability
                     {
-                        Name = cs.Skill.Name,
-                        DamageDice = cs.Skill.DamageDice,
-                        DamageType = cs.Skill.DamageType,
-                        DamageTypeId = cs.Skill.DamageTypeId,
-                        Image = cs.Skill.Image,
-                        ManaCost = cs.Skill.ManaCost,
-                        SkillId = cs.Skill.SkillId,
-                        SkillResources = cs.Skill.SkillResources.Where(sr => sr.LanguageId == languageId).ToArray()
+                        Name = ch.Ability.Name,
+                        DamageDice = ch.Ability.DamageDice,
+                        DamageType = ch.Ability.DamageType,
+                        DamageTypeId = ch.Ability.DamageTypeId,
+                        Image = ch.Ability.Image,
+                        ManaCost = ch.Ability.ManaCost,
+                        AbilityId = ch.Ability.AbilityId,
+                        AbilityResources = ch.Ability.AbilityResources.Where(hr => hr.LanguageId == languageId).ToArray()
                     }
                 }).ToArray(),
                 CreatureId = c.ClassId,
                 CritDamage = c.CritDamage,
                 CritRate = c.CritRate,
                 CurrentHP = c.CurrentHP,
-                Dexterity = c.Dexterity,
-                DexterityPoints = c.DexterityPoints,
                 Experience = c.Experience,
-                Faith = c.Faith,
-                FaithPoints = c.FaithPoints,
                 HP = c.HP,
                 Image = c.Image,
-                Intelligence = c.Intelligence,
-                IntelligencePoints = c.IntelligencePoints,
                 Mana = c.Mana,
                 Name = c.Name,
                 Nivel = c.Nivel,
+                CharacterSkills = c.CharacterSkills.Select(cs => new CharacterSkill
+                {
+                    CharacterId = cs.CharacterId,
+                    SkillId = cs.SkillId,
+                    Total = cs.Total,
+                    Real = cs.Real,
+                    Skill = new Skill
+                    {
+                        SkillId = cs.SkillId,
+                        SkillResources = cs.Skill.SkillResources.Where(sr => sr.LanguageId == languageId).ToArray()
+                    }
+                }).ToArray(),
                 Speed = c.Speed,
                 Stamina = c.Stamina,
-                Strength = c.Strength,
-                StrengthPoints = c.StrengthPoints,
-                Vitality = c.Vitality,
-                VitalityPoints = c.VitalityPoints,
                 Zone = new Zone
                 {
                     Name = c.Zone.Name,
@@ -109,32 +151,38 @@ namespace MonsterSlayersAPI.DAL.Repositories
                 CharacterResistances = c.CharacterResistances,
                 Class = c.Class,
                 ClassId = c.ClassId,
-                CharacterSkills = c.CharacterSkills,
+                CharacterAbilitys = c.CharacterAbilitys,
                 CreatureId = c.ClassId,
                 CritDamage = c.CritDamage,
                 CritRate = c.CritRate,
                 CurrentHP = c.CurrentHP,
-                Dexterity = c.Dexterity,
-                DexterityPoints = c.DexterityPoints,
                 Experience = c.Experience,
-                Faith = c.Faith,
-                FaithPoints = c.FaithPoints,
                 HP = c.HP,
                 Image = c.Image,
-                Intelligence = c.Intelligence,
-                IntelligencePoints = c.IntelligencePoints,
                 Mana = c.Mana,
                 Name = c.Name,
                 Nivel = c.Nivel,
                 Speed = c.Speed,
                 Stamina = c.Stamina,
-                Strength = c.Strength,
-                StrengthPoints = c.StrengthPoints,
-                Vitality = c.Vitality,
-                VitalityPoints = c.VitalityPoints,
                 Zone = c.Zone,
                 ZoneId = c.ZoneId
             }).Where(c => CharacterIds.Contains(c.CharacterId)).ToArrayAsync();
+        }
+
+        public async Task<IEnumerable<CharacterSkill>> GetSkillsByCharacterId(int characterId, int languageId) 
+        {
+            return dbSet.First(x => x.CharacterId == characterId).CharacterSkills.Select(x => new CharacterSkill
+            {
+                CharacterId = x.CharacterId,
+                SkillId = x.SkillId,
+                Skill = new Skill
+                {
+                    SkillId = x.SkillId,
+                    SkillResources = x.Skill.SkillResources.Where(sr => sr.LanguageId == languageId).ToArray()
+                },
+                Total = x.Total,
+                Real = x.Real
+            });
         }
 
         public async Task<Character> UpdateZone(int CharacterId, int zoneId)

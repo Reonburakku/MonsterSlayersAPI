@@ -32,10 +32,32 @@ namespace MonsterSlayersAPI.DAL.Repositories
             }).Where(x => x.MonsterZones.Any(mz => mz.ZoneId == zoneId)).ToArrayAsync();
         }
 
-        public async Task<IEnumerable<Monster>> GetByIdRangeAsync(IEnumerable<int> values)
+        public async Task<IEnumerable<Monster>> GetByIdRangeAsync(IEnumerable<int> values, int languageId)
         {
 
-            return await dbSet.Where(x => values.Contains(x.MonsterId)).ToArrayAsync();
+            return await dbSet.Select(x => new Monster
+            {
+                MonsterId = x.MonsterId,
+                CreatureId = x.CreatureId,
+                HP = x.HP,
+                Image = x.Image,
+                Mana = x.Mana,
+                MonsterResources = x.MonsterResources.Where(r => r.LanguageId == languageId).ToArray(),
+                Nivel = x.Nivel,
+                Speed = x.Speed,
+                Stamina = x.Stamina,
+                MonsterZones = x.MonsterZones,
+                MonsterResistances = x.MonsterResistances.Select(mr => new MonsterResistance
+                {
+                    DamageType = new DamageType
+                    {
+                        DamageTypeId = mr.DamageTypeId,
+                        Image = mr.DamageType.Image,
+                        DamageTypeResources = mr.DamageType.DamageTypeResources.Where(r => r.LanguageId == languageId).ToArray(),
+                    },
+                    Value = mr.Value
+                }).ToArray()
+            }).Where(x => values.Contains(x.MonsterId)).ToArrayAsync();
         }
 
         public async Task<Monster> GetFullById(int monsterId, int languageId)

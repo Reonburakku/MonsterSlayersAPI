@@ -17,13 +17,15 @@ namespace MonsterSlayersAPI.BLL.Entities
         public int CreatureId { get; set; }
         public int Order { get; set; }
         public string Team { get; set; }
+        public bool IsMonster { get; set; }
+        public string ParticipantData { get; set; }
 
 
         [ForeignKey(nameof(BattleId))]
         [DeleteBehavior(DeleteBehavior.Restrict)]
-        public Battle Battle { get; set; }
+        public virtual Battle? Battle { get; set; }
         [ForeignKey(nameof(CreatureId))]
         [DeleteBehavior(DeleteBehavior.Restrict)]
-        public Creature Creature { get; set; }
+        public virtual Creature? Creature { get; set; }
     }
 }

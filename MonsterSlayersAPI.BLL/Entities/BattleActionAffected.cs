@@ -18,10 +18,10 @@ namespace MonsterSlayersAPI.BLL.Entities
         public string Type { get; set; }
 
 
-        public Battle Battle { get; set; }
+        public virtual Battle? Battle { get; set; }
         [ForeignKey(nameof(BattleActionId))]
-        public BattleAction BattleAction { get; set; }
+        public virtual BattleAction? BattleAction { get; set; }
         [ForeignKey(nameof(CreatureId))]
-        public Creature Creature { get; set; }
+        public virtual Creature? Creature { get; set; }
     }
 }

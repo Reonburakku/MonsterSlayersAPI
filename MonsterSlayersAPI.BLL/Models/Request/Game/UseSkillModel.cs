@@ -7,7 +7,11 @@ using System.Threading.Tasks;
 
 namespace MonsterSlayersAPI.BLL.Models.Request.Game
 {
-    public class UseHabilityModel : BaseRequestModel
+    public class UseAbilityModel : BaseRequestModel
     {
+        public int BattleId { get; set; }
+        public int SourceCharacterId { get; set; }
+        public int TargetCreatureId { get; set; }
+        public int AbilityId { get; set;}
     }
 }

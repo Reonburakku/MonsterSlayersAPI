@@ -20,12 +20,12 @@ namespace MonsterSlayersAPI.BLL.Entities
 
         [ForeignKey(nameof(MonsterId))]
         [DeleteBehavior(DeleteBehavior.Restrict)]
-        public Monster Monster { get; set; }
+        public virtual Monster? Monster { get; set; }
         [ForeignKey(nameof(LanguageId))]
         [DeleteBehavior(DeleteBehavior.Restrict)]
-        public Language Language { get; set; }
+        public virtual Language? Language { get; set; }
         [ForeignKey(nameof(ResourceTypeId))]
         [DeleteBehavior(DeleteBehavior.Restrict)]
-        public ResourceType ResourceType { get; set; }
+        public virtual ResourceType? ResourceType { get; set; }
     }
 }

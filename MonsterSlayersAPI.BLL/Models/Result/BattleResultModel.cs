@@ -9,7 +9,7 @@ namespace MonsterSlayersAPI.BLL.Models.Result
 {
     public class BattleResultModel : BaseResultModel
     {
-        public int Id { get; set; }
+        public int BattleId { get; set; }
         public ZoneResultModel ZoneResultModel { get; set; }
         public List<ParticipantResultModel> Participants { get; set; }
     }

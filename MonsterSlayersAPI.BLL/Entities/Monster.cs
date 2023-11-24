@@ -26,9 +26,9 @@ namespace MonsterSlayersAPI.BLL.Entities
 
         [ForeignKey(nameof(CreatureId))]
         [DeleteBehavior(DeleteBehavior.Restrict)]
-        public Creature Creature { get; set; }
+        public virtual Creature? Creature { get; set; }
         public virtual ICollection<MonsterResource>? MonsterResources { get; set; }
-        public virtual ICollection<MonsterSkill>? MonsterSkills { get; set; }
+        public virtual ICollection<MonsterAbility>? MonsterAbilitys { get; set; }
         public virtual ICollection<MonsterResistance>? MonsterResistances { get; set; }
         public virtual ICollection<MonsterZone>? MonsterZones { get; set; }
     }

@@ -18,9 +18,9 @@ namespace MonsterSlayersAPI.BLL.Entities
 
         [ForeignKey(nameof(MonsterId))]
         [DeleteBehavior(DeleteBehavior.Restrict)]
-        public Monster Monster { get; set; }
+        public virtual Monster? Monster { get; set; }
         [ForeignKey(nameof(ZoneId))]
         [DeleteBehavior(DeleteBehavior.Restrict)]
-        public Zone Zone { get; set; }
+        public virtual Zone? Zone { get; set; }
     }
 }

@@ -9,19 +9,19 @@ using System.Threading.Tasks;
 
 namespace MonsterSlayersAPI.BLL.Entities
 {
-    [PrimaryKey(nameof(CharacterId), nameof(DamageTypeId))]
-    public class CharacterResistance : BaseEntity
+    [PrimaryKey(nameof(CharacterId), nameof(AbilityId))]
+    public class CharacterAbility : BaseEntity
     {
         public int CharacterId { get; set; }
-        public int DamageTypeId { get; set; }
-        public double Value { get; set; }
+        public int AbilityId { get; set; }
 
 
         [ForeignKey(nameof(CharacterId))]
         [DeleteBehavior(DeleteBehavior.Restrict)]
         public virtual Character? Character { get; set; }
-        [ForeignKey(nameof(DamageTypeId))]
+        [ForeignKey(nameof(AbilityId))]
         [DeleteBehavior(DeleteBehavior.Restrict)]
-        public virtual DamageType? DamageType { get; set; }
+        public virtual Ability? Ability { get; set; }
+
     }
 }

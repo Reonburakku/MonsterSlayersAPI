@@ -10,8 +10,8 @@ using System.Threading.Tasks;
 
 namespace MonsterSlayersAPI.DAL.Repositories
 {
-    public class ClassAbilityRepository : BaseRepository<ClassAbility>, IClassAbilityRepository
+    public class CharacterAbilityRepository : BaseRepository<CharacterAbility>, ICharacterAbilityRepository
     {
-        public ClassAbilityRepository(MonsterSlayersContext context) : base(context) { }
+        public CharacterAbilityRepository(MonsterSlayersContext context) : base(context) { }
     }
 }
