@@ -12,6 +12,6 @@ namespace MonsterSlayersAPI.DAL.Repositories
 {
     public class MonsterZoneRepository : BaseRepository<MonsterZone>, IMonsterZoneRepository
     {
-        public MonsterZoneRepository(MonsterSlayersContext context) : base(context) { }
+        public MonsterZoneRepository(MonsterSlayersContext context, string source = "") : base(context, source) { }
     }
 }

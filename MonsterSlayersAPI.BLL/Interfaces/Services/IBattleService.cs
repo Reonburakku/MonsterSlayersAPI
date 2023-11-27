@@ -12,11 +12,9 @@ namespace MonsterSlayersAPI.BLL.Interfaces.Services
     public interface IBattleService
     {
         Task<BattleResultModel> GetBattleByIdAsync(GetBattleByIdModel model);
-        Task<IEnumerable<MonsterResultModel>> GetMonstersByZoneId(GetMonstersByZoneIdModel model);
-        Task<bool> SetCharacterZoneId(SetCharacterZoneIdModel model);
         Task<BattleResultModel> StartBattle(StartBattleModel model);
-        Task<AttackResultModel> UseAbility(UseAbilityModel model);
-        Task<bool> EndTurn(EndTurnModel model);
+        Task<BattleResultModel> UseAbility(UseAbilityModel model);
+        Task<BattleResultModel> EndTurn(EndTurnModel model);
 
     }
 }

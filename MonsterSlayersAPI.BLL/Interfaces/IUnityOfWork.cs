@@ -36,7 +36,8 @@ namespace MonsterSlayersAPI.BLL.Interfaces
         IUserRepository UserRepository { get; }
         IZoneRepository ZoneRepository { get; }
         IZoneResourceRepository ZoneResourceRepository { get; }
+        string Source { get; set; }
 
-        Task<int> CommitAsync();
+        int CommitAsync();
     }
 }

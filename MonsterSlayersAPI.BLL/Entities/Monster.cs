@@ -15,7 +15,6 @@ namespace MonsterSlayersAPI.BLL.Entities
         [Key]
         public int MonsterId { get; set; }
         public int CreatureId { get; set; }
-        public string Name { get; set; }
         public int Nivel { get; set; }
         public int HP { get; set; }
         public string Image { get; set; }

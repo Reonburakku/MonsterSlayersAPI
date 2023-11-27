@@ -10,5 +10,6 @@ namespace MonsterSlayersAPI.BLL.Interfaces.Repositories
 {
     public interface IMonsterAbilityRepository : IBaseRepository<MonsterAbility>
     {
+        Task<IEnumerable<MonsterAbility>> GetAllByMonsterIdAsync(int monsterId, int languageId);
     }
 }

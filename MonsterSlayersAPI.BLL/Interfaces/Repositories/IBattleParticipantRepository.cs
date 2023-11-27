@@ -10,5 +10,6 @@ namespace MonsterSlayersAPI.BLL.Interfaces.Repositories
 {
     public interface IBattleParticipantRepository : IBaseRepository<BattleParticipant>
     {
+        public Task<IEnumerable<BattleParticipant>> GetAllByBattleId(int battleId);
     }
 }

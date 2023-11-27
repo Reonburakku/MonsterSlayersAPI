@@ -12,6 +12,6 @@ namespace MonsterSlayersAPI.DAL.Repositories
 {
     public class LanguageRepository : BaseRepository<Language>, ILanguageRepository
     {
-        public LanguageRepository(MonsterSlayersContext context) : base(context) { }
+        public LanguageRepository(MonsterSlayersContext context, string source = "") : base(context, source) { }
     }
 }

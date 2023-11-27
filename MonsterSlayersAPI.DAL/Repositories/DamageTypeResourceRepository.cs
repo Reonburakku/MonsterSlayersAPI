@@ -12,6 +12,6 @@ namespace MonsterSlayersAPI.DAL.Repositories
 {
     public class DamageTypeResourceRepository : BaseRepository<DamageTypeResource>, IDamageTypeResourceRepository
     {
-        public DamageTypeResourceRepository(MonsterSlayersContext context) : base(context) { }
+        public DamageTypeResourceRepository(MonsterSlayersContext context, string source = "") : base(context, source) { }
     }
 }

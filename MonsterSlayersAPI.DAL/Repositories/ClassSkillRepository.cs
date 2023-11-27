@@ -12,6 +12,6 @@ namespace MonsterSlayersAPI.DAL.Repositories
 {
     public class ClassAbilityRepository : BaseRepository<ClassAbility>, IClassAbilityRepository
     {
-        public ClassAbilityRepository(MonsterSlayersContext context) : base(context) { }
+        public ClassAbilityRepository(MonsterSlayersContext context, string source = "") : base(context, source) { }
     }
 }

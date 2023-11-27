@@ -9,7 +9,7 @@ namespace MonsterSlayersAPI.BLL.Models.Result
 {
     public class AttackResultModel : BaseResultModel
     {
-        public int NewStaminaPoints { get; set; }
-        public int NewManaPoints { get; set; }
+        public int? NewStaminaPoints { get; set; }
+        public int? NewManaPoints { get; set; }
     }
 }

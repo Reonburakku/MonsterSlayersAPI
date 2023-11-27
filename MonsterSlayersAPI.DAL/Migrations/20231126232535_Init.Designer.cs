@@ -12,7 +12,7 @@ using MonsterSlayersAPI.Security.DAL.Data;
 namespace MonsterSlayersAPI.DAL.Migrations
 {
     [DbContext(typeof(MonsterSlayersContext))]
-    [Migration("20231124201830_Init")]
+    [Migration("20231126232535_Init")]
     partial class Init
     {
         /// <inheritdoc />
@@ -35,10 +35,9 @@ namespace MonsterSlayersAPI.DAL.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AbilityId"));
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("CreatedOn")
+                    b.Property<DateTime?>("CreatedOn")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("DamageDice")
@@ -66,10 +65,6 @@ namespace MonsterSlayersAPI.DAL.Migrations
                     b.Property<DateTime?>("ModifiedOn")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int>("SkillId")
                         .HasColumnType("int");
 
@@ -89,12 +84,11 @@ namespace MonsterSlayersAPI.DAL.Migrations
                         {
                             AbilityId = 1,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(1475),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(6183),
                             DamageDice = 1,
                             DamageTypeId = 7,
                             Image = "PunchLogo",
                             ManaCost = 0,
-                            Name = "Punch",
                             SkillId = 1,
                             StaminaCost = 3
                         },
@@ -102,12 +96,11 @@ namespace MonsterSlayersAPI.DAL.Migrations
                         {
                             AbilityId = 2,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(1500),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(6205),
                             DamageDice = 1,
                             DamageTypeId = 8,
                             Image = "AcidPunchLogo",
                             ManaCost = 2,
-                            Name = "AcidPunch",
                             SkillId = 4,
                             StaminaCost = 3
                         },
@@ -115,12 +108,11 @@ namespace MonsterSlayersAPI.DAL.Migrations
                         {
                             AbilityId = 3,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(1522),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(6223),
                             DamageDice = 1,
                             DamageTypeId = 7,
                             Image = "BiteLogo",
                             ManaCost = 0,
-                            Name = "Bite",
                             SkillId = 1,
                             StaminaCost = 3
                         });
@@ -138,10 +130,9 @@ namespace MonsterSlayersAPI.DAL.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("CreatedOn")
+                    b.Property<DateTime?>("CreatedOn")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("DeletedBy")
@@ -175,7 +166,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             LanguageId = 1,
                             ResourceTypeId = 1,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(1552),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(6249),
                             Value = "Punch"
                         },
                         new
@@ -184,7 +175,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             LanguageId = 2,
                             ResourceTypeId = 1,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(1578),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(6267),
                             Value = "Puño"
                         },
                         new
@@ -193,7 +184,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             LanguageId = 1,
                             ResourceTypeId = 1,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(1598),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(6284),
                             Value = "Puño ácido"
                         },
                         new
@@ -202,7 +193,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             LanguageId = 2,
                             ResourceTypeId = 1,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(1616),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(6301),
                             Value = "Acid punch"
                         },
                         new
@@ -211,7 +202,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             LanguageId = 1,
                             ResourceTypeId = 1,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(1634),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(6318),
                             Value = "Mordisco"
                         },
                         new
@@ -220,7 +211,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             LanguageId = 2,
                             ResourceTypeId = 1,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(1653),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(6336),
                             Value = "Bite"
                         });
                 });
@@ -234,10 +225,9 @@ namespace MonsterSlayersAPI.DAL.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("BattleId"));
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("CreatedOn")
+                    b.Property<DateTime?>("CreatedOn")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("DeletedBy")
@@ -255,11 +245,17 @@ namespace MonsterSlayersAPI.DAL.Migrations
                     b.Property<DateTime?>("ModifiedOn")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("Round")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("TeamWinner")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("Turn")
+                        .HasColumnType("int");
 
                     b.Property<int>("ZoneId")
                         .HasColumnType("int");
@@ -286,10 +282,9 @@ namespace MonsterSlayersAPI.DAL.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("CreatedOn")
+                    b.Property<DateTime?>("CreatedOn")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("DeletedBy")
@@ -303,6 +298,12 @@ namespace MonsterSlayersAPI.DAL.Migrations
 
                     b.Property<DateTime?>("ModifiedOn")
                         .HasColumnType("datetime2");
+
+                    b.Property<int>("Round")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Turn")
+                        .HasColumnType("int");
 
                     b.Property<double>("Value")
                         .HasColumnType("float");
@@ -331,10 +332,9 @@ namespace MonsterSlayersAPI.DAL.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("CreatedOn")
+                    b.Property<DateTime?>("CreatedOn")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("CreatureId")
@@ -376,10 +376,9 @@ namespace MonsterSlayersAPI.DAL.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("CreatedOn")
+                    b.Property<DateTime?>("CreatedOn")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("DeletedBy")
@@ -427,23 +426,19 @@ namespace MonsterSlayersAPI.DAL.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("CreatedOn")
+                    b.Property<DateTime?>("CreatedOn")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("CreatureId")
                         .HasColumnType("int");
 
-                    b.Property<int>("CritDamage")
-                        .HasColumnType("int");
+                    b.Property<double>("CritDamage")
+                        .HasColumnType("float");
 
-                    b.Property<int>("CritRate")
-                        .HasColumnType("int");
-
-                    b.Property<int>("CurrentHP")
-                        .HasColumnType("int");
+                    b.Property<double>("CritRate")
+                        .HasColumnType("float");
 
                     b.Property<string>("DeletedBy")
                         .HasColumnType("nvarchar(max)");
@@ -507,11 +502,10 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             CharacterId = 1,
                             ClassId = 1,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(7964),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(3272),
                             CreatureId = 2,
-                            CritDamage = 2,
-                            CritRate = 2,
-                            CurrentHP = 10,
+                            CritDamage = 2.0,
+                            CritRate = 2.0,
                             Experience = 0,
                             HP = 10,
                             Image = "ImageR",
@@ -537,10 +531,9 @@ namespace MonsterSlayersAPI.DAL.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("CreatedOn")
+                    b.Property<DateTime?>("CreatedOn")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("DeletedBy")
@@ -573,10 +566,9 @@ namespace MonsterSlayersAPI.DAL.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("CreatedOn")
+                    b.Property<DateTime?>("CreatedOn")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("DeletedBy")
@@ -606,7 +598,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             CharacterId = 1,
                             DamageTypeId = 1,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(9114),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4273),
                             Value = 0.0
                         },
                         new
@@ -614,7 +606,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             CharacterId = 1,
                             DamageTypeId = 2,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(9140),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4336),
                             Value = 0.0
                         },
                         new
@@ -622,7 +614,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             CharacterId = 1,
                             DamageTypeId = 3,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(9159),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4354),
                             Value = 0.0
                         },
                         new
@@ -630,7 +622,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             CharacterId = 1,
                             DamageTypeId = 4,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(9179),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4372),
                             Value = 0.0
                         },
                         new
@@ -638,7 +630,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             CharacterId = 1,
                             DamageTypeId = 5,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(9199),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4389),
                             Value = 0.0
                         },
                         new
@@ -646,7 +638,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             CharacterId = 1,
                             DamageTypeId = 6,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(9220),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4409),
                             Value = 0.0
                         },
                         new
@@ -654,7 +646,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             CharacterId = 1,
                             DamageTypeId = 7,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(9240),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4427),
                             Value = 0.0
                         },
                         new
@@ -662,7 +654,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             CharacterId = 1,
                             DamageTypeId = 8,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(9260),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4443),
                             Value = 0.0
                         });
                 });
@@ -676,10 +668,9 @@ namespace MonsterSlayersAPI.DAL.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("CreatedOn")
+                    b.Property<DateTime?>("CreatedOn")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("DeletedBy")
@@ -712,7 +703,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             CharacterId = 1,
                             SkillId = 1,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(8339),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(3621),
                             Real = 1,
                             Total = 1
                         },
@@ -721,7 +712,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             CharacterId = 1,
                             SkillId = 2,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(8360),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(3639),
                             Real = 2,
                             Total = 1
                         },
@@ -730,7 +721,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             CharacterId = 1,
                             SkillId = 3,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(8378),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(3654),
                             Real = 1,
                             Total = 1
                         },
@@ -739,7 +730,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             CharacterId = 1,
                             SkillId = 4,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(8394),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(3671),
                             Real = 3,
                             Total = 1
                         },
@@ -748,7 +739,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             CharacterId = 1,
                             SkillId = 5,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(8428),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(3686),
                             Real = 1,
                             Total = 1
                         });
@@ -763,10 +754,9 @@ namespace MonsterSlayersAPI.DAL.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ClassId"));
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("CreatedOn")
+                    b.Property<DateTime?>("CreatedOn")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("DeletedBy")
@@ -788,10 +778,6 @@ namespace MonsterSlayersAPI.DAL.Migrations
                     b.Property<DateTime?>("ModifiedOn")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("ClassId");
 
                     b.ToTable("Class", "GAME");
@@ -801,37 +787,33 @@ namespace MonsterSlayersAPI.DAL.Migrations
                         {
                             ClassId = 1,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(9293),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4470),
                             ForPlayer = false,
-                            Image = "MonsterLogo",
-                            Name = "Monster"
+                            Image = "MonsterLogo"
                         },
                         new
                         {
                             ClassId = 2,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(9319),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4491),
                             ForPlayer = true,
-                            Image = "MageLogo",
-                            Name = "Mage"
+                            Image = "MageLogo"
                         },
                         new
                         {
                             ClassId = 3,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(9340),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4510),
                             ForPlayer = true,
-                            Image = "WarriorLogo",
-                            Name = "Warrior"
+                            Image = "WarriorLogo"
                         },
                         new
                         {
                             ClassId = 4,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(9361),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4529),
                             ForPlayer = true,
-                            Image = "ClericLogo",
-                            Name = "Cleric"
+                            Image = "ClericLogo"
                         });
                 });
 
@@ -844,10 +826,9 @@ namespace MonsterSlayersAPI.DAL.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("CreatedOn")
+                    b.Property<DateTime?>("CreatedOn")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("DeletedBy")
@@ -881,10 +862,9 @@ namespace MonsterSlayersAPI.DAL.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("CreatedOn")
+                    b.Property<DateTime?>("CreatedOn")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("DeletedBy")
@@ -918,7 +898,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             LanguageId = 1,
                             ResourceTypeId = 1,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(9536),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4651),
                             Value = "Monstruo"
                         },
                         new
@@ -927,7 +907,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             LanguageId = 1,
                             ResourceTypeId = 1,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(9560),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4674),
                             Value = "Mago"
                         },
                         new
@@ -936,7 +916,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             LanguageId = 1,
                             ResourceTypeId = 1,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(9580),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4693),
                             Value = "Guerrero"
                         },
                         new
@@ -945,7 +925,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             LanguageId = 1,
                             ResourceTypeId = 1,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(9601),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4711),
                             Value = "Clérigo"
                         },
                         new
@@ -954,7 +934,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             LanguageId = 1,
                             ResourceTypeId = 2,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(9622),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4729),
                             Value = "Criatura que habita el mundo y gusta de deborar humanos."
                         },
                         new
@@ -963,7 +943,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             LanguageId = 1,
                             ResourceTypeId = 2,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(9644),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4747),
                             Value = "Estudiante de las artes arcanas, capaz de crear grandes daños elementales."
                         },
                         new
@@ -972,7 +952,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             LanguageId = 1,
                             ResourceTypeId = 2,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(9663),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4787),
                             Value = "Luchador entrenado para la batalla, fuerte y resistente."
                         },
                         new
@@ -981,7 +961,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             LanguageId = 1,
                             ResourceTypeId = 2,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(9682),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4805),
                             Value = "Para muchos, enviado de los dioses, especialistas en curar y mejorar humanos."
                         },
                         new
@@ -990,7 +970,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             LanguageId = 2,
                             ResourceTypeId = 1,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(9701),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4824),
                             Value = "Monster"
                         },
                         new
@@ -999,7 +979,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             LanguageId = 2,
                             ResourceTypeId = 1,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(9723),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4843),
                             Value = "Wizard"
                         },
                         new
@@ -1008,7 +988,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             LanguageId = 2,
                             ResourceTypeId = 1,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(9743),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4862),
                             Value = "Warrior"
                         },
                         new
@@ -1017,7 +997,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             LanguageId = 2,
                             ResourceTypeId = 1,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(9764),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4879),
                             Value = "Cleric"
                         },
                         new
@@ -1026,7 +1006,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             LanguageId = 2,
                             ResourceTypeId = 2,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(9784),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4898),
                             Value = "Creature that inhabits the world and likes to devour humans."
                         },
                         new
@@ -1035,7 +1015,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             LanguageId = 2,
                             ResourceTypeId = 2,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(9804),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4917),
                             Value = "Student of the arcane arts, capable of creating great elemental damage."
                         },
                         new
@@ -1044,7 +1024,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             LanguageId = 2,
                             ResourceTypeId = 2,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(9825),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4935),
                             Value = "Fighter trained for battle, strong and resistant."
                         },
                         new
@@ -1053,7 +1033,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             LanguageId = 2,
                             ResourceTypeId = 2,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(9844),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4954),
                             Value = "For many, sent from the gods, specialists in healing and improving humans."
                         });
                 });
@@ -1067,10 +1047,9 @@ namespace MonsterSlayersAPI.DAL.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("CreatedOn")
+                    b.Property<DateTime?>("CreatedOn")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("DeletedBy")
@@ -1100,7 +1079,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             ClassId = 1,
                             SkillId = 1,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(9391),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4553),
                             Rate = 1.0
                         },
                         new
@@ -1108,7 +1087,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             ClassId = 1,
                             SkillId = 2,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(9414),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4574),
                             Rate = 2.0
                         },
                         new
@@ -1116,7 +1095,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             ClassId = 1,
                             SkillId = 3,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(9465),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4590),
                             Rate = 1.0
                         },
                         new
@@ -1124,7 +1103,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             ClassId = 1,
                             SkillId = 4,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(9484),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4607),
                             Rate = 3.0
                         },
                         new
@@ -1132,7 +1111,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             ClassId = 1,
                             SkillId = 5,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(9502),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4624),
                             Rate = 1.0
                         });
                 });
@@ -1146,10 +1125,9 @@ namespace MonsterSlayersAPI.DAL.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CreatureId"));
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("CreatedOn")
+                    b.Property<DateTime?>("CreatedOn")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("DeletedBy")
@@ -1173,25 +1151,25 @@ namespace MonsterSlayersAPI.DAL.Migrations
                         {
                             CreatureId = 1,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(7816)
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(3165)
                         },
                         new
                         {
                             CreatureId = 2,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(7850)
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(3204)
                         },
                         new
                         {
                             CreatureId = 3,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(7871)
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(3225)
                         },
                         new
                         {
                             CreatureId = 4,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(7920)
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(3244)
                         });
                 });
 
@@ -1204,10 +1182,9 @@ namespace MonsterSlayersAPI.DAL.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("DamageTypeId"));
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("CreatedOn")
+                    b.Property<DateTime?>("CreatedOn")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("DeletedBy")
@@ -1226,10 +1203,6 @@ namespace MonsterSlayersAPI.DAL.Migrations
                     b.Property<DateTime?>("ModifiedOn")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("DamageTypeId");
 
                     b.ToTable("DamageType", "GAME");
@@ -1239,65 +1212,57 @@ namespace MonsterSlayersAPI.DAL.Migrations
                         {
                             DamageTypeId = 1,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(8562),
-                            Image = "LightningLogo",
-                            Name = "Lightning"
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(3791),
+                            Image = "LightningLogo"
                         },
                         new
                         {
                             DamageTypeId = 2,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(8584),
-                            Image = "FireLogo",
-                            Name = "Fire"
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(3810),
+                            Image = "FireLogo"
                         },
                         new
                         {
                             DamageTypeId = 3,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(8603),
-                            Image = "WaterLogo",
-                            Name = "Water"
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(3828),
+                            Image = "WaterLogo"
                         },
                         new
                         {
                             DamageTypeId = 4,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(8622),
-                            Image = "WindLogo",
-                            Name = "Wind"
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(3870),
+                            Image = "WindLogo"
                         },
                         new
                         {
                             DamageTypeId = 5,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(8642),
-                            Image = "EarthLogo",
-                            Name = "Earth"
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(3887),
+                            Image = "EarthLogo"
                         },
                         new
                         {
                             DamageTypeId = 6,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(8660),
-                            Image = "RadiantLogo",
-                            Name = "Radiant"
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(3905),
+                            Image = "RadiantLogo"
                         },
                         new
                         {
                             DamageTypeId = 7,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(8679),
-                            Image = "NeutralLogo",
-                            Name = "Neutral"
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(3922),
+                            Image = "NeutralLogo"
                         },
                         new
                         {
                             DamageTypeId = 8,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(8698),
-                            Image = "AcidLogo",
-                            Name = "Acid"
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(3939),
+                            Image = "AcidLogo"
                         });
                 });
 
@@ -1313,10 +1278,9 @@ namespace MonsterSlayersAPI.DAL.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("CreatedOn")
+                    b.Property<DateTime?>("CreatedOn")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("DeletedBy")
@@ -1350,7 +1314,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             LanguageId = 1,
                             ResourceTypeId = 1,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(8731),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(3967),
                             Value = "Rayo"
                         },
                         new
@@ -1359,7 +1323,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             LanguageId = 1,
                             ResourceTypeId = 1,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(8756),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(3989),
                             Value = "Fuego"
                         },
                         new
@@ -1368,7 +1332,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             LanguageId = 1,
                             ResourceTypeId = 1,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(8776),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4008),
                             Value = "Agua"
                         },
                         new
@@ -1377,7 +1341,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             LanguageId = 1,
                             ResourceTypeId = 1,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(8795),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4026),
                             Value = "Aire"
                         },
                         new
@@ -1386,7 +1350,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             LanguageId = 1,
                             ResourceTypeId = 1,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(8817),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4045),
                             Value = "Tierra"
                         },
                         new
@@ -1395,7 +1359,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             LanguageId = 1,
                             ResourceTypeId = 1,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(8839),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4064),
                             Value = "Radiante"
                         },
                         new
@@ -1404,7 +1368,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             LanguageId = 1,
                             ResourceTypeId = 1,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(8859),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4083),
                             Value = "Neutro"
                         },
                         new
@@ -1413,7 +1377,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             LanguageId = 1,
                             ResourceTypeId = 1,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(8879),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4102),
                             Value = "Ácido"
                         },
                         new
@@ -1422,7 +1386,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             LanguageId = 2,
                             ResourceTypeId = 1,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(8940),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4121),
                             Value = "Lightning"
                         },
                         new
@@ -1431,7 +1395,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             LanguageId = 2,
                             ResourceTypeId = 1,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(8961),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4139),
                             Value = "Fire"
                         },
                         new
@@ -1440,7 +1404,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             LanguageId = 2,
                             ResourceTypeId = 1,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(8982),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4157),
                             Value = "Water"
                         },
                         new
@@ -1449,7 +1413,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             LanguageId = 2,
                             ResourceTypeId = 1,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(9001),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4175),
                             Value = "Wind"
                         },
                         new
@@ -1458,7 +1422,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             LanguageId = 2,
                             ResourceTypeId = 1,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(9021),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4193),
                             Value = "Earth"
                         },
                         new
@@ -1467,7 +1431,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             LanguageId = 2,
                             ResourceTypeId = 1,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(9042),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4211),
                             Value = "Radiant"
                         },
                         new
@@ -1476,7 +1440,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             LanguageId = 2,
                             ResourceTypeId = 1,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(9062),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4230),
                             Value = "Neutral"
                         },
                         new
@@ -1485,7 +1449,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             LanguageId = 2,
                             ResourceTypeId = 1,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(9081),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4248),
                             Value = "Acid"
                         });
                 });
@@ -1499,10 +1463,9 @@ namespace MonsterSlayersAPI.DAL.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("LanguageId"));
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("CreatedOn")
+                    b.Property<DateTime?>("CreatedOn")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("DeletedBy")
@@ -1530,14 +1493,14 @@ namespace MonsterSlayersAPI.DAL.Migrations
                         {
                             LanguageId = 1,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(8456),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(3707),
                             Name = "Español"
                         },
                         new
                         {
                             LanguageId = 2,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(8482),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(3726),
                             Name = "English"
                         });
                 });
@@ -1551,10 +1514,9 @@ namespace MonsterSlayersAPI.DAL.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("CreatedOn")
+                    b.Property<DateTime?>("CreatedOn")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("DeletedBy")
@@ -1583,7 +1545,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             LanguageId = 1,
                             MessageName = "AttackSuccess",
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(60),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5110),
                             Value = "{target} recibe {damage} puntos de daño de {damagetype}."
                         },
                         new
@@ -1591,7 +1553,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             LanguageId = 1,
                             MessageName = "AttackFail",
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(85),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5133),
                             Value = "Ataque fallido."
                         },
                         new
@@ -1599,7 +1561,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             LanguageId = 1,
                             MessageName = "Heal",
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(105),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5150),
                             Value = "{target} recibe {heal} puntos de curación."
                         },
                         new
@@ -1607,7 +1569,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             LanguageId = 1,
                             MessageName = "NotYourTurn",
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(126),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5170),
                             Value = "No es tu turno."
                         },
                         new
@@ -1615,7 +1577,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             LanguageId = 1,
                             MessageName = "Win",
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(146),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5187),
                             Value = "Has ganado."
                         },
                         new
@@ -1623,7 +1585,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             LanguageId = 1,
                             MessageName = "Loose",
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(166),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5228),
                             Value = "Has perdido."
                         },
                         new
@@ -1631,7 +1593,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             LanguageId = 2,
                             MessageName = "AttackSuccess",
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(185),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5248),
                             Value = "{target} got {damage} {damagetype} damage proints."
                         },
                         new
@@ -1639,7 +1601,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             LanguageId = 2,
                             MessageName = "AttackFail",
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(205),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5266),
                             Value = "Atack failed."
                         },
                         new
@@ -1647,7 +1609,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             LanguageId = 2,
                             MessageName = "Heal",
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(224),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5285),
                             Value = "{target} got {heal} healing points."
                         },
                         new
@@ -1655,7 +1617,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             LanguageId = 2,
                             MessageName = "NotYourTurn",
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(245),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5304),
                             Value = "Is not your turn."
                         },
                         new
@@ -1663,7 +1625,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             LanguageId = 2,
                             MessageName = "Win",
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(265),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5321),
                             Value = "You win."
                         },
                         new
@@ -1671,7 +1633,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             LanguageId = 2,
                             MessageName = "Loose",
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(284),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5339),
                             Value = "You Loose."
                         });
                 });
@@ -1685,10 +1647,9 @@ namespace MonsterSlayersAPI.DAL.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MonsterId"));
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("CreatedOn")
+                    b.Property<DateTime?>("CreatedOn")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("CreatureId")
@@ -1716,10 +1677,6 @@ namespace MonsterSlayersAPI.DAL.Migrations
                     b.Property<DateTime?>("ModifiedOn")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int>("Nivel")
                         .HasColumnType("int");
 
@@ -1740,12 +1697,11 @@ namespace MonsterSlayersAPI.DAL.Migrations
                         {
                             MonsterId = 1,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(318),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5369),
                             CreatureId = 1,
                             HP = 500,
                             Image = "",
                             Mana = 50,
-                            Name = "Black Dragon",
                             Nivel = 50,
                             Speed = 50,
                             Stamina = 10
@@ -1754,12 +1710,11 @@ namespace MonsterSlayersAPI.DAL.Migrations
                         {
                             MonsterId = 2,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(520),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5392),
                             CreatureId = 3,
                             HP = 10,
                             Image = "",
                             Mana = 0,
-                            Name = "Slime",
                             Nivel = 1,
                             Speed = 5,
                             Stamina = 6
@@ -1768,12 +1723,11 @@ namespace MonsterSlayersAPI.DAL.Migrations
                         {
                             MonsterId = 3,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(554),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5410),
                             CreatureId = 4,
                             HP = 40,
                             Image = "",
                             Mana = 0,
-                            Name = "Wolf",
                             Nivel = 2,
                             Speed = 30,
                             Stamina = 6
@@ -1789,10 +1743,9 @@ namespace MonsterSlayersAPI.DAL.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("CreatedOn")
+                    b.Property<DateTime?>("CreatedOn")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("DeletedBy")
@@ -1819,28 +1772,28 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             MonsterId = 1,
                             AbilityId = 1,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(1682)
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(6357)
                         },
                         new
                         {
                             MonsterId = 1,
                             AbilityId = 3,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(1730)
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(6376)
                         },
                         new
                         {
                             MonsterId = 2,
                             AbilityId = 2,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(1750)
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(6392)
                         },
                         new
                         {
                             MonsterId = 3,
                             AbilityId = 3,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(1769)
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(6409)
                         });
                 });
 
@@ -1853,10 +1806,9 @@ namespace MonsterSlayersAPI.DAL.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("CreatedOn")
+                    b.Property<DateTime?>("CreatedOn")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("DeletedBy")
@@ -1886,7 +1838,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             MonsterId = 1,
                             DamageTypeId = 1,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(892),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5669),
                             Value = 0.0
                         },
                         new
@@ -1894,7 +1846,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             MonsterId = 1,
                             DamageTypeId = 2,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(919),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5690),
                             Value = 0.0
                         },
                         new
@@ -1902,7 +1854,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             MonsterId = 1,
                             DamageTypeId = 3,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(939),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5710),
                             Value = 0.0
                         },
                         new
@@ -1910,7 +1862,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             MonsterId = 1,
                             DamageTypeId = 4,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(959),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5728),
                             Value = 0.0
                         },
                         new
@@ -1918,7 +1870,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             MonsterId = 1,
                             DamageTypeId = 5,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(978),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5746),
                             Value = 0.0
                         },
                         new
@@ -1926,7 +1878,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             MonsterId = 1,
                             DamageTypeId = 6,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(999),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5765),
                             Value = 0.0
                         },
                         new
@@ -1934,7 +1886,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             MonsterId = 1,
                             DamageTypeId = 7,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(1019),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5783),
                             Value = 0.0
                         },
                         new
@@ -1942,7 +1894,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             MonsterId = 1,
                             DamageTypeId = 8,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(1039),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5801),
                             Value = 0.0
                         },
                         new
@@ -1950,7 +1902,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             MonsterId = 2,
                             DamageTypeId = 1,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(1059),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5820),
                             Value = 0.0
                         },
                         new
@@ -1958,7 +1910,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             MonsterId = 2,
                             DamageTypeId = 2,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(1079),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5838),
                             Value = 0.0
                         },
                         new
@@ -1966,7 +1918,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             MonsterId = 2,
                             DamageTypeId = 3,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(1099),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5855),
                             Value = 0.0
                         },
                         new
@@ -1974,7 +1926,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             MonsterId = 2,
                             DamageTypeId = 4,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(1119),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5874),
                             Value = 0.0
                         },
                         new
@@ -1982,7 +1934,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             MonsterId = 2,
                             DamageTypeId = 5,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(1139),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5893),
                             Value = 0.0
                         },
                         new
@@ -1990,7 +1942,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             MonsterId = 2,
                             DamageTypeId = 6,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(1160),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5912),
                             Value = 0.0
                         },
                         new
@@ -1998,7 +1950,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             MonsterId = 2,
                             DamageTypeId = 7,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(1179),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5930),
                             Value = 0.0
                         },
                         new
@@ -2006,7 +1958,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             MonsterId = 2,
                             DamageTypeId = 8,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(1230),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5949),
                             Value = 0.0
                         },
                         new
@@ -2014,7 +1966,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             MonsterId = 3,
                             DamageTypeId = 1,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(1249),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5966),
                             Value = 0.0
                         },
                         new
@@ -2022,7 +1974,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             MonsterId = 3,
                             DamageTypeId = 2,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(1270),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5987),
                             Value = 0.0
                         },
                         new
@@ -2030,7 +1982,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             MonsterId = 3,
                             DamageTypeId = 3,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(1292),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(6005),
                             Value = 0.0
                         },
                         new
@@ -2038,7 +1990,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             MonsterId = 3,
                             DamageTypeId = 4,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(1312),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(6023),
                             Value = 0.0
                         },
                         new
@@ -2046,7 +1998,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             MonsterId = 3,
                             DamageTypeId = 5,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(1331),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(6040),
                             Value = 0.0
                         },
                         new
@@ -2054,7 +2006,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             MonsterId = 3,
                             DamageTypeId = 6,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(1352),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(6058),
                             Value = 0.0
                         },
                         new
@@ -2062,7 +2014,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             MonsterId = 3,
                             DamageTypeId = 7,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(1371),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(6092),
                             Value = 0.0
                         },
                         new
@@ -2070,7 +2022,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             MonsterId = 3,
                             DamageTypeId = 8,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(1392),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(6111),
                             Value = 0.0
                         });
                 });
@@ -2087,10 +2039,9 @@ namespace MonsterSlayersAPI.DAL.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("CreatedOn")
+                    b.Property<DateTime?>("CreatedOn")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("DeletedBy")
@@ -2124,7 +2075,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             LanguageId = 1,
                             ResourceTypeId = 1,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(588),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5433),
                             Value = "Dragón negro"
                         },
                         new
@@ -2133,7 +2084,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             LanguageId = 1,
                             ResourceTypeId = 2,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(612),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5453),
                             Value = "un gran dragón negro"
                         },
                         new
@@ -2142,7 +2093,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             LanguageId = 1,
                             ResourceTypeId = 1,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(632),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5471),
                             Value = "Limo"
                         },
                         new
@@ -2151,7 +2102,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             LanguageId = 1,
                             ResourceTypeId = 2,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(650),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5487),
                             Value = "Una masa que lastima al contacto"
                         },
                         new
@@ -2160,7 +2111,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             LanguageId = 1,
                             ResourceTypeId = 1,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(718),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5503),
                             Value = "Lobo"
                         },
                         new
@@ -2169,7 +2120,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             LanguageId = 1,
                             ResourceTypeId = 2,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(743),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5521),
                             Value = "Una criatura salvaje"
                         },
                         new
@@ -2178,7 +2129,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             LanguageId = 2,
                             ResourceTypeId = 1,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(764),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5537),
                             Value = "Black Dragon"
                         },
                         new
@@ -2187,7 +2138,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             LanguageId = 2,
                             ResourceTypeId = 2,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(781),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5554),
                             Value = "A great black dragon"
                         },
                         new
@@ -2196,7 +2147,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             LanguageId = 2,
                             ResourceTypeId = 1,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(801),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5573),
                             Value = "Slime"
                         },
                         new
@@ -2205,7 +2156,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             LanguageId = 2,
                             ResourceTypeId = 2,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(821),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5591),
                             Value = "A mass that hurts on contact"
                         },
                         new
@@ -2214,7 +2165,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             LanguageId = 2,
                             ResourceTypeId = 1,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(840),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5607),
                             Value = "Wolf"
                         },
                         new
@@ -2223,7 +2174,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             LanguageId = 2,
                             ResourceTypeId = 2,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(858),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5623),
                             Value = "A wild creature"
                         });
                 });
@@ -2237,10 +2188,9 @@ namespace MonsterSlayersAPI.DAL.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("CreatedOn")
+                    b.Property<DateTime?>("CreatedOn")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("DeletedBy")
@@ -2267,14 +2217,14 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             MonsterId = 2,
                             ZoneId = 2,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(1419)
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(6132)
                         },
                         new
                         {
                             MonsterId = 3,
                             ZoneId = 2,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(1442)
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(6154)
                         });
                 });
 
@@ -2287,10 +2237,9 @@ namespace MonsterSlayersAPI.DAL.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ResourceTypeId"));
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("CreatedOn")
+                    b.Property<DateTime?>("CreatedOn")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("DeletedBy")
@@ -2318,14 +2267,14 @@ namespace MonsterSlayersAPI.DAL.Migrations
                         {
                             ResourceTypeId = 1,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(8507),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(3750),
                             Value = "Name"
                         },
                         new
                         {
                             ResourceTypeId = 2,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(8531),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(3769),
                             Value = "Description"
                         });
                 });
@@ -2339,10 +2288,9 @@ namespace MonsterSlayersAPI.DAL.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("SkillId"));
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("CreatedOn")
+                    b.Property<DateTime?>("CreatedOn")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("DeletedBy")
@@ -2366,31 +2314,31 @@ namespace MonsterSlayersAPI.DAL.Migrations
                         {
                             SkillId = 1,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(7999)
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(3301)
                         },
                         new
                         {
                             SkillId = 2,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(8025)
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(3323)
                         },
                         new
                         {
                             SkillId = 3,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(8045)
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(3342)
                         },
                         new
                         {
                             SkillId = 4,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(8065)
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(3362)
                         },
                         new
                         {
                             SkillId = 5,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(8086)
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(3380)
                         });
                 });
 
@@ -2406,10 +2354,9 @@ namespace MonsterSlayersAPI.DAL.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("CreatedOn")
+                    b.Property<DateTime?>("CreatedOn")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("DeletedBy")
@@ -2443,7 +2390,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             LanguageId = 1,
                             ResourceTypeId = 1,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(8122),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(3407),
                             Value = "Fuerza"
                         },
                         new
@@ -2452,7 +2399,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             LanguageId = 1,
                             ResourceTypeId = 1,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(8147),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(3450),
                             Value = "Destreza"
                         },
                         new
@@ -2461,7 +2408,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             LanguageId = 1,
                             ResourceTypeId = 1,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(8166),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(3470),
                             Value = "Vitalidad"
                         },
                         new
@@ -2470,7 +2417,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             LanguageId = 1,
                             ResourceTypeId = 1,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(8185),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(3488),
                             Value = "Inteligencia"
                         },
                         new
@@ -2479,7 +2426,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             LanguageId = 1,
                             ResourceTypeId = 1,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(8206),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(3506),
                             Value = "Fé"
                         },
                         new
@@ -2488,7 +2435,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             LanguageId = 2,
                             ResourceTypeId = 1,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(8227),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(3525),
                             Value = "Strength"
                         },
                         new
@@ -2497,7 +2444,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             LanguageId = 2,
                             ResourceTypeId = 1,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(8247),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(3543),
                             Value = "Dexterity"
                         },
                         new
@@ -2506,7 +2453,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             LanguageId = 2,
                             ResourceTypeId = 1,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(8267),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(3561),
                             Value = "Vitality"
                         },
                         new
@@ -2515,7 +2462,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             LanguageId = 2,
                             ResourceTypeId = 1,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(8286),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(3579),
                             Value = "Intelligence"
                         },
                         new
@@ -2524,7 +2471,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             LanguageId = 2,
                             ResourceTypeId = 1,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(8306),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(3598),
                             Value = "Faith"
                         });
                 });
@@ -2545,10 +2492,9 @@ namespace MonsterSlayersAPI.DAL.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("CreatedOn")
+                    b.Property<DateTime?>("CreatedOn")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("DeletedBy")
@@ -2579,7 +2525,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             UserId = 1,
                             ASPUserId = "",
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(7520),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(2959),
                             Name = "Snorlax"
                         });
                 });
@@ -2593,10 +2539,9 @@ namespace MonsterSlayersAPI.DAL.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ZoneId"));
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("CreatedOn")
+                    b.Property<DateTime?>("CreatedOn")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("DeletedBy")
@@ -2615,10 +2560,6 @@ namespace MonsterSlayersAPI.DAL.Migrations
                     b.Property<DateTime?>("ModifiedOn")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("ZoneId");
 
                     b.ToTable("Zone", "GAME");
@@ -2628,17 +2569,15 @@ namespace MonsterSlayersAPI.DAL.Migrations
                         {
                             ZoneId = 1,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(9879),
-                            Image = "CityBackGround",
-                            Name = "City"
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4977),
+                            Image = "CityBackGround"
                         },
                         new
                         {
                             ZoneId = 2,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(9903),
-                            Image = "FieldBackGround",
-                            Name = "Field"
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4999),
+                            Image = "FieldBackGround"
                         });
                 });
 
@@ -2654,10 +2593,9 @@ namespace MonsterSlayersAPI.DAL.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("CreatedOn")
+                    b.Property<DateTime?>("CreatedOn")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("DeletedBy")
@@ -2691,7 +2629,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             LanguageId = 1,
                             ResourceTypeId = 1,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(9935),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5025),
                             Value = "Ciudad"
                         },
                         new
@@ -2700,7 +2638,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             LanguageId = 1,
                             ResourceTypeId = 1,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(9985),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5049),
                             Value = "Pradera"
                         },
                         new
@@ -2709,7 +2647,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             LanguageId = 2,
                             ResourceTypeId = 1,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(9),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5068),
                             Value = "City"
                         },
                         new
@@ -2718,7 +2656,7 @@ namespace MonsterSlayersAPI.DAL.Migrations
                             LanguageId = 2,
                             ResourceTypeId = 1,
                             CreatedBy = "Seed",
-                            CreatedOn = new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(30),
+                            CreatedOn = new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5087),
                             Value = "Field"
                         });
                 });

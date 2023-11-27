@@ -17,6 +17,8 @@ namespace MonsterSlayersAPI.BLL.Entities
         public int BattleId { get; set; }
         public int AbilityId { get; set; }
         public double Value { get; set; }
+        public int? Turn { get; set; }
+        public int Round { get; set; }
 
 
         [ForeignKey(nameof(BattleId))]

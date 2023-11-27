@@ -23,10 +23,9 @@ namespace MonsterSlayersAPI.BLL.Entities
         public int Experience { get; set; }
         public string Image { get; set; }
         public int HP { get; set; }
-        public int CurrentHP { get; set; }
         public int Speed { get; set; }
-        public int CritRate { get; set; }
-        public int CritDamage { get; set; }
+        public double CritRate { get; set; }
+        public double CritDamage { get; set; }
         public int Stamina { get; set; }
         public int Mana { get; set; }
 

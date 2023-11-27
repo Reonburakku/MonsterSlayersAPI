@@ -23,11 +23,10 @@ namespace MonsterSlayersAPI.DAL.Migrations
                 {
                     ClassId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Image = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ForPlayer = table.Column<bool>(type: "bit", nullable: false),
-                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
                     ModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     DeletedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -45,8 +44,8 @@ namespace MonsterSlayersAPI.DAL.Migrations
                 {
                     CreatureId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
                     ModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     DeletedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -64,10 +63,9 @@ namespace MonsterSlayersAPI.DAL.Migrations
                 {
                     DamageTypeId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Image = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
                     ModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     DeletedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -86,8 +84,8 @@ namespace MonsterSlayersAPI.DAL.Migrations
                     LanguageId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
                     ModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     DeletedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -106,8 +104,8 @@ namespace MonsterSlayersAPI.DAL.Migrations
                     ResourceTypeId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Value = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
                     ModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     DeletedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -125,8 +123,8 @@ namespace MonsterSlayersAPI.DAL.Migrations
                 {
                     SkillId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
                     ModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     DeletedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -144,10 +142,9 @@ namespace MonsterSlayersAPI.DAL.Migrations
                 {
                     ZoneId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Image = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
                     ModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     DeletedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -168,8 +165,8 @@ namespace MonsterSlayersAPI.DAL.Migrations
                     ASPUserId = table.Column<string>(type: "nvarchar(900)", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ClassId = table.Column<int>(type: "int", nullable: true),
-                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
                     ModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     DeletedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -194,15 +191,14 @@ namespace MonsterSlayersAPI.DAL.Migrations
                     MonsterId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     CreatureId = table.Column<int>(type: "int", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Nivel = table.Column<int>(type: "int", nullable: false),
                     HP = table.Column<int>(type: "int", nullable: false),
                     Image = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Stamina = table.Column<int>(type: "int", nullable: false),
                     Mana = table.Column<int>(type: "int", nullable: false),
                     Speed = table.Column<int>(type: "int", nullable: false),
-                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
                     ModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     DeletedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -228,8 +224,8 @@ namespace MonsterSlayersAPI.DAL.Migrations
                     LanguageId = table.Column<int>(type: "int", nullable: false),
                     MessageName = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Value = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
                     ModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     DeletedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -256,8 +252,8 @@ namespace MonsterSlayersAPI.DAL.Migrations
                     LanguageId = table.Column<int>(type: "int", nullable: false),
                     ResourceTypeId = table.Column<int>(type: "int", nullable: false),
                     Value = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
                     ModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     DeletedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -298,8 +294,8 @@ namespace MonsterSlayersAPI.DAL.Migrations
                     LanguageId = table.Column<int>(type: "int", nullable: false),
                     ResourceTypeId = table.Column<int>(type: "int", nullable: false),
                     Value = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
                     ModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     DeletedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -340,13 +336,12 @@ namespace MonsterSlayersAPI.DAL.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     DamageTypeId = table.Column<int>(type: "int", nullable: false),
                     SkillId = table.Column<int>(type: "int", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Image = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     DamageDice = table.Column<int>(type: "int", nullable: false),
                     ManaCost = table.Column<int>(type: "int", nullable: false),
                     StaminaCost = table.Column<int>(type: "int", nullable: false),
-                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
                     ModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     DeletedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -379,8 +374,8 @@ namespace MonsterSlayersAPI.DAL.Migrations
                     ClassId = table.Column<int>(type: "int", nullable: false),
                     SkillId = table.Column<int>(type: "int", nullable: false),
                     Rate = table.Column<double>(type: "float", nullable: false),
-                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
                     ModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     DeletedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -414,8 +409,8 @@ namespace MonsterSlayersAPI.DAL.Migrations
                     LanguageId = table.Column<int>(type: "int", nullable: false),
                     ResourceTypeId = table.Column<int>(type: "int", nullable: false),
                     Value = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
                     ModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     DeletedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -458,8 +453,10 @@ namespace MonsterSlayersAPI.DAL.Migrations
                     StartDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     EndDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     TeamWinner = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Turn = table.Column<int>(type: "int", nullable: true),
+                    Round = table.Column<int>(type: "int", nullable: false),
+                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
                     ModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     DeletedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -486,8 +483,8 @@ namespace MonsterSlayersAPI.DAL.Migrations
                     LanguageId = table.Column<int>(type: "int", nullable: false),
                     ResourceTypeId = table.Column<int>(type: "int", nullable: false),
                     Value = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
                     ModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     DeletedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -535,14 +532,13 @@ namespace MonsterSlayersAPI.DAL.Migrations
                     Experience = table.Column<int>(type: "int", nullable: false),
                     Image = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     HP = table.Column<int>(type: "int", nullable: false),
-                    CurrentHP = table.Column<int>(type: "int", nullable: false),
                     Speed = table.Column<int>(type: "int", nullable: false),
-                    CritRate = table.Column<int>(type: "int", nullable: false),
-                    CritDamage = table.Column<int>(type: "int", nullable: false),
+                    CritRate = table.Column<double>(type: "float", nullable: false),
+                    CritDamage = table.Column<double>(type: "float", nullable: false),
                     Stamina = table.Column<int>(type: "int", nullable: false),
                     Mana = table.Column<int>(type: "int", nullable: false),
-                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
                     ModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     DeletedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -589,8 +585,8 @@ namespace MonsterSlayersAPI.DAL.Migrations
                     MonsterId = table.Column<int>(type: "int", nullable: false),
                     DamageTypeId = table.Column<int>(type: "int", nullable: false),
                     Value = table.Column<double>(type: "float", nullable: false),
-                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
                     ModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     DeletedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -624,8 +620,8 @@ namespace MonsterSlayersAPI.DAL.Migrations
                     LanguageId = table.Column<int>(type: "int", nullable: false),
                     ResourceTypeId = table.Column<int>(type: "int", nullable: false),
                     Value = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
                     ModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     DeletedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -664,8 +660,8 @@ namespace MonsterSlayersAPI.DAL.Migrations
                 {
                     MonsterId = table.Column<int>(type: "int", nullable: false),
                     ZoneId = table.Column<int>(type: "int", nullable: false),
-                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
                     ModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     DeletedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -699,8 +695,8 @@ namespace MonsterSlayersAPI.DAL.Migrations
                     LanguageId = table.Column<int>(type: "int", nullable: false),
                     ResourceTypeId = table.Column<int>(type: "int", nullable: false),
                     Value = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
                     ModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     DeletedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -739,8 +735,8 @@ namespace MonsterSlayersAPI.DAL.Migrations
                 {
                     ClassId = table.Column<int>(type: "int", nullable: false),
                     AbilityId = table.Column<int>(type: "int", nullable: false),
-                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
                     ModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     DeletedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -772,8 +768,8 @@ namespace MonsterSlayersAPI.DAL.Migrations
                 {
                     MonsterId = table.Column<int>(type: "int", nullable: false),
                     AbilityId = table.Column<int>(type: "int", nullable: false),
-                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
                     ModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     DeletedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -808,8 +804,10 @@ namespace MonsterSlayersAPI.DAL.Migrations
                     BattleId = table.Column<int>(type: "int", nullable: false),
                     AbilityId = table.Column<int>(type: "int", nullable: false),
                     Value = table.Column<double>(type: "float", nullable: false),
-                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Turn = table.Column<int>(type: "int", nullable: true),
+                    Round = table.Column<int>(type: "int", nullable: false),
+                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
                     ModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     DeletedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -845,8 +843,8 @@ namespace MonsterSlayersAPI.DAL.Migrations
                     Team = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     IsMonster = table.Column<bool>(type: "bit", nullable: false),
                     ParticipantData = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
                     ModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     DeletedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -879,8 +877,8 @@ namespace MonsterSlayersAPI.DAL.Migrations
                     CharacterId = table.Column<int>(type: "int", nullable: false),
                     AbilityId = table.Column<int>(type: "int", nullable: false),
                     ClassId = table.Column<int>(type: "int", nullable: true),
-                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
                     ModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     DeletedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -919,8 +917,8 @@ namespace MonsterSlayersAPI.DAL.Migrations
                     CharacterId = table.Column<int>(type: "int", nullable: false),
                     DamageTypeId = table.Column<int>(type: "int", nullable: false),
                     Value = table.Column<double>(type: "float", nullable: false),
-                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
                     ModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     DeletedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -954,8 +952,8 @@ namespace MonsterSlayersAPI.DAL.Migrations
                     SkillId = table.Column<int>(type: "int", nullable: false),
                     Total = table.Column<int>(type: "int", nullable: false),
                     Real = table.Column<int>(type: "int", nullable: false),
-                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
                     ModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     DeletedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -991,8 +989,8 @@ namespace MonsterSlayersAPI.DAL.Migrations
                     CreatureId = table.Column<int>(type: "int", nullable: false),
                     Type = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     BattleId = table.Column<int>(type: "int", nullable: true),
-                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
                     ModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     DeletedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -1026,13 +1024,13 @@ namespace MonsterSlayersAPI.DAL.Migrations
             migrationBuilder.InsertData(
                 schema: "GAME",
                 table: "Class",
-                columns: new[] { "ClassId", "CreatedBy", "CreatedOn", "DeletedBy", "DeletedOn", "ForPlayer", "Image", "ModifiedBy", "ModifiedOn", "Name" },
+                columns: new[] { "ClassId", "CreatedBy", "CreatedOn", "DeletedBy", "DeletedOn", "ForPlayer", "Image", "ModifiedBy", "ModifiedOn" },
                 values: new object[,]
                 {
-                    { 1, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(9293), null, null, false, "MonsterLogo", null, null, "Monster" },
-                    { 2, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(9319), null, null, true, "MageLogo", null, null, "Mage" },
-                    { 3, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(9340), null, null, true, "WarriorLogo", null, null, "Warrior" },
-                    { 4, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(9361), null, null, true, "ClericLogo", null, null, "Cleric" }
+                    { 1, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4470), null, null, false, "MonsterLogo", null, null },
+                    { 2, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4491), null, null, true, "MageLogo", null, null },
+                    { 3, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4510), null, null, true, "WarriorLogo", null, null },
+                    { 4, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4529), null, null, true, "ClericLogo", null, null }
                 });
 
             migrationBuilder.InsertData(
@@ -1041,26 +1039,26 @@ namespace MonsterSlayersAPI.DAL.Migrations
                 columns: new[] { "CreatureId", "CreatedBy", "CreatedOn", "DeletedBy", "DeletedOn", "ModifiedBy", "ModifiedOn" },
                 values: new object[,]
                 {
-                    { 1, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(7816), null, null, null, null },
-                    { 2, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(7850), null, null, null, null },
-                    { 3, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(7871), null, null, null, null },
-                    { 4, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(7920), null, null, null, null }
+                    { 1, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(3165), null, null, null, null },
+                    { 2, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(3204), null, null, null, null },
+                    { 3, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(3225), null, null, null, null },
+                    { 4, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(3244), null, null, null, null }
                 });
 
             migrationBuilder.InsertData(
                 schema: "GAME",
                 table: "DamageType",
-                columns: new[] { "DamageTypeId", "CreatedBy", "CreatedOn", "DeletedBy", "DeletedOn", "Image", "ModifiedBy", "ModifiedOn", "Name" },
+                columns: new[] { "DamageTypeId", "CreatedBy", "CreatedOn", "DeletedBy", "DeletedOn", "Image", "ModifiedBy", "ModifiedOn" },
                 values: new object[,]
                 {
-                    { 1, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(8562), null, null, "LightningLogo", null, null, "Lightning" },
-                    { 2, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(8584), null, null, "FireLogo", null, null, "Fire" },
-                    { 3, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(8603), null, null, "WaterLogo", null, null, "Water" },
-                    { 4, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(8622), null, null, "WindLogo", null, null, "Wind" },
-                    { 5, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(8642), null, null, "EarthLogo", null, null, "Earth" },
-                    { 6, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(8660), null, null, "RadiantLogo", null, null, "Radiant" },
-                    { 7, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(8679), null, null, "NeutralLogo", null, null, "Neutral" },
-                    { 8, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(8698), null, null, "AcidLogo", null, null, "Acid" }
+                    { 1, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(3791), null, null, "LightningLogo", null, null },
+                    { 2, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(3810), null, null, "FireLogo", null, null },
+                    { 3, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(3828), null, null, "WaterLogo", null, null },
+                    { 4, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(3870), null, null, "WindLogo", null, null },
+                    { 5, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(3887), null, null, "EarthLogo", null, null },
+                    { 6, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(3905), null, null, "RadiantLogo", null, null },
+                    { 7, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(3922), null, null, "NeutralLogo", null, null },
+                    { 8, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(3939), null, null, "AcidLogo", null, null }
                 });
 
             migrationBuilder.InsertData(
@@ -1069,8 +1067,8 @@ namespace MonsterSlayersAPI.DAL.Migrations
                 columns: new[] { "LanguageId", "CreatedBy", "CreatedOn", "DeletedBy", "DeletedOn", "ModifiedBy", "ModifiedOn", "Name" },
                 values: new object[,]
                 {
-                    { 1, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(8456), null, null, null, null, "Español" },
-                    { 2, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(8482), null, null, null, null, "English" }
+                    { 1, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(3707), null, null, null, null, "Español" },
+                    { 2, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(3726), null, null, null, null, "English" }
                 });
 
             migrationBuilder.InsertData(
@@ -1079,8 +1077,8 @@ namespace MonsterSlayersAPI.DAL.Migrations
                 columns: new[] { "ResourceTypeId", "CreatedBy", "CreatedOn", "DeletedBy", "DeletedOn", "ModifiedBy", "ModifiedOn", "Value" },
                 values: new object[,]
                 {
-                    { 1, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(8507), null, null, null, null, "Name" },
-                    { 2, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(8531), null, null, null, null, "Description" }
+                    { 1, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(3750), null, null, null, null, "Name" },
+                    { 2, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(3769), null, null, null, null, "Description" }
                 });
 
             migrationBuilder.InsertData(
@@ -1089,45 +1087,45 @@ namespace MonsterSlayersAPI.DAL.Migrations
                 columns: new[] { "SkillId", "CreatedBy", "CreatedOn", "DeletedBy", "DeletedOn", "ModifiedBy", "ModifiedOn" },
                 values: new object[,]
                 {
-                    { 1, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(7999), null, null, null, null },
-                    { 2, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(8025), null, null, null, null },
-                    { 3, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(8045), null, null, null, null },
-                    { 4, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(8065), null, null, null, null },
-                    { 5, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(8086), null, null, null, null }
+                    { 1, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(3301), null, null, null, null },
+                    { 2, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(3323), null, null, null, null },
+                    { 3, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(3342), null, null, null, null },
+                    { 4, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(3362), null, null, null, null },
+                    { 5, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(3380), null, null, null, null }
                 });
 
             migrationBuilder.InsertData(
                 schema: "GAME",
                 table: "User",
                 columns: new[] { "UserId", "ASPUserId", "ClassId", "CreatedBy", "CreatedOn", "DeletedBy", "DeletedOn", "ModifiedBy", "ModifiedOn", "Name" },
-                values: new object[] { 1, "", null, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(7520), null, null, null, null, "Snorlax" });
+                values: new object[] { 1, "", null, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(2959), null, null, null, null, "Snorlax" });
 
             migrationBuilder.InsertData(
                 schema: "GAME",
                 table: "Zone",
-                columns: new[] { "ZoneId", "CreatedBy", "CreatedOn", "DeletedBy", "DeletedOn", "Image", "ModifiedBy", "ModifiedOn", "Name" },
+                columns: new[] { "ZoneId", "CreatedBy", "CreatedOn", "DeletedBy", "DeletedOn", "Image", "ModifiedBy", "ModifiedOn" },
                 values: new object[,]
                 {
-                    { 1, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(9879), null, null, "CityBackGround", null, null, "City" },
-                    { 2, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(9903), null, null, "FieldBackGround", null, null, "Field" }
+                    { 1, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4977), null, null, "CityBackGround", null, null },
+                    { 2, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4999), null, null, "FieldBackGround", null, null }
                 });
 
             migrationBuilder.InsertData(
                 schema: "GAME",
                 table: "Ability",
-                columns: new[] { "AbilityId", "CreatedBy", "CreatedOn", "DamageDice", "DamageTypeId", "DeletedBy", "DeletedOn", "Image", "ManaCost", "ModifiedBy", "ModifiedOn", "Name", "SkillId", "StaminaCost" },
+                columns: new[] { "AbilityId", "CreatedBy", "CreatedOn", "DamageDice", "DamageTypeId", "DeletedBy", "DeletedOn", "Image", "ManaCost", "ModifiedBy", "ModifiedOn", "SkillId", "StaminaCost" },
                 values: new object[,]
                 {
-                    { 1, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(1475), 1, 7, null, null, "PunchLogo", 0, null, null, "Punch", 1, 3 },
-                    { 2, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(1500), 1, 8, null, null, "AcidPunchLogo", 2, null, null, "AcidPunch", 4, 3 },
-                    { 3, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(1522), 1, 7, null, null, "BiteLogo", 0, null, null, "Bite", 1, 3 }
+                    { 1, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(6183), 1, 7, null, null, "PunchLogo", 0, null, null, 1, 3 },
+                    { 2, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(6205), 1, 8, null, null, "AcidPunchLogo", 2, null, null, 4, 3 },
+                    { 3, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(6223), 1, 7, null, null, "BiteLogo", 0, null, null, 1, 3 }
                 });
 
             migrationBuilder.InsertData(
                 schema: "GAME",
                 table: "Character",
-                columns: new[] { "CharacterId", "ClassId", "CreatedBy", "CreatedOn", "CreatureId", "CritDamage", "CritRate", "CurrentHP", "DeletedBy", "DeletedOn", "Experience", "HP", "Image", "Mana", "ModifiedBy", "ModifiedOn", "Name", "Nivel", "Speed", "Stamina", "UserId", "ZoneId" },
-                values: new object[] { 1, 1, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(7964), 2, 2, 2, 10, null, null, 0, 10, "ImageR", 20, null, null, "Reonburakku", 1, 20, 6, 1, 1 });
+                columns: new[] { "CharacterId", "ClassId", "CreatedBy", "CreatedOn", "CreatureId", "CritDamage", "CritRate", "DeletedBy", "DeletedOn", "Experience", "HP", "Image", "Mana", "ModifiedBy", "ModifiedOn", "Name", "Nivel", "Speed", "Stamina", "UserId", "ZoneId" },
+                values: new object[] { 1, 1, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(3272), 2, 2.0, 2.0, null, null, 0, 10, "ImageR", 20, null, null, "Reonburakku", 1, 20, 6, 1, 1 });
 
             migrationBuilder.InsertData(
                 schema: "GAME",
@@ -1135,22 +1133,22 @@ namespace MonsterSlayersAPI.DAL.Migrations
                 columns: new[] { "ClassId", "LanguageId", "ResourceTypeId", "CreatedBy", "CreatedOn", "DeletedBy", "DeletedOn", "ModifiedBy", "ModifiedOn", "Value" },
                 values: new object[,]
                 {
-                    { 1, 1, 1, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(9536), null, null, null, null, "Monstruo" },
-                    { 1, 1, 2, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(9622), null, null, null, null, "Criatura que habita el mundo y gusta de deborar humanos." },
-                    { 1, 2, 1, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(9701), null, null, null, null, "Monster" },
-                    { 1, 2, 2, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(9784), null, null, null, null, "Creature that inhabits the world and likes to devour humans." },
-                    { 2, 1, 1, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(9560), null, null, null, null, "Mago" },
-                    { 2, 1, 2, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(9644), null, null, null, null, "Estudiante de las artes arcanas, capaz de crear grandes daños elementales." },
-                    { 2, 2, 1, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(9723), null, null, null, null, "Wizard" },
-                    { 2, 2, 2, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(9804), null, null, null, null, "Student of the arcane arts, capable of creating great elemental damage." },
-                    { 3, 1, 1, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(9580), null, null, null, null, "Guerrero" },
-                    { 3, 1, 2, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(9663), null, null, null, null, "Luchador entrenado para la batalla, fuerte y resistente." },
-                    { 3, 2, 1, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(9743), null, null, null, null, "Warrior" },
-                    { 3, 2, 2, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(9825), null, null, null, null, "Fighter trained for battle, strong and resistant." },
-                    { 4, 1, 1, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(9601), null, null, null, null, "Clérigo" },
-                    { 4, 1, 2, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(9682), null, null, null, null, "Para muchos, enviado de los dioses, especialistas en curar y mejorar humanos." },
-                    { 4, 2, 1, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(9764), null, null, null, null, "Cleric" },
-                    { 4, 2, 2, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(9844), null, null, null, null, "For many, sent from the gods, specialists in healing and improving humans." }
+                    { 1, 1, 1, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4651), null, null, null, null, "Monstruo" },
+                    { 1, 1, 2, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4729), null, null, null, null, "Criatura que habita el mundo y gusta de deborar humanos." },
+                    { 1, 2, 1, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4824), null, null, null, null, "Monster" },
+                    { 1, 2, 2, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4898), null, null, null, null, "Creature that inhabits the world and likes to devour humans." },
+                    { 2, 1, 1, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4674), null, null, null, null, "Mago" },
+                    { 2, 1, 2, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4747), null, null, null, null, "Estudiante de las artes arcanas, capaz de crear grandes daños elementales." },
+                    { 2, 2, 1, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4843), null, null, null, null, "Wizard" },
+                    { 2, 2, 2, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4917), null, null, null, null, "Student of the arcane arts, capable of creating great elemental damage." },
+                    { 3, 1, 1, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4693), null, null, null, null, "Guerrero" },
+                    { 3, 1, 2, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4787), null, null, null, null, "Luchador entrenado para la batalla, fuerte y resistente." },
+                    { 3, 2, 1, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4862), null, null, null, null, "Warrior" },
+                    { 3, 2, 2, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4935), null, null, null, null, "Fighter trained for battle, strong and resistant." },
+                    { 4, 1, 1, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4711), null, null, null, null, "Clérigo" },
+                    { 4, 1, 2, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4805), null, null, null, null, "Para muchos, enviado de los dioses, especialistas en curar y mejorar humanos." },
+                    { 4, 2, 1, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4879), null, null, null, null, "Cleric" },
+                    { 4, 2, 2, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4954), null, null, null, null, "For many, sent from the gods, specialists in healing and improving humans." }
                 });
 
             migrationBuilder.InsertData(
@@ -1159,11 +1157,11 @@ namespace MonsterSlayersAPI.DAL.Migrations
                 columns: new[] { "ClassId", "SkillId", "CreatedBy", "CreatedOn", "DeletedBy", "DeletedOn", "ModifiedBy", "ModifiedOn", "Rate" },
                 values: new object[,]
                 {
-                    { 1, 1, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(9391), null, null, null, null, 1.0 },
-                    { 1, 2, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(9414), null, null, null, null, 2.0 },
-                    { 1, 3, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(9465), null, null, null, null, 1.0 },
-                    { 1, 4, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(9484), null, null, null, null, 3.0 },
-                    { 1, 5, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(9502), null, null, null, null, 1.0 }
+                    { 1, 1, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4553), null, null, null, null, 1.0 },
+                    { 1, 2, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4574), null, null, null, null, 2.0 },
+                    { 1, 3, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4590), null, null, null, null, 1.0 },
+                    { 1, 4, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4607), null, null, null, null, 3.0 },
+                    { 1, 5, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4624), null, null, null, null, 1.0 }
                 });
 
             migrationBuilder.InsertData(
@@ -1172,22 +1170,22 @@ namespace MonsterSlayersAPI.DAL.Migrations
                 columns: new[] { "DamageTypeId", "LanguageId", "ResourceTypeId", "CreatedBy", "CreatedOn", "DeletedBy", "DeletedOn", "ModifiedBy", "ModifiedOn", "Value" },
                 values: new object[,]
                 {
-                    { 1, 1, 1, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(8731), null, null, null, null, "Rayo" },
-                    { 1, 2, 1, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(8940), null, null, null, null, "Lightning" },
-                    { 2, 1, 1, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(8756), null, null, null, null, "Fuego" },
-                    { 2, 2, 1, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(8961), null, null, null, null, "Fire" },
-                    { 3, 1, 1, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(8776), null, null, null, null, "Agua" },
-                    { 3, 2, 1, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(8982), null, null, null, null, "Water" },
-                    { 4, 1, 1, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(8795), null, null, null, null, "Aire" },
-                    { 4, 2, 1, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(9001), null, null, null, null, "Wind" },
-                    { 5, 1, 1, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(8817), null, null, null, null, "Tierra" },
-                    { 5, 2, 1, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(9021), null, null, null, null, "Earth" },
-                    { 6, 1, 1, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(8839), null, null, null, null, "Radiante" },
-                    { 6, 2, 1, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(9042), null, null, null, null, "Radiant" },
-                    { 7, 1, 1, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(8859), null, null, null, null, "Neutro" },
-                    { 7, 2, 1, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(9062), null, null, null, null, "Neutral" },
-                    { 8, 1, 1, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(8879), null, null, null, null, "Ácido" },
-                    { 8, 2, 1, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(9081), null, null, null, null, "Acid" }
+                    { 1, 1, 1, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(3967), null, null, null, null, "Rayo" },
+                    { 1, 2, 1, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4121), null, null, null, null, "Lightning" },
+                    { 2, 1, 1, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(3989), null, null, null, null, "Fuego" },
+                    { 2, 2, 1, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4139), null, null, null, null, "Fire" },
+                    { 3, 1, 1, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4008), null, null, null, null, "Agua" },
+                    { 3, 2, 1, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4157), null, null, null, null, "Water" },
+                    { 4, 1, 1, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4026), null, null, null, null, "Aire" },
+                    { 4, 2, 1, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4175), null, null, null, null, "Wind" },
+                    { 5, 1, 1, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4045), null, null, null, null, "Tierra" },
+                    { 5, 2, 1, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4193), null, null, null, null, "Earth" },
+                    { 6, 1, 1, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4064), null, null, null, null, "Radiante" },
+                    { 6, 2, 1, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4211), null, null, null, null, "Radiant" },
+                    { 7, 1, 1, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4083), null, null, null, null, "Neutro" },
+                    { 7, 2, 1, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4230), null, null, null, null, "Neutral" },
+                    { 8, 1, 1, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4102), null, null, null, null, "Ácido" },
+                    { 8, 2, 1, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4248), null, null, null, null, "Acid" }
                 });
 
             migrationBuilder.InsertData(
@@ -1196,29 +1194,29 @@ namespace MonsterSlayersAPI.DAL.Migrations
                 columns: new[] { "LanguageId", "MessageName", "CreatedBy", "CreatedOn", "DeletedBy", "DeletedOn", "ModifiedBy", "ModifiedOn", "Value" },
                 values: new object[,]
                 {
-                    { 1, "AttackFail", "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(85), null, null, null, null, "Ataque fallido." },
-                    { 1, "AttackSuccess", "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(60), null, null, null, null, "{target} recibe {damage} puntos de daño de {damagetype}." },
-                    { 1, "Heal", "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(105), null, null, null, null, "{target} recibe {heal} puntos de curación." },
-                    { 1, "Loose", "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(166), null, null, null, null, "Has perdido." },
-                    { 1, "NotYourTurn", "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(126), null, null, null, null, "No es tu turno." },
-                    { 1, "Win", "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(146), null, null, null, null, "Has ganado." },
-                    { 2, "AttackFail", "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(205), null, null, null, null, "Atack failed." },
-                    { 2, "AttackSuccess", "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(185), null, null, null, null, "{target} got {damage} {damagetype} damage proints." },
-                    { 2, "Heal", "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(224), null, null, null, null, "{target} got {heal} healing points." },
-                    { 2, "Loose", "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(284), null, null, null, null, "You Loose." },
-                    { 2, "NotYourTurn", "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(245), null, null, null, null, "Is not your turn." },
-                    { 2, "Win", "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(265), null, null, null, null, "You win." }
+                    { 1, "AttackFail", "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5133), null, null, null, null, "Ataque fallido." },
+                    { 1, "AttackSuccess", "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5110), null, null, null, null, "{target} recibe {damage} puntos de daño de {damagetype}." },
+                    { 1, "Heal", "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5150), null, null, null, null, "{target} recibe {heal} puntos de curación." },
+                    { 1, "Loose", "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5228), null, null, null, null, "Has perdido." },
+                    { 1, "NotYourTurn", "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5170), null, null, null, null, "No es tu turno." },
+                    { 1, "Win", "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5187), null, null, null, null, "Has ganado." },
+                    { 2, "AttackFail", "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5266), null, null, null, null, "Atack failed." },
+                    { 2, "AttackSuccess", "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5248), null, null, null, null, "{target} got {damage} {damagetype} damage proints." },
+                    { 2, "Heal", "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5285), null, null, null, null, "{target} got {heal} healing points." },
+                    { 2, "Loose", "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5339), null, null, null, null, "You Loose." },
+                    { 2, "NotYourTurn", "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5304), null, null, null, null, "Is not your turn." },
+                    { 2, "Win", "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5321), null, null, null, null, "You win." }
                 });
 
             migrationBuilder.InsertData(
                 schema: "GAME",
                 table: "Monster",
-                columns: new[] { "MonsterId", "CreatedBy", "CreatedOn", "CreatureId", "DeletedBy", "DeletedOn", "HP", "Image", "Mana", "ModifiedBy", "ModifiedOn", "Name", "Nivel", "Speed", "Stamina" },
+                columns: new[] { "MonsterId", "CreatedBy", "CreatedOn", "CreatureId", "DeletedBy", "DeletedOn", "HP", "Image", "Mana", "ModifiedBy", "ModifiedOn", "Nivel", "Speed", "Stamina" },
                 values: new object[,]
                 {
-                    { 1, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(318), 1, null, null, 500, "", 50, null, null, "Black Dragon", 50, 50, 10 },
-                    { 2, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(520), 3, null, null, 10, "", 0, null, null, "Slime", 1, 5, 6 },
-                    { 3, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(554), 4, null, null, 40, "", 0, null, null, "Wolf", 2, 30, 6 }
+                    { 1, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5369), 1, null, null, 500, "", 50, null, null, 50, 50, 10 },
+                    { 2, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5392), 3, null, null, 10, "", 0, null, null, 1, 5, 6 },
+                    { 3, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5410), 4, null, null, 40, "", 0, null, null, 2, 30, 6 }
                 });
 
             migrationBuilder.InsertData(
@@ -1227,16 +1225,16 @@ namespace MonsterSlayersAPI.DAL.Migrations
                 columns: new[] { "LanguageId", "ResourceTypeId", "SkillId", "CreatedBy", "CreatedOn", "DeletedBy", "DeletedOn", "ModifiedBy", "ModifiedOn", "Value" },
                 values: new object[,]
                 {
-                    { 1, 1, 1, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(8122), null, null, null, null, "Fuerza" },
-                    { 2, 1, 1, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(8227), null, null, null, null, "Strength" },
-                    { 1, 1, 2, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(8147), null, null, null, null, "Destreza" },
-                    { 2, 1, 2, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(8247), null, null, null, null, "Dexterity" },
-                    { 1, 1, 3, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(8166), null, null, null, null, "Vitalidad" },
-                    { 2, 1, 3, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(8267), null, null, null, null, "Vitality" },
-                    { 1, 1, 4, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(8185), null, null, null, null, "Inteligencia" },
-                    { 2, 1, 4, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(8286), null, null, null, null, "Intelligence" },
-                    { 1, 1, 5, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(8206), null, null, null, null, "Fé" },
-                    { 2, 1, 5, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(8306), null, null, null, null, "Faith" }
+                    { 1, 1, 1, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(3407), null, null, null, null, "Fuerza" },
+                    { 2, 1, 1, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(3525), null, null, null, null, "Strength" },
+                    { 1, 1, 2, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(3450), null, null, null, null, "Destreza" },
+                    { 2, 1, 2, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(3543), null, null, null, null, "Dexterity" },
+                    { 1, 1, 3, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(3470), null, null, null, null, "Vitalidad" },
+                    { 2, 1, 3, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(3561), null, null, null, null, "Vitality" },
+                    { 1, 1, 4, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(3488), null, null, null, null, "Inteligencia" },
+                    { 2, 1, 4, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(3579), null, null, null, null, "Intelligence" },
+                    { 1, 1, 5, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(3506), null, null, null, null, "Fé" },
+                    { 2, 1, 5, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(3598), null, null, null, null, "Faith" }
                 });
 
             migrationBuilder.InsertData(
@@ -1245,10 +1243,10 @@ namespace MonsterSlayersAPI.DAL.Migrations
                 columns: new[] { "LanguageId", "ResourceTypeId", "ZoneId", "CreatedBy", "CreatedOn", "DeletedBy", "DeletedOn", "ModifiedBy", "ModifiedOn", "Value" },
                 values: new object[,]
                 {
-                    { 1, 1, 1, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(9935), null, null, null, null, "Ciudad" },
-                    { 2, 1, 1, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(9), null, null, null, null, "City" },
-                    { 1, 1, 2, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(9985), null, null, null, null, "Pradera" },
-                    { 2, 1, 2, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(30), null, null, null, null, "Field" }
+                    { 1, 1, 1, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5025), null, null, null, null, "Ciudad" },
+                    { 2, 1, 1, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5068), null, null, null, null, "City" },
+                    { 1, 1, 2, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5049), null, null, null, null, "Pradera" },
+                    { 2, 1, 2, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5087), null, null, null, null, "Field" }
                 });
 
             migrationBuilder.InsertData(
@@ -1257,12 +1255,12 @@ namespace MonsterSlayersAPI.DAL.Migrations
                 columns: new[] { "AbilityId", "LanguageId", "ResourceTypeId", "CreatedBy", "CreatedOn", "DeletedBy", "DeletedOn", "ModifiedBy", "ModifiedOn", "Value" },
                 values: new object[,]
                 {
-                    { 1, 1, 1, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(1552), null, null, null, null, "Punch" },
-                    { 1, 2, 1, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(1578), null, null, null, null, "Puño" },
-                    { 2, 1, 1, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(1598), null, null, null, null, "Puño ácido" },
-                    { 2, 2, 1, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(1616), null, null, null, null, "Acid punch" },
-                    { 3, 1, 1, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(1634), null, null, null, null, "Mordisco" },
-                    { 3, 2, 1, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(1653), null, null, null, null, "Bite" }
+                    { 1, 1, 1, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(6249), null, null, null, null, "Punch" },
+                    { 1, 2, 1, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(6267), null, null, null, null, "Puño" },
+                    { 2, 1, 1, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(6284), null, null, null, null, "Puño ácido" },
+                    { 2, 2, 1, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(6301), null, null, null, null, "Acid punch" },
+                    { 3, 1, 1, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(6318), null, null, null, null, "Mordisco" },
+                    { 3, 2, 1, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(6336), null, null, null, null, "Bite" }
                 });
 
             migrationBuilder.InsertData(
@@ -1271,14 +1269,14 @@ namespace MonsterSlayersAPI.DAL.Migrations
                 columns: new[] { "CharacterId", "DamageTypeId", "CreatedBy", "CreatedOn", "DeletedBy", "DeletedOn", "ModifiedBy", "ModifiedOn", "Value" },
                 values: new object[,]
                 {
-                    { 1, 1, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(9114), null, null, null, null, 0.0 },
-                    { 1, 2, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(9140), null, null, null, null, 0.0 },
-                    { 1, 3, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(9159), null, null, null, null, 0.0 },
-                    { 1, 4, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(9179), null, null, null, null, 0.0 },
-                    { 1, 5, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(9199), null, null, null, null, 0.0 },
-                    { 1, 6, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(9220), null, null, null, null, 0.0 },
-                    { 1, 7, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(9240), null, null, null, null, 0.0 },
-                    { 1, 8, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(9260), null, null, null, null, 0.0 }
+                    { 1, 1, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4273), null, null, null, null, 0.0 },
+                    { 1, 2, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4336), null, null, null, null, 0.0 },
+                    { 1, 3, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4354), null, null, null, null, 0.0 },
+                    { 1, 4, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4372), null, null, null, null, 0.0 },
+                    { 1, 5, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4389), null, null, null, null, 0.0 },
+                    { 1, 6, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4409), null, null, null, null, 0.0 },
+                    { 1, 7, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4427), null, null, null, null, 0.0 },
+                    { 1, 8, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(4443), null, null, null, null, 0.0 }
                 });
 
             migrationBuilder.InsertData(
@@ -1287,11 +1285,11 @@ namespace MonsterSlayersAPI.DAL.Migrations
                 columns: new[] { "CharacterId", "SkillId", "CreatedBy", "CreatedOn", "DeletedBy", "DeletedOn", "ModifiedBy", "ModifiedOn", "Real", "Total" },
                 values: new object[,]
                 {
-                    { 1, 1, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(8339), null, null, null, null, 1, 1 },
-                    { 1, 2, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(8360), null, null, null, null, 2, 1 },
-                    { 1, 3, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(8378), null, null, null, null, 1, 1 },
-                    { 1, 4, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(8394), null, null, null, null, 3, 1 },
-                    { 1, 5, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 683, DateTimeKind.Local).AddTicks(8428), null, null, null, null, 1, 1 }
+                    { 1, 1, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(3621), null, null, null, null, 1, 1 },
+                    { 1, 2, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(3639), null, null, null, null, 2, 1 },
+                    { 1, 3, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(3654), null, null, null, null, 1, 1 },
+                    { 1, 4, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(3671), null, null, null, null, 3, 1 },
+                    { 1, 5, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(3686), null, null, null, null, 1, 1 }
                 });
 
             migrationBuilder.InsertData(
@@ -1300,10 +1298,10 @@ namespace MonsterSlayersAPI.DAL.Migrations
                 columns: new[] { "AbilityId", "MonsterId", "CreatedBy", "CreatedOn", "DeletedBy", "DeletedOn", "ModifiedBy", "ModifiedOn" },
                 values: new object[,]
                 {
-                    { 1, 1, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(1682), null, null, null, null },
-                    { 3, 1, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(1730), null, null, null, null },
-                    { 2, 2, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(1750), null, null, null, null },
-                    { 3, 3, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(1769), null, null, null, null }
+                    { 1, 1, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(6357), null, null, null, null },
+                    { 3, 1, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(6376), null, null, null, null },
+                    { 2, 2, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(6392), null, null, null, null },
+                    { 3, 3, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(6409), null, null, null, null }
                 });
 
             migrationBuilder.InsertData(
@@ -1312,30 +1310,30 @@ namespace MonsterSlayersAPI.DAL.Migrations
                 columns: new[] { "DamageTypeId", "MonsterId", "CreatedBy", "CreatedOn", "DeletedBy", "DeletedOn", "ModifiedBy", "ModifiedOn", "Value" },
                 values: new object[,]
                 {
-                    { 1, 1, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(892), null, null, null, null, 0.0 },
-                    { 2, 1, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(919), null, null, null, null, 0.0 },
-                    { 3, 1, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(939), null, null, null, null, 0.0 },
-                    { 4, 1, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(959), null, null, null, null, 0.0 },
-                    { 5, 1, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(978), null, null, null, null, 0.0 },
-                    { 6, 1, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(999), null, null, null, null, 0.0 },
-                    { 7, 1, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(1019), null, null, null, null, 0.0 },
-                    { 8, 1, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(1039), null, null, null, null, 0.0 },
-                    { 1, 2, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(1059), null, null, null, null, 0.0 },
-                    { 2, 2, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(1079), null, null, null, null, 0.0 },
-                    { 3, 2, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(1099), null, null, null, null, 0.0 },
-                    { 4, 2, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(1119), null, null, null, null, 0.0 },
-                    { 5, 2, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(1139), null, null, null, null, 0.0 },
-                    { 6, 2, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(1160), null, null, null, null, 0.0 },
-                    { 7, 2, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(1179), null, null, null, null, 0.0 },
-                    { 8, 2, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(1230), null, null, null, null, 0.0 },
-                    { 1, 3, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(1249), null, null, null, null, 0.0 },
-                    { 2, 3, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(1270), null, null, null, null, 0.0 },
-                    { 3, 3, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(1292), null, null, null, null, 0.0 },
-                    { 4, 3, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(1312), null, null, null, null, 0.0 },
-                    { 5, 3, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(1331), null, null, null, null, 0.0 },
-                    { 6, 3, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(1352), null, null, null, null, 0.0 },
-                    { 7, 3, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(1371), null, null, null, null, 0.0 },
-                    { 8, 3, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(1392), null, null, null, null, 0.0 }
+                    { 1, 1, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5669), null, null, null, null, 0.0 },
+                    { 2, 1, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5690), null, null, null, null, 0.0 },
+                    { 3, 1, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5710), null, null, null, null, 0.0 },
+                    { 4, 1, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5728), null, null, null, null, 0.0 },
+                    { 5, 1, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5746), null, null, null, null, 0.0 },
+                    { 6, 1, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5765), null, null, null, null, 0.0 },
+                    { 7, 1, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5783), null, null, null, null, 0.0 },
+                    { 8, 1, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5801), null, null, null, null, 0.0 },
+                    { 1, 2, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5820), null, null, null, null, 0.0 },
+                    { 2, 2, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5838), null, null, null, null, 0.0 },
+                    { 3, 2, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5855), null, null, null, null, 0.0 },
+                    { 4, 2, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5874), null, null, null, null, 0.0 },
+                    { 5, 2, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5893), null, null, null, null, 0.0 },
+                    { 6, 2, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5912), null, null, null, null, 0.0 },
+                    { 7, 2, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5930), null, null, null, null, 0.0 },
+                    { 8, 2, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5949), null, null, null, null, 0.0 },
+                    { 1, 3, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5966), null, null, null, null, 0.0 },
+                    { 2, 3, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5987), null, null, null, null, 0.0 },
+                    { 3, 3, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(6005), null, null, null, null, 0.0 },
+                    { 4, 3, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(6023), null, null, null, null, 0.0 },
+                    { 5, 3, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(6040), null, null, null, null, 0.0 },
+                    { 6, 3, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(6058), null, null, null, null, 0.0 },
+                    { 7, 3, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(6092), null, null, null, null, 0.0 },
+                    { 8, 3, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(6111), null, null, null, null, 0.0 }
                 });
 
             migrationBuilder.InsertData(
@@ -1344,18 +1342,18 @@ namespace MonsterSlayersAPI.DAL.Migrations
                 columns: new[] { "LanguageId", "MonsterId", "ResourceTypeId", "CreatedBy", "CreatedOn", "DeletedBy", "DeletedOn", "ModifiedBy", "ModifiedOn", "Value" },
                 values: new object[,]
                 {
-                    { 1, 1, 1, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(588), null, null, null, null, "Dragón negro" },
-                    { 1, 1, 2, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(612), null, null, null, null, "un gran dragón negro" },
-                    { 2, 1, 1, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(764), null, null, null, null, "Black Dragon" },
-                    { 2, 1, 2, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(781), null, null, null, null, "A great black dragon" },
-                    { 1, 2, 1, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(632), null, null, null, null, "Limo" },
-                    { 1, 2, 2, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(650), null, null, null, null, "Una masa que lastima al contacto" },
-                    { 2, 2, 1, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(801), null, null, null, null, "Slime" },
-                    { 2, 2, 2, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(821), null, null, null, null, "A mass that hurts on contact" },
-                    { 1, 3, 1, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(718), null, null, null, null, "Lobo" },
-                    { 1, 3, 2, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(743), null, null, null, null, "Una criatura salvaje" },
-                    { 2, 3, 1, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(840), null, null, null, null, "Wolf" },
-                    { 2, 3, 2, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(858), null, null, null, null, "A wild creature" }
+                    { 1, 1, 1, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5433), null, null, null, null, "Dragón negro" },
+                    { 1, 1, 2, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5453), null, null, null, null, "un gran dragón negro" },
+                    { 2, 1, 1, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5537), null, null, null, null, "Black Dragon" },
+                    { 2, 1, 2, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5554), null, null, null, null, "A great black dragon" },
+                    { 1, 2, 1, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5471), null, null, null, null, "Limo" },
+                    { 1, 2, 2, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5487), null, null, null, null, "Una masa que lastima al contacto" },
+                    { 2, 2, 1, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5573), null, null, null, null, "Slime" },
+                    { 2, 2, 2, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5591), null, null, null, null, "A mass that hurts on contact" },
+                    { 1, 3, 1, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5503), null, null, null, null, "Lobo" },
+                    { 1, 3, 2, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5521), null, null, null, null, "Una criatura salvaje" },
+                    { 2, 3, 1, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5607), null, null, null, null, "Wolf" },
+                    { 2, 3, 2, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(5623), null, null, null, null, "A wild creature" }
                 });
 
             migrationBuilder.InsertData(
@@ -1364,8 +1362,8 @@ namespace MonsterSlayersAPI.DAL.Migrations
                 columns: new[] { "MonsterId", "ZoneId", "CreatedBy", "CreatedOn", "DeletedBy", "DeletedOn", "ModifiedBy", "ModifiedOn" },
                 values: new object[,]
                 {
-                    { 2, 2, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(1419), null, null, null, null },
-                    { 3, 2, "Seed", new DateTime(2023, 11, 24, 15, 18, 28, 684, DateTimeKind.Local).AddTicks(1442), null, null, null, null }
+                    { 2, 2, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(6132), null, null, null, null },
+                    { 3, 2, "Seed", new DateTime(2023, 11, 26, 18, 25, 34, 568, DateTimeKind.Local).AddTicks(6154), null, null, null, null }
                 });
 
             migrationBuilder.CreateIndex(

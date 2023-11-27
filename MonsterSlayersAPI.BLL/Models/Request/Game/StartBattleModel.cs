@@ -10,7 +10,6 @@ namespace MonsterSlayersAPI.BLL.Models.Request.Game
     public class StartBattleModel : BaseRequestModel
     {
         public int ZoneId { get; set; }
-        public DateTime StartDate { get; set; }
 
         public List<int> CharactersIds { get; set; }
         public List<int> MonstersIds { get; set; }

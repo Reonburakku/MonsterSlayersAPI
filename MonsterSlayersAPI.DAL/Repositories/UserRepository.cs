@@ -12,6 +12,6 @@ namespace MonsterSlayersAPI.DAL.Repositories
 {
     public class UserRepository : BaseRepository<User>, IUserRepository
     {
-        public UserRepository(MonsterSlayersContext context) : base(context) { }
+        public UserRepository(MonsterSlayersContext context, string source = "") : base(context, source) { }
     }
 }

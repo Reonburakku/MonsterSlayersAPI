@@ -13,7 +13,6 @@ namespace MonsterSlayersAPI.BLL.Entities
     {
         [Key]
         public int DamageTypeId { get; set; }
-        public string Name { get; set; }
         public string Image { get; set; }
 
 

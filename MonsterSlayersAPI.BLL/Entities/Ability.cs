@@ -16,7 +16,6 @@ namespace MonsterSlayersAPI.BLL.Entities
         public int AbilityId { get; set; }
         public int DamageTypeId { get; set; }
         public int SkillId { get; set; }
-        public string Name { get; set; }
         public string Image { get; set; }
         public int DamageDice { get; set; }
         public int ManaCost { get; set; }

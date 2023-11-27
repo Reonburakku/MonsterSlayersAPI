@@ -14,7 +14,6 @@ namespace MonsterSlayersAPI.BLL.Entities
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ClassId { get; set; }
-        public string Name { get; set; }
         public string Image { get; set; }
         public bool ForPlayer { get; set; }
 

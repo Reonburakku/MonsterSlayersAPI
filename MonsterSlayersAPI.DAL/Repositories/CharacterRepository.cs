@@ -14,7 +14,7 @@ namespace MonsterSlayersAPI.DAL.Repositories
 {
     public class CharacterRepository : BaseRepository<Character>, ICharacterRepository
     {
-        public CharacterRepository(MonsterSlayersContext context) : base(context) { }
+        public CharacterRepository(MonsterSlayersContext context, string source = "") : base(context, source) { }
 
         public async Task<IEnumerable<Character>> GetByIdRangeAsync(IEnumerable<int> CharacterIds, int languageId)
         {
@@ -29,8 +29,7 @@ namespace MonsterSlayersAPI.DAL.Repositories
                     {
                         DamageTypeId = cr.DamageTypeId,
                         Image = cr.DamageType.Image,
-                        DamageTypeResources = cr.DamageType.DamageTypeResources.Where(dtr => dtr.LanguageId == languageId).ToArray(),
-                        Name = cr.DamageType.Name
+                        DamageTypeResources = cr.DamageType.DamageTypeResources.Where(dtr => dtr.LanguageId == languageId).ToArray()
                     },
                     DamageTypeId = cr.DamageTypeId,
                     Value = cr.Value,
@@ -38,10 +37,9 @@ namespace MonsterSlayersAPI.DAL.Repositories
                 Class = c.Class,
                 ClassId = c.ClassId,
                 CharacterAbilitys = c.CharacterAbilitys,
-                CreatureId = c.ClassId,
+                CreatureId = c.CreatureId,
                 CritDamage = c.CritDamage,
                 CritRate = c.CritRate,
-                CurrentHP = c.CurrentHP,
                 Experience = c.Experience,
                 HP = c.HP,
                 Image = c.Image,
@@ -79,8 +77,7 @@ namespace MonsterSlayersAPI.DAL.Repositories
                     {
                         DamageTypeId = cr.DamageTypeId,
                         Image = cr.DamageType.Image,
-                        DamageTypeResources = cr.DamageType.DamageTypeResources.Where(dtr => dtr.LanguageId == languageId).ToArray(),
-                        Name = cr.DamageType.Name
+                        DamageTypeResources = cr.DamageType.DamageTypeResources.Where(dtr => dtr.LanguageId == languageId).ToArray()
                     },
                     DamageTypeId = cr.DamageTypeId,
                     Value = cr.Value,
@@ -98,7 +95,6 @@ namespace MonsterSlayersAPI.DAL.Repositories
                     AbilityId = ch.AbilityId,
                     Ability = new Ability
                     {
-                        Name = ch.Ability.Name,
                         DamageDice = ch.Ability.DamageDice,
                         DamageType = ch.Ability.DamageType,
                         DamageTypeId = ch.Ability.DamageTypeId,
@@ -108,10 +104,9 @@ namespace MonsterSlayersAPI.DAL.Repositories
                         AbilityResources = ch.Ability.AbilityResources.Where(hr => hr.LanguageId == languageId).ToArray()
                     }
                 }).ToArray(),
-                CreatureId = c.ClassId,
+                CreatureId = c.CreatureId,
                 CritDamage = c.CritDamage,
                 CritRate = c.CritRate,
-                CurrentHP = c.CurrentHP,
                 Experience = c.Experience,
                 HP = c.HP,
                 Image = c.Image,
@@ -134,7 +129,6 @@ namespace MonsterSlayersAPI.DAL.Repositories
                 Stamina = c.Stamina,
                 Zone = new Zone
                 {
-                    Name = c.Zone.Name,
                     Image = c.Image,
                     ZoneId = c.ZoneId,
                     ZoneResources = c.Zone.ZoneResources.Where(zr => zr.LanguageId == languageId).ToArray()
@@ -152,10 +146,9 @@ namespace MonsterSlayersAPI.DAL.Repositories
                 Class = c.Class,
                 ClassId = c.ClassId,
                 CharacterAbilitys = c.CharacterAbilitys,
-                CreatureId = c.ClassId,
+                CreatureId = c.CreatureId,
                 CritDamage = c.CritDamage,
                 CritRate = c.CritRate,
-                CurrentHP = c.CurrentHP,
                 Experience = c.Experience,
                 HP = c.HP,
                 Image = c.Image,

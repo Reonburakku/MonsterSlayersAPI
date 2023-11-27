@@ -21,9 +21,15 @@ namespace MonsterSlayersAPI.BLL.Utilities
             }
             return damage;
         }
-        public static double AplyResistance(int damage, double resistance)
+        public static double AplyResistance(double damage, double resistance)
         {
             return damage - (damage * resistance / 100);
+        }
+
+        public static T GetRandomElement<T>(this IEnumerable<T> enumerable)
+        {
+            int index = Random.Shared.Next(0, enumerable.Count());
+            return enumerable.ElementAt(index);
         }
     }
 }

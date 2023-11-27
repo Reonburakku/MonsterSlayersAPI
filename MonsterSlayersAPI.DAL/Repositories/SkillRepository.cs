@@ -12,7 +12,7 @@ namespace MonsterSlayersAPI.DAL.Repositories
 {
     public class SkillRepository : BaseRepository<Skill>, ISkillRepository
     {
-        public SkillRepository(MonsterSlayersContext context) : base(context) { }
+        public SkillRepository(MonsterSlayersContext context, string source = "") : base(context, source) { }
 
         public async Task<IEnumerable<Skill>> GetByCharacterIdAsync(int characterId, int languageId)
         {

@@ -17,11 +17,13 @@ namespace MonsterSlayersAPI.DAL.Repositories.Base
         public MonsterSlayersContext context;
         public DbSet<TEntity> dbSet;
         public LanguageEnum language;
+        public string source;
 
-        public BaseRepository(MonsterSlayersContext context)
+        public BaseRepository(MonsterSlayersContext context, string source)
         {
             this.context = context;
             dbSet = context.Set<TEntity>();
+            this.source = source;
         }
 
         public async Task<IEnumerable<TEntity>> GetAllAsync()
@@ -47,6 +49,13 @@ namespace MonsterSlayersAPI.DAL.Repositories.Base
         public async Task<TEntity> Save(TEntity entity)
         {
             await dbSet.AddAsync(entity);
+            context.SaveChanges(source);
+            return entity;
+        }
+        public TEntity Update(TEntity entity)
+        {
+            dbSet.Update(entity);
+            context.SaveChanges(source);
             return entity;
         }
     }

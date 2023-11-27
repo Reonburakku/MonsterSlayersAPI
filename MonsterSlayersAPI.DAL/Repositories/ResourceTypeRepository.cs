@@ -12,6 +12,6 @@ namespace MonsterSlayersAPI.DAL.Repositories
 {
     public class ResourceTypeRepository : BaseRepository<ResourceType>, IResourceTypeRepository
     {
-        public ResourceTypeRepository(MonsterSlayersContext context) : base(context) { }
+        public ResourceTypeRepository(MonsterSlayersContext context, string source = "") : base(context, source) { }
     }
 }

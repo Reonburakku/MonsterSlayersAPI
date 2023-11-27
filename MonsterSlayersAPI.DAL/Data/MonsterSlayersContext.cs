@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Conventions;
 using MonsterSlayersAPI.BLL.Entities;
+using MonsterSlayersAPI.BLL.Interfaces.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -167,7 +168,6 @@ namespace MonsterSlayersAPI.Security.DAL.Data
                 CritDamage = 2,
                 Stamina = 6,
                 Mana = 20,
-                CurrentHP = 10,
                 CreatedBy = "Seed",
                 CreatedOn = DateTime.Now
 
@@ -453,7 +453,6 @@ namespace MonsterSlayersAPI.Security.DAL.Data
             builder.Entity<DamageType>().HasData(new DamageType()
             {
                 DamageTypeId = 1,
-                Name = "Lightning",
                 Image = "LightningLogo",
                 CreatedBy = "Seed",
                 CreatedOn = DateTime.Now
@@ -461,7 +460,6 @@ namespace MonsterSlayersAPI.Security.DAL.Data
             builder.Entity<DamageType>().HasData(new DamageType()
             {
                 DamageTypeId = 2,
-                Name = "Fire",
                 Image = "FireLogo",
                 CreatedBy = "Seed",
                 CreatedOn = DateTime.Now
@@ -469,7 +467,6 @@ namespace MonsterSlayersAPI.Security.DAL.Data
             builder.Entity<DamageType>().HasData(new DamageType()
             {
                 DamageTypeId = 3,
-                Name = "Water",
                 Image = "WaterLogo",
                 CreatedBy = "Seed",
                 CreatedOn = DateTime.Now
@@ -477,7 +474,6 @@ namespace MonsterSlayersAPI.Security.DAL.Data
             builder.Entity<DamageType>().HasData(new DamageType()
             {
                 DamageTypeId = 4,
-                Name = "Wind",
                 Image = "WindLogo",
                 CreatedBy = "Seed",
                 CreatedOn = DateTime.Now
@@ -485,7 +481,6 @@ namespace MonsterSlayersAPI.Security.DAL.Data
             builder.Entity<DamageType>().HasData(new DamageType()
             {
                 DamageTypeId = 5,
-                Name = "Earth",
                 Image = "EarthLogo",
                 CreatedBy = "Seed",
                 CreatedOn = DateTime.Now
@@ -493,7 +488,6 @@ namespace MonsterSlayersAPI.Security.DAL.Data
             builder.Entity<DamageType>().HasData(new DamageType()
             {
                 DamageTypeId = 6,
-                Name = "Radiant",
                 Image = "RadiantLogo",
                 CreatedBy = "Seed",
                 CreatedOn = DateTime.Now
@@ -501,7 +495,6 @@ namespace MonsterSlayersAPI.Security.DAL.Data
             builder.Entity<DamageType>().HasData(new DamageType()
             {
                 DamageTypeId = 7,
-                Name = "Neutral",
                 Image = "NeutralLogo",
                 CreatedBy = "Seed",
                 CreatedOn = DateTime.Now
@@ -509,7 +502,6 @@ namespace MonsterSlayersAPI.Security.DAL.Data
             builder.Entity<DamageType>().HasData(new DamageType()
             {
                 DamageTypeId = 8,
-                Name = "Acid",
                 Image = "AcidLogo",
                 CreatedBy = "Seed",
                 CreatedOn = DateTime.Now
@@ -667,7 +659,6 @@ namespace MonsterSlayersAPI.Security.DAL.Data
             builder.Entity<Class>().HasData(new Class()
             {
                 ClassId = 1,
-                Name = "Monster",
                 ForPlayer = false,
                 Image = "MonsterLogo",
                 CreatedBy = "Seed",
@@ -676,7 +667,6 @@ namespace MonsterSlayersAPI.Security.DAL.Data
             builder.Entity<Class>().HasData(new Class()
             {
                 ClassId = 2,
-                Name = "Mage",
                 ForPlayer = true,
                 Image = "MageLogo",
                 CreatedBy = "Seed",
@@ -685,7 +675,6 @@ namespace MonsterSlayersAPI.Security.DAL.Data
             builder.Entity<Class>().HasData(new Class()
             {
                 ClassId = 3,
-                Name = "Warrior",
                 ForPlayer = true,
                 Image = "WarriorLogo",
                 CreatedBy = "Seed",
@@ -694,7 +683,6 @@ namespace MonsterSlayersAPI.Security.DAL.Data
             builder.Entity<Class>().HasData(new Class()
             {
                 ClassId = 4,
-                Name = "Cleric",
                 ForPlayer = true,
                 Image = "ClericLogo",
                 CreatedBy = "Seed",
@@ -896,7 +884,6 @@ namespace MonsterSlayersAPI.Security.DAL.Data
             builder.Entity<Zone>().HasData(new Zone()
             {
                 ZoneId = 1,
-                Name = "City",
                 Image = "CityBackGround",
                 CreatedBy = "Seed",
                 CreatedOn = DateTime.Now
@@ -904,7 +891,6 @@ namespace MonsterSlayersAPI.Security.DAL.Data
             builder.Entity<Zone>().HasData(new Zone()
             {
                 ZoneId = 2,
-                Name = "Field",
                 Image = "FieldBackGround",
                 CreatedBy = "Seed",
                 CreatedOn = DateTime.Now
@@ -1054,7 +1040,6 @@ namespace MonsterSlayersAPI.Security.DAL.Data
             {
                 MonsterId = 1,
                 CreatureId = 1,
-                Name = "Black Dragon",
                 HP = 500,
                 Image = "",
                 Mana = 50,
@@ -1068,7 +1053,6 @@ namespace MonsterSlayersAPI.Security.DAL.Data
             {
                 MonsterId = 2,
                 CreatureId = 3,
-                Name = "Slime",
                 HP = 10,
                 Image = "",
                 Mana = 0,
@@ -1082,7 +1066,6 @@ namespace MonsterSlayersAPI.Security.DAL.Data
             {
                 MonsterId = 3,
                 CreatureId = 4,
-                Name = "Wolf",
                 HP = 40,
                 Image = "",
                 Mana = 0,
@@ -1421,7 +1404,6 @@ namespace MonsterSlayersAPI.Security.DAL.Data
             builder.Entity<Ability>().HasData(new Ability()
             {
                 AbilityId = 1,
-                Name = "Punch",
                 Image = "PunchLogo",
                 DamageTypeId = 7,
                 DamageDice = 1,
@@ -1434,7 +1416,6 @@ namespace MonsterSlayersAPI.Security.DAL.Data
             builder.Entity<Ability>().HasData(new Ability()
             {
                 AbilityId = 2,
-                Name = "AcidPunch",
                 Image = "AcidPunchLogo",
                 DamageTypeId = 8,
                 DamageDice = 1,
@@ -1447,7 +1428,6 @@ namespace MonsterSlayersAPI.Security.DAL.Data
             builder.Entity<Ability>().HasData(new Ability()
             {
                 AbilityId = 3,
-                Name = "Bite",
                 Image = "BiteLogo",
                 DamageTypeId = 7,
                 DamageDice = 1,
@@ -1545,6 +1525,34 @@ namespace MonsterSlayersAPI.Security.DAL.Data
                 CreatedBy = "Seed",
                 CreatedOn = DateTime.Now
             });
+        }
+
+        public int SaveChanges(string Source)
+        {
+            var now = DateTime.Now;
+
+            foreach (var changedEntity in ChangeTracker.Entries())
+            {
+                if (changedEntity.Entity is IBaseEntity entity)
+                {
+                    switch (changedEntity.State)
+                    {
+                        case EntityState.Added:
+                            entity.CreatedOn = now;
+                            entity.CreatedBy = Source;
+                            break;
+
+                        case EntityState.Modified:
+                            Entry(entity).Property(x => x.CreatedOn).IsModified = false;
+                            Entry(entity).Property(x => x.CreatedBy).IsModified = false;
+                            entity.ModifiedOn = now;
+                            entity.ModifiedBy = Source;
+                            break;
+                    }
+                }
+            }
+
+            return base.SaveChanges();
         }
     }
 }

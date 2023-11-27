@@ -13,7 +13,7 @@ namespace MonsterSlayersAPI.DAL.Repositories
 {
     public class AbilityRepository : BaseRepository<Ability>, IAbilityRepository
     {
-        public AbilityRepository(MonsterSlayersContext context) : base(context) { }
+        public AbilityRepository(MonsterSlayersContext context, string source = "") : base(context, source) { }
 
         public async Task<IEnumerable<Ability>> GetAllByCharacterIdAsync(int characterId, int languageId)
         {
@@ -74,7 +74,6 @@ namespace MonsterSlayersAPI.DAL.Repositories
             return await dbSet.Select(x => new Ability
             {
                 AbilityId = x.AbilityId,
-                Name = x.Name,
                 SkillId = x.SkillId,
                 DamageDice = x.DamageDice,
                 DamageType = new DamageType

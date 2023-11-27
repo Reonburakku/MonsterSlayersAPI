@@ -13,7 +13,7 @@ namespace MonsterSlayersAPI.DAL.Repositories
 {
     public class BattleRepository : BaseRepository<Battle>, IBattleRepository
     {
-        public BattleRepository(MonsterSlayersContext context) : base(context) { }
+        public BattleRepository(MonsterSlayersContext context, string source = "") : base(context, source) { }
 
         public async ValueTask<Battle> GetByIdAsync(int id, int languageId)
         {
@@ -22,9 +22,13 @@ namespace MonsterSlayersAPI.DAL.Repositories
                 BattleId = x.BattleId,
                 BattleActions = x.BattleActions,
                 BattleParticipants = x.BattleParticipants,
+                Turn = x.Turn,
+                Round = x.Round,
+                TeamWinner = x.TeamWinner,
                 StartDate = x.StartDate,
                 EndDate = x.EndDate,
-                Zone = x.Zone
+                Zone = x.Zone,
+                ZoneId = x.ZoneId
             }).Where(x => x.BattleId == id).FirstAsync();
         }
     }

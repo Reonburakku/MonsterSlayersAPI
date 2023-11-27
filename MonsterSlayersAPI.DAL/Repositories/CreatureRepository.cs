@@ -13,7 +13,7 @@ namespace MonsterSlayersAPI.DAL.Repositories
 {
     public class CreatureRepository : BaseRepository<Creature>, ICreatureRepository
     {
-        public CreatureRepository(MonsterSlayersContext context) : base(context) { }
+        public CreatureRepository(MonsterSlayersContext context, string source = "") : base(context, source) { }
 
         public async Task<Creature> GetInfoById(int creatureid, int languageId)
         {
@@ -30,7 +30,6 @@ namespace MonsterSlayersAPI.DAL.Repositories
                     CreatureId = c.ClassId,
                     CritDamage = c.CritDamage,
                     CritRate = c.CritRate,
-                    CurrentHP = c.CurrentHP,
                     Experience = c.Experience,
                     HP = c.HP,
                     Image = c.Image,
@@ -73,7 +72,6 @@ namespace MonsterSlayersAPI.DAL.Repositories
                     CreatureId = c.ClassId,
                     CritDamage = c.CritDamage,
                     CritRate = c.CritRate,
-                    CurrentHP = c.CurrentHP,
                     Experience = c.Experience,
                     HP = c.HP,
                     Image = c.Image,

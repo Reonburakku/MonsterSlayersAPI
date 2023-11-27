@@ -42,41 +42,45 @@ namespace MonsterSlayersAPI.DAL.Data
         private ZoneRepository _zoneRepository;
         private ZoneResourceRepository _zoneResourceRepository;
 
+        public string Source {  get; set; }
+
         public UnityOfWork(MonsterSlayersContext context)
         {
             this._context = context;
         }
 
-        public IAbilityRepository AbilityRepository => _AbilityRepository ??= new AbilityRepository(_context);
-        public IAbilityResourceRepository AbilityResourceRepository => _AbilityResourceRepository ??= new AbilityResourceRepository(_context);
-        public IBattleRepository BattleRepository => _battleRepository ??= new BattleRepository(_context);
-        public IBattleActionRepository BattleActionRepository => _battleActionRepository ??= new BattleActionRepository(_context);
-        public IBattleParticipantRepository BattleParticipantRepository => _battleParticipantRepository ??= new BattleParticipantRepository(_context);
-        public ICharacterRepository CharacterRepository => _characterRepository ??= new CharacterRepository(_context);
-        public ICharacterAbilityRepository haracterAbilityRepository => _characterAbilityRepository ??= new CharacterAbilityRepository(_context);
-        public ICharacterResistanceRepository CharacterResistanceRepository => _characterResistanceRepository ??= new CharacterResistanceRepository(_context);
-        public ICharacterSkillRepository CharacterSkillRepository => _characterSkillRepository ??= new CharacterSkillRepository(_context);
-        public IClassRepository ClassRepository => _classRepository ??= new ClassRepository(_context);
-        public IClassAbilityRepository ClassAbilityRepository => _classAbilityRepository ??= new ClassAbilityRepository(_context);
-        public IClassResourceRepository ClassResourceRepository => _classResourceRepository ??= new ClassResourceRepository(_context);
-        public ICreatureRepository CreatureRepository => _creatureRepository ??= new CreatureRepository(_context);
-        public IDamageTypeRepository DamageTypeRepository => _damageTypeRepository ??= new DamageTypeRepository(_context);
-        public IDamageTypeResourceRepository DamageTypeResourceRepository => _damageTypeResourceRepository ??= new DamageTypeResourceRepository(_context);
-        public ILanguageRepository LanguageRepository => _languageRepository ??= new LanguageRepository(_context);
-        public IMonsterRepository MonsterRepository => _monsterRepository ??= new MonsterRepository(_context);
-        public IMonsterAbilityRepository MonsterAbilityRepository => _monsterAbilityRepository ??= new MonsterAbilityRepository(_context);
-        public IMonsterResourceRepository MonsterResourceRepository => _monsterResourceRepository ??= new MonsterResourceRepository(_context);
-        public IMonsterResistanceRepository MonsterResistanceRepository => _monsterResistanceRepository ??= new MonsterResistanceRepository(_context);
-        public IMonsterZoneRepository MonsterZoneRepository => _monsterZoneRepository ??= new MonsterZoneRepository(_context);
-        public IResourceTypeRepository ResourceTypeRepository => _resourceTypeRepository ??= new ResourceTypeRepository(_context);
-        public ISkillRepository SkillRepository => _skillRepository ??= new SkillRepository(_context);
-        public IUserRepository UserRepository => _userRepository ??= new UserRepository(_context);
-        public IZoneRepository ZoneRepository => _zoneRepository ??= new ZoneRepository(_context);
-        public IZoneResourceRepository ZoneResourceRepository => _zoneResourceRepository ??= new ZoneResourceRepository(_context);
+        public IAbilityRepository AbilityRepository => _AbilityRepository ??= new AbilityRepository(_context, Source);
+        public IAbilityResourceRepository AbilityResourceRepository => _AbilityResourceRepository ??= new AbilityResourceRepository(_context, Source);
+        public IBattleRepository BattleRepository => _battleRepository ??= new BattleRepository(_context, Source);
+        public IBattleActionRepository BattleActionRepository => _battleActionRepository ??= new BattleActionRepository(_context, Source);
+        public IBattleParticipantRepository BattleParticipantRepository => _battleParticipantRepository ??= new BattleParticipantRepository(_context, Source);
+        public ICharacterRepository CharacterRepository => _characterRepository ??= new CharacterRepository(_context, Source);
+        public ICharacterAbilityRepository haracterAbilityRepository => _characterAbilityRepository ??= new CharacterAbilityRepository(_context, Source);
+        public ICharacterResistanceRepository CharacterResistanceRepository => _characterResistanceRepository ??= new CharacterResistanceRepository(_context, Source);
+        public ICharacterSkillRepository CharacterSkillRepository => _characterSkillRepository ??= new CharacterSkillRepository(_context, Source);
+        public IClassRepository ClassRepository => _classRepository ??= new ClassRepository(_context, Source);
+        public IClassAbilityRepository ClassAbilityRepository => _classAbilityRepository ??= new ClassAbilityRepository(_context, Source);
+        public IClassResourceRepository ClassResourceRepository => _classResourceRepository ??= new ClassResourceRepository(_context, Source);
+        public ICreatureRepository CreatureRepository => _creatureRepository ??= new CreatureRepository(_context, Source);
+        public IDamageTypeRepository DamageTypeRepository => _damageTypeRepository ??= new DamageTypeRepository(_context, Source);
+        public IDamageTypeResourceRepository DamageTypeResourceRepository => _damageTypeResourceRepository ??= new DamageTypeResourceRepository(_context, Source);
+        public ILanguageRepository LanguageRepository => _languageRepository ??= new LanguageRepository(_context, Source);
+        public IMonsterRepository MonsterRepository => _monsterRepository ??= new MonsterRepository(_context, Source);
+        public IMonsterAbilityRepository MonsterAbilityRepository => _monsterAbilityRepository ??= new MonsterAbilityRepository(_context, Source);
+        public IMonsterResourceRepository MonsterResourceRepository => _monsterResourceRepository ??= new MonsterResourceRepository(_context, Source);
+        public IMonsterResistanceRepository MonsterResistanceRepository => _monsterResistanceRepository ??= new MonsterResistanceRepository(_context, Source);
+        public IMonsterZoneRepository MonsterZoneRepository => _monsterZoneRepository ??= new MonsterZoneRepository(_context, Source);
+        public IResourceTypeRepository ResourceTypeRepository => _resourceTypeRepository ??= new ResourceTypeRepository(_context, Source);
+        public ISkillRepository SkillRepository => _skillRepository ??= new SkillRepository(_context, Source);
+        public IUserRepository UserRepository => _userRepository ??= new UserRepository(_context, Source);
+        public IZoneRepository ZoneRepository => _zoneRepository ??= new ZoneRepository(_context, Source);
+        public IZoneResourceRepository ZoneResourceRepository => _zoneResourceRepository ??= new ZoneResourceRepository(_context, Source);
 
-        public async Task<int> CommitAsync()
+
+        public int CommitAsync()
         {
-            return await _context.SaveChangesAsync();
+            
+            return _context.SaveChanges(Source);
         }
     }
 }

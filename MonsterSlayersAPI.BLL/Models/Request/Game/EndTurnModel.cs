@@ -10,6 +10,6 @@ namespace MonsterSlayersAPI.BLL.Models.Request.Game
     public class EndTurnModel : BaseRequestModel
     {
         public int BattleId { get; set; }
-        public int CharacterId { get; set; }
+        public int CreatureId { get; set; }
     }
 }

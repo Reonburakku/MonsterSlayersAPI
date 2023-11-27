@@ -18,6 +18,8 @@ namespace MonsterSlayersAPI.BLL.Entities
         public DateTime StartDate { get; set; }
         public DateTime? EndDate { get; set; }
         public string? TeamWinner { get; set; }
+        public int? Turn {  get; set; }
+        public int Round {  get; set; }
 
 
         [ForeignKey(nameof(ZoneId))]

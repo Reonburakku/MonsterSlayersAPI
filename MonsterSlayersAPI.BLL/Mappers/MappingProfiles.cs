@@ -16,7 +16,8 @@ namespace MonsterSlayersAPI.BLL.Mappers
         {
             //Character
             CreateMap<Character, CharacterInfoResultModel>();
-            CreateMap<Character, CharacterBattleModel>().ReverseMap();
+            CreateMap<Character, CharacterBattleModel>()
+                .ForMember(dest => dest.CurrentHP, opt => opt.MapFrom(src => src.HP)).ReverseMap();
             CreateMap<CharacterSkill, SkillBattleModel>()
                 .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Skill.SkillResources.Where(z => (z.ResourceTypeId == (int)ResourceTypeEnum.Name)).FirstOrDefault().Value));
             CreateMap<CharacterResistance, ResistanceBattleModel>()
@@ -32,6 +33,11 @@ namespace MonsterSlayersAPI.BLL.Mappers
             CreateMap<BattleParticipant, ParticipantResultModel>()
                 .ForMember(dest => dest.CreatureId, opt => opt.MapFrom(src => src.CreatureId))
                 .ForMember(dest => dest.Order, opt => opt.MapFrom(src => src.Order));
+
+
+            CreateMap<BattleAction, BattleActionModel>()
+                .ForMember(dest => dest.SourceCreatureId, opt => opt.MapFrom(src => src.BattleActionAffecteds.First(x => x.Type == "Source").CreatureId))
+                .ForMember(dest => dest.TargetCreatureId, opt => opt.MapFrom(src => src.BattleActionAffecteds.First(x => x.Type == "Target").CreatureId));
 
             //Monster
             CreateMap<Monster, MonsterBattleModel>()

@@ -50,10 +50,11 @@ builder.Services.AddAuthentication(options =>
 
 builder.Services.AddAuthorization();
 
+builder.Services.AddScoped(typeof(IUnityOfWork), typeof(UnityOfWork));
+
 // Repositories
 builder.Services.AddScoped(typeof(IAbilityRepository), typeof(AbilityRepository));
 builder.Services.AddScoped(typeof(IAbilityResourceRepository), typeof(AbilityResourceRepository));
-builder.Services.AddScoped(typeof(IUnityOfWork), typeof(UnityOfWork));
 builder.Services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
 builder.Services.AddScoped(typeof(IBattleRepository), typeof(BattleRepository));
 builder.Services.AddScoped(typeof(IBattleActionRepository), typeof(BattleActionRepository));
@@ -86,7 +87,6 @@ builder.Services.AddScoped(typeof(IParametrizationService), typeof(Parametrizati
 
 // Utilities
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

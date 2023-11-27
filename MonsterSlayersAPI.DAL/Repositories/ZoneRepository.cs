@@ -15,13 +15,12 @@ namespace MonsterSlayersAPI.DAL.Repositories
     public class ZoneRepository : BaseRepository<Zone>, IZoneRepository
     {
 
-        public ZoneRepository(MonsterSlayersContext context) : base(context) { }
+        public ZoneRepository(MonsterSlayersContext context, string source = "") : base(context, source) { }
 
         public async Task<IEnumerable<Zone>> GetAllAsync(int languageId)
         {
             return await dbSet.Select(x => new Zone
             {
-                Name = x.Name,
                 ZoneResources = x.ZoneResources.Where(r => r.LanguageId == languageId).ToArray(),
                 ZoneId = x.ZoneId
             }).ToArrayAsync();
@@ -30,7 +29,6 @@ namespace MonsterSlayersAPI.DAL.Repositories
         {
             return await dbSet.Select(x => new Zone
             {
-                Name = x.Name,
                 ZoneResources = x.ZoneResources.Where(r => r.LanguageId == languageId).ToArray(),
                 ZoneId = x.ZoneId
             }).FirstAsync(x => x.ZoneId == id);

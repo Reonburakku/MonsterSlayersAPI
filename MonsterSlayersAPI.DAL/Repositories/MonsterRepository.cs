@@ -13,7 +13,7 @@ namespace MonsterSlayersAPI.DAL.Repositories
 {
     public class MonsterRepository : BaseRepository<Monster>, IMonsterRepository
     {
-        public MonsterRepository(MonsterSlayersContext context) : base(context) { }
+        public MonsterRepository(MonsterSlayersContext context, string source = "") : base(context, source) { }
 
         public async Task<IEnumerable<Monster>> GetAllByZoneId(int zoneId, int languageId)
         {

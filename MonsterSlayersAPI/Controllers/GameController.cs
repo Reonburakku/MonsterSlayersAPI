@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Azure;
+using Microsoft.AspNetCore.Mvc;
 using MonsterSlayersAPI.BLL.Entities;
 using MonsterSlayersAPI.BLL.Enumerations;
 using MonsterSlayersAPI.BLL.Interfaces.Repositories;
@@ -24,48 +25,32 @@ namespace MonsterSlayersAPI.Controllers
         [Route("GetBattleById")]
         public async Task<IActionResult> GetBattleByIdAsync([FromBody] GetBattleByIdModel model)
         {
-            var zones = await battleService.GetBattleByIdAsync(model);
-            return Ok(zones);
-        }
-
-        [HttpPost]
-        [Route("GetZoneMonsters")]
-        public async Task<IActionResult> GetMonstersByZoneId([FromBody] GetMonstersByZoneIdModel model)
-        {
-            var zones = await battleService.GetMonstersByZoneId(model);
-            return Ok(zones);
-        }
-
-        [HttpPost]
-        [Route("GoToZone")]
-        public async Task<IActionResult> GoToZone([FromBody] SetCharacterZoneIdModel model)
-        {
-            var zones = await battleService.SetCharacterZoneId(model);
-            return Ok(zones);
+            var response = await battleService.GetBattleByIdAsync(model);
+            return Ok(response);
         }
 
         [HttpPost]
         [Route("StartBattle")]
         public async Task<IActionResult> StartBattle([FromBody] StartBattleModel model)
         {
-            var zones = await battleService.StartBattle(model);
-            return Ok(zones);
+            var response = await battleService.StartBattle(model);
+            return Ok(response);
         }
 
         [HttpPost]
         [Route("Attack")]
         public async Task<IActionResult> UseAbility([FromBody] UseAbilityModel model)
         {
-            var zones = await battleService.UseAbility(model);
-            return Ok(zones);
+            var response = await battleService.UseAbility(model);
+            return Ok(response);
         }
 
         [HttpPost]
         [Route("EndTurn")]
         public async Task<IActionResult> EndTurn([FromBody] EndTurnModel model)
         {
-            var zones = await battleService.EndTurn(model);
-            return Ok(zones);
+            var response = await battleService.EndTurn(model);
+            return Ok(response);
         }
     }
 }

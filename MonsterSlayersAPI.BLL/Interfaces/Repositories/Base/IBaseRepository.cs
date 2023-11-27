@@ -12,6 +12,6 @@ namespace MonsterSlayersAPI.BLL.Interfaces.Repositories.Base
         ValueTask<TEntity> GetByIdAsync(int id);
         //Task<IEnumerable<TEntity>> GetByIdRangeAsync(IEnumerable<int> values);
         Task<TEntity> Save(TEntity entity);
-
+        TEntity Update(TEntity entity);
     }
 }
