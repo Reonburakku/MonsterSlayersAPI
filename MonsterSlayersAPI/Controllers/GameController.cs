@@ -22,7 +22,7 @@ namespace MonsterSlayersAPI.Controllers
         }
 
         [HttpPost]
-        [Route("GetBattleById")]
+        [Route("get-battle-by-id")]
         public async Task<IActionResult> GetBattleByIdAsync([FromBody] GetBattleByIdModel model)
         {
             var response = await battleService.GetBattleByIdAsync(model);
@@ -30,7 +30,7 @@ namespace MonsterSlayersAPI.Controllers
         }
 
         [HttpPost]
-        [Route("StartBattle")]
+        [Route("start-battle")]
         public async Task<IActionResult> StartBattle([FromBody] StartBattleModel model)
         {
             var response = await battleService.StartBattle(model);
@@ -38,7 +38,7 @@ namespace MonsterSlayersAPI.Controllers
         }
 
         [HttpPost]
-        [Route("Attack")]
+        [Route("attack")]
         public async Task<IActionResult> UseAbility([FromBody] UseAbilityModel model)
         {
             var response = await battleService.UseAbility(model);
@@ -46,7 +46,7 @@ namespace MonsterSlayersAPI.Controllers
         }
 
         [HttpPost]
-        [Route("EndTurn")]
+        [Route("end-turn")]
         public async Task<IActionResult> EndTurn([FromBody] EndTurnModel model)
         {
             var response = await battleService.EndTurn(model);

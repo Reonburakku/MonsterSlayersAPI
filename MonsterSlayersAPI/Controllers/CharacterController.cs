@@ -17,7 +17,7 @@ namespace MonsterSlayersAPI.Controllers
         }
 
         [HttpPost]
-        [Route("GoToZone")]
+        [Route("go-to-zone")]
         public async Task<IActionResult> GoToZone([FromBody] SetCharacterZoneIdModel model)
         {
             var response = await characterService.SetCharacterZoneId(model);

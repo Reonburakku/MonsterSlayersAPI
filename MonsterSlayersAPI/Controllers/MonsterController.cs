@@ -17,7 +17,7 @@ namespace MonsterSlayersAPI.Controllers
         }
 
         [HttpPost]
-        [Route("GetZoneMonsters")]
+        [Route("get-zone-monsters")]
         public async Task<IActionResult> GetMonstersByZoneId([FromBody] GetMonstersByZoneIdModel model)
         {
             var response = await monsterService.GetMonstersByZoneId(model);

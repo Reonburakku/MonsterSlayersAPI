@@ -16,16 +16,16 @@ namespace MonsterSlayersAPI.Controllers
             this.zoneService = zoneService;
         }
 
-        [HttpPost]
-        [Route("GetAllZones")]
-        public async Task<IActionResult> GetAllZones([FromBody] BaseRequestModel model)
+        [HttpGet]
+        [Route("get-all-zones")]
+        public async Task<IActionResult> GetAllZones(BaseRequestModel model)
         {
             var zones = await zoneService.GetAllZonesAsync(model);
             return Ok(zones);
         }
 
-        [HttpPost]
-        [Route("GetZoneById")]
+        [HttpGet]
+        [Route("get-zone-by-id")]
         public async Task<IActionResult> GetZoneById([FromBody] GetZoneByIdModel model)
         {
             var zones = await zoneService.GetZoneByIdAsync(model);
@@ -33,7 +33,7 @@ namespace MonsterSlayersAPI.Controllers
         }
 
         [HttpPost]
-        [Route("CreateZone")]
+        [Route("create-zone")]
         public async Task<IActionResult> CreateZone([FromBody] CreateZoneModel model)
         {
             var zones = await zoneService.CreateZoneAsync(model);

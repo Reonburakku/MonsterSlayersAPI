@@ -1,0 +1,25 @@
+<div class="div_body" [ngStyle]="{'background': '#fff center/100% url(' + bgImgURL + ') no-repeat'}">
+  <div class="auth-form">
+    <mat-grid-list cols="12" rowHeight="1:1"   >
+        <mat-grid-tile colspan="12" rowspan="1">
+          <mat-form-field class="input">
+            <mat-label>Correo</mat-label>
+            <input matInput type="text" [(ngModel)]="usernameTxt">
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile colspan="12" rowspan="1">
+          <mat-form-field class="input">
+            <mat-label>Contraseña</mat-label>
+            <input matInput type="text" [(ngModel)]="passTxt">
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile colspan="12" rowspan="1">
+          <button mat-raised-button color="primary" (click)="loginBtn()">Iniciar sesión</button>
+          <button mat-raised-button (click)="registrarseBtn()">Registrase</button>
+        </mat-grid-tile>
+        <mat-grid-tile colspan="12" rowspan="1">
+          <a mat-button href="/recover" >Recuperar contraseña</a>
+        </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+</div>
