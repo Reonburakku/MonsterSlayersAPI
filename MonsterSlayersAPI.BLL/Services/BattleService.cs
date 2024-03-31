@@ -25,19 +25,24 @@ namespace MonsterSlayersAPI.BLL.Services
 {
     public class BattleService : BaseService, IBattleService
     {
-        public BattleService(IUnityOfWork unityOfWork, IMapper mapper, IBattleRepository battleRepository) : base(unityOfWork, battleRepository, mapper) { }
+
+        internal IBattleRepository _battleRepository;
+        public BattleService(IUnitOfWork unitOfWork, IMapper mapper, IBattleRepository battleRepository) : base(unitOfWork, mapper)
+        {
+            _battleRepository = battleRepository;
+        }
 
         public async Task<BattleResultModel> GetBattleByIdAsync(GetBattleByIdModel model)
         {
-            _unityOfWork.Source = model.Origin;
+            _unitOfWork.Source = model.Origin;
             return await GetBattleById(model, "");
         }
 
         public async Task<BattleResultModel> EndTurn(EndTurnModel model)
         {
-            _unityOfWork.Source = model.Origin;
+            _unitOfWork.Source = model.Origin;
             MonsterTurnModel monsterTurnModel = new MonsterTurnModel();
-            Battle battle = await _unityOfWork.BattleRepository.GetByIdAsync(model.BattleId, model.LanguageId);
+            Battle battle = await _unitOfWork.BattleRepository.GetByIdAsync(model.BattleId, model.LanguageId);
             BattleParticipant battleParticipant = battle.BattleParticipants.First(x => x.CreatureId == model.CreatureId);
             GetBattleByIdModel getBattleByIdModel = new GetBattleByIdModel
             {
@@ -57,7 +62,7 @@ namespace MonsterSlayersAPI.BLL.Services
             }
 
             CharacterBattleModel character = JsonSerializer.Deserialize<CharacterBattleModel>(battleParticipant.ParticipantData);
-            Character originalCharacter = await _unityOfWork.CharacterRepository.GetByIdAsync(character.CharacterId);
+            Character originalCharacter = await _unitOfWork.CharacterRepository.GetByIdAsync(character.CharacterId);
             character.Stamina = originalCharacter.Stamina;
             battleParticipant.ParticipantData = JsonSerializer.Serialize(character);
 
@@ -71,7 +76,7 @@ namespace MonsterSlayersAPI.BLL.Services
                     battle.Turn = 1;
                     battle.Round++;
                 }
-                _unityOfWork.BattleRepository.Update(battle);
+                _unitOfWork.BattleRepository.Update(battle);
                 BattleParticipant actualBattleParticipant = battle.BattleParticipants.First(x => x.Order == battle.Turn);
                 if (actualBattleParticipant.IsMonster)
                 {
@@ -107,21 +112,21 @@ namespace MonsterSlayersAPI.BLL.Services
                 }
             }
             
-            _unityOfWork.CommitAsync();
+            _unitOfWork.CommitAsync();
 
             return await GetBattleByIdAsync(getBattleByIdModel);
         }
 
         public async Task<BattleResultModel> StartBattle(StartBattleModel model)
         {
-            _unityOfWork.Source = model.Origin;
+            _unitOfWork.Source = model.Origin;
             List<BattleParticipant> battleParticipants = new List<BattleParticipant>();
 
             Battle battle = _mapper.Map<Battle>(model);
             battle.Turn = 1;
             battle.Round = 1;
 
-            IEnumerable<Character> characters = await _unityOfWork.CharacterRepository.GetByIdRangeAsync(model.CharactersIds, model.LanguageId);
+            IEnumerable<Character> characters = await _unitOfWork.CharacterRepository.GetByIdRangeAsync(model.CharactersIds, model.LanguageId);
             if (characters.Count() < model.CharactersIds.Count())
             {
                 return new BattleResultModel
@@ -129,7 +134,7 @@ namespace MonsterSlayersAPI.BLL.Services
                     Message = "No hay personajes"
                 };
             }
-            IEnumerable<Monster> monsters = await _unityOfWork.MonsterRepository.GetByIdRangeAsync(model.MonstersIds, model.LanguageId);
+            IEnumerable<Monster> monsters = await _unitOfWork.MonsterRepository.GetByIdRangeAsync(model.MonstersIds, model.LanguageId);
             if (monsters.Count() < model.MonstersIds.Count())
             {
                 return new BattleResultModel
@@ -165,7 +170,7 @@ namespace MonsterSlayersAPI.BLL.Services
             battle.BattleParticipants = battleParticipants;
             battle.StartDate = DateTime.Now;
 
-            battle = await _unityOfWork.BattleRepository.Save(battle);
+            battle = await _unitOfWork.BattleRepository.Save(battle);
 
             GetBattleByIdModel getBattleByIdModel = new GetBattleByIdModel
             {
@@ -177,8 +182,8 @@ namespace MonsterSlayersAPI.BLL.Services
 
         public async Task<BattleResultModel> UseAbility(UseAbilityModel model)
         {
-            _unityOfWork.Source = model.Origin;
-            Battle battle = await _unityOfWork.BattleRepository.GetByIdAsync(model.BattleId, model.LanguageId);GetBattleByIdModel getBattleByIdModel = new GetBattleByIdModel
+            _unitOfWork.Source = model.Origin;
+            Battle battle = await _unitOfWork.BattleRepository.GetByIdAsync(model.BattleId, model.LanguageId);GetBattleByIdModel getBattleByIdModel = new GetBattleByIdModel
             {
                 Id = battle.BattleId,
                 LanguageId = model.LanguageId
@@ -187,7 +192,7 @@ namespace MonsterSlayersAPI.BLL.Services
             {
                 return await GetBattleById(getBattleByIdModel, "Batalla terminada");
             }
-            Ability ability = await _unityOfWork.AbilityRepository.GetByIdAsync(model.AbilityId, model.LanguageId);
+            Ability ability = await _unitOfWork.AbilityRepository.GetByIdAsync(model.AbilityId, model.LanguageId);
 
             BattleParticipant sourceBattleParticipant = battle.BattleParticipants.First(x => x.CreatureId == model.sourceCreatureId);
             CharacterBattleModel sourceCreature = JsonSerializer.Deserialize<CharacterBattleModel>(sourceBattleParticipant.ParticipantData);
@@ -215,7 +220,7 @@ namespace MonsterSlayersAPI.BLL.Services
             }
 
 
-            CharacterSkill characterSkill = await _unityOfWork.CharacterSkillRepository.GetByCharacterIdSkillIdAsync(sourceCreature.CharacterId, ability.SkillId, model.LanguageId);
+            CharacterSkill characterSkill = await _unitOfWork.CharacterSkillRepository.GetByCharacterIdSkillIdAsync(sourceCreature.CharacterId, ability.SkillId, model.LanguageId);
 
             bool isCrit = UtilityFunctions.IsCritic(sourceCreature.CritRate);
             int damageCount = characterSkill.Real;
@@ -294,8 +299,8 @@ namespace MonsterSlayersAPI.BLL.Services
                 },
             };
 
-            await _unityOfWork.BattleActionRepository.Save(battleAction);
-            _unityOfWork.CommitAsync();
+            await _unitOfWork.BattleActionRepository.Save(battleAction);
+            _unitOfWork.CommitAsync();
 
 
             
@@ -322,7 +327,7 @@ namespace MonsterSlayersAPI.BLL.Services
 
         private async Task<MonsterTurnModel> MonsterTurnAsync(MonsterTurnModel monsterTurnModel)
         {
-            IEnumerable<MonsterAbility> monsterAbilities = await _unityOfWork.MonsterAbilityRepository.GetAllByMonsterIdAsync(monsterTurnModel.MonsterModel.MonsterId, monsterTurnModel.LanguageId);
+            IEnumerable<MonsterAbility> monsterAbilities = await _unitOfWork.MonsterAbilityRepository.GetAllByMonsterIdAsync(monsterTurnModel.MonsterModel.MonsterId, monsterTurnModel.LanguageId);
 
             bool hasAbilities = true;
             var rand = new Random();
@@ -381,7 +386,7 @@ namespace MonsterSlayersAPI.BLL.Services
                             }
                         },
                     };
-                    await _unityOfWork.BattleActionRepository.Save(battleAction);
+                    await _unitOfWork.BattleActionRepository.Save(battleAction);
                 }
             }
             monsterTurnModel.MonsterModel.Stamina = totalStamina;
@@ -395,7 +400,7 @@ namespace MonsterSlayersAPI.BLL.Services
             battleBasic.TeamWinner = model.TeamWinner;
             battleBasic.EndDate = DateTime.Now;
 
-            _unityOfWork.BattleRepository.Update(battleBasic);
+            _unitOfWork.BattleRepository.Update(battleBasic);
 
             GetBattleByIdModel getBattleByIdModel = new GetBattleByIdModel
             {
@@ -407,12 +412,12 @@ namespace MonsterSlayersAPI.BLL.Services
 
         private async Task<BattleResultModel> GetBattleById(GetBattleByIdModel model, string message)
         {
-            Battle battle = await _unityOfWork.BattleRepository.GetByIdAsync(model.Id, model.LanguageId);
+            Battle battle = await _unitOfWork.BattleRepository.GetByIdAsync(model.Id, model.LanguageId);
             BattleResultModel battleResultModel = _mapper.Map<BattleResultModel>(battle);
             battleResultModel.ZoneResultModel = _mapper.Map<ZoneResultModel>(battle.Zone);
 
             battleResultModel.Participants = _mapper.Map<List<ParticipantResultModel>>(battle.BattleParticipants);
-            IEnumerable<BattleAction> battleActions = await _unityOfWork.BattleActionRepository.GetAllByBattleId(battle.BattleId);
+            IEnumerable<BattleAction> battleActions = await _unitOfWork.BattleActionRepository.GetAllByBattleId(battle.BattleId);
             battleResultModel.BattleActions = _mapper.Map<List<BattleActionModel>>(battleActions);
 
             battleResultModel.Message = message;

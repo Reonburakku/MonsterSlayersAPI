@@ -50,7 +50,7 @@ builder.Services.AddAuthentication(options =>
 
 builder.Services.AddAuthorization();
 
-builder.Services.AddScoped(typeof(IUnityOfWork), typeof(UnityOfWork));
+builder.Services.AddScoped(typeof(IUnitOfWork), typeof(UnitOfWork));
 
 // Repositories
 builder.Services.AddScoped(typeof(IAbilityRepository), typeof(AbilityRepository));

@@ -12,6 +12,7 @@ namespace MonsterSlayersAPI.BLL.Interfaces.Services
 {
     public interface IParametrizationService
     {
+        Task<string> Alive();
         Task<IEnumerable<ZoneResultModel>> GetAllZonesAsync(BaseRequestModel model);
         Task<ZoneResultModel> GetZoneByIdAsync(GetZoneByIdModel model);
         Task<CreateZoneModel> CreateZoneAsync(CreateZoneModel model);

@@ -10,17 +10,25 @@ namespace MonsterSlayersAPI.Controllers
     [ApiController]
     public class ParametrizationController : ControllerBase
     {
-        private IParametrizationService zoneService;
-        public ParametrizationController(IParametrizationService zoneService)
+        private IParametrizationService paramService;
+        public ParametrizationController(IParametrizationService paramService)
         {
-            this.zoneService = zoneService;
+            this.paramService = paramService;
+        }
+
+        [HttpGet]
+        [Route("alive")]
+        public async Task<IActionResult> Alive()
+        {
+            var zones = await paramService.Alive();
+            return Ok(zones);
         }
 
         [HttpGet]
         [Route("get-all-zones")]
         public async Task<IActionResult> GetAllZones(BaseRequestModel model)
         {
-            var zones = await zoneService.GetAllZonesAsync(model);
+            var zones = await paramService.GetAllZonesAsync(model);
             return Ok(zones);
         }
 
@@ -28,7 +36,7 @@ namespace MonsterSlayersAPI.Controllers
         [Route("get-zone-by-id")]
         public async Task<IActionResult> GetZoneById([FromBody] GetZoneByIdModel model)
         {
-            var zones = await zoneService.GetZoneByIdAsync(model);
+            var zones = await paramService.GetZoneByIdAsync(model);
             return Ok(zones);
         }
 
@@ -36,7 +44,7 @@ namespace MonsterSlayersAPI.Controllers
         [Route("create-zone")]
         public async Task<IActionResult> CreateZone([FromBody] CreateZoneModel model)
         {
-            var zones = await zoneService.CreateZoneAsync(model);
+            var zones = await paramService.CreateZoneAsync(model);
             return Ok(zones);
         }
     }

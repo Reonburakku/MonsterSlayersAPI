@@ -15,19 +15,19 @@ namespace MonsterSlayersAPI.BLL.Services
 {
     public class CharacterService : BaseService, ICharacterService
     {
-        public CharacterService(IUnityOfWork unityOfWork, IMapper mapper, IBattleRepository battleRepository) : base(unityOfWork, battleRepository, mapper) { }
+        public CharacterService(IUnitOfWork unitOfWork, IMapper mapper) : base(unitOfWork, mapper) { }
 
         public async Task<bool> SetCharacterZoneId(SetCharacterZoneIdModel model)
         {
             try
             {
-                Character character = await _unityOfWork.CharacterRepository.GetByIdAsync(model.CharacterId);
+                Character character = await _unitOfWork.CharacterRepository.GetByIdAsync(model.CharacterId);
                 if (character == null)
                 {
                     return false;
                 }
                 character.ZoneId = model.ZoneId;
-                _unityOfWork.CommitAsync();
+                _unitOfWork.CommitAsync();
                 return true;
             }
             catch (Exception ex)

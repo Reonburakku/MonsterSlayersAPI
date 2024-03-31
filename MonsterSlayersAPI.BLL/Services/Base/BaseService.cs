@@ -15,14 +15,12 @@ namespace MonsterSlayersAPI.BLL.Services.Base
 {
     public class BaseService : IBaseService
     {
-        internal IBattleRepository _battleRepository;
-        internal IUnityOfWork _unityOfWork;
+        internal IUnitOfWork _unitOfWork;
         internal IMapper _mapper;
 
-        public BaseService(IUnityOfWork unityOfWork, IBattleRepository battleRepository, IMapper mapper)
+        public BaseService(IUnitOfWork unitOfWork, IMapper mapper)
         {
-            _battleRepository = battleRepository;
-            _unityOfWork = unityOfWork;
+            _unitOfWork = unitOfWork;
             _mapper = mapper;
         }
     }

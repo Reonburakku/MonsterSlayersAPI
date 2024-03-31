@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MonsterSlayersAPI.BLL.Interfaces
 {
-    public interface IUnityOfWork
+    public interface IUnitOfWork
     {
         IAbilityRepository AbilityRepository { get; }
         IAbilityResourceRepository AbilityResourceRepository { get; }

@@ -16,11 +16,11 @@ namespace MonsterSlayersAPI.BLL.Services
 {
     public class MonsterService : BaseService, IMonsterService
     {
-        public MonsterService(IUnityOfWork unityOfWork, IMapper mapper, IBattleRepository battleRepository) : base(unityOfWork, battleRepository, mapper) { }
+        public MonsterService(IUnitOfWork unitOfWork, IMapper mapper) : base(unitOfWork, mapper) { }
 
         public async Task<IEnumerable<MonsterResultModel>> GetMonstersByZoneId(GetMonstersByZoneIdModel model)
         {
-            IEnumerable<Monster> monsters = await _unityOfWork.MonsterRepository.GetAllByZoneId(model.ZoneId, model.LanguageId);
+            IEnumerable<Monster> monsters = await _unitOfWork.MonsterRepository.GetAllByZoneId(model.ZoneId, model.LanguageId);
             return _mapper.Map<IEnumerable<MonsterResultModel>>(monsters);
         }
     }

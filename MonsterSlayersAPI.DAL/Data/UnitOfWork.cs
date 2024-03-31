@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace MonsterSlayersAPI.DAL.Data
 {
-    public  class UnityOfWork : IUnityOfWork
+    public  class UnitOfWork : IUnitOfWork
     {
         private readonly MonsterSlayersContext _context;
         private AbilityRepository _AbilityRepository;
@@ -44,7 +44,7 @@ namespace MonsterSlayersAPI.DAL.Data
 
         public string Source {  get; set; }
 
-        public UnityOfWork(MonsterSlayersContext context)
+        public UnitOfWork(MonsterSlayersContext context)
         {
             this._context = context;
         }

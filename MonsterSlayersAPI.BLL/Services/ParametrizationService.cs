@@ -19,18 +19,22 @@ namespace MonsterSlayersAPI.BLL.Services
 {
     public class ParametrizationService : BaseService, IParametrizationService
     {
-        public ParametrizationService(IUnityOfWork unityOfWork, IMapper mapper, IBattleRepository battleRepository) : base(unityOfWork, battleRepository, mapper) { }
+        public ParametrizationService(IUnitOfWork unitOfWork, IMapper mapper) : base(unitOfWork, mapper) { }
 
+        public async Task<string> Alive()
+        {
+            return "Parametrization Alive";
+        }
         public async Task<ZoneResultModel> GetZoneByIdAsync(GetZoneByIdModel model)
         {
-            Zone zoneEntity = await _unityOfWork.ZoneRepository.GetByIdAsync(model.ZoneId, model.LanguageId);
+            Zone zoneEntity = await _unitOfWork.ZoneRepository.GetByIdAsync(model.ZoneId, model.LanguageId);
             ZoneResultModel zoneResultModel = _mapper.Map<ZoneResultModel>(zoneEntity);
             return zoneResultModel;
         }
 
         public async Task<IEnumerable<ZoneResultModel>> GetAllZonesAsync(BaseRequestModel model)
         {
-            var zoneEntities = await _unityOfWork.ZoneRepository.GetAllAsync(model.LanguageId);
+            var zoneEntities = await _unitOfWork.ZoneRepository.GetAllAsync(model.LanguageId);
             IEnumerable<ZoneResultModel> zoneResultModel = _mapper.Map<IEnumerable<ZoneResultModel>>(zoneEntities);
             return zoneResultModel;
         }
@@ -40,8 +44,8 @@ namespace MonsterSlayersAPI.BLL.Services
             Zone zone = _mapper.Map<Zone>(model);
             List<ZoneResource> zoneResources = _mapper.Map<List<ZoneResource>>(model.Resources);
             zone.ZoneResources = zoneResources;
-            await _unityOfWork.ZoneRepository.Save(zone);
-            _unityOfWork.CommitAsync();
+            await _unitOfWork.ZoneRepository.Save(zone);
+            _unitOfWork.CommitAsync();
             return model;
         }
     }
