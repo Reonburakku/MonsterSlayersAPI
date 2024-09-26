@@ -1,6 +1,6 @@
-@MonsterSlayersAPI_HostAddress = http://localhost:5255
+@MonsterSlayersAPI_HostAddress = http://localhost:7026
 
-GET {{MonsterSlayersAPI_HostAddress}}/weatherforecast/
+GET {{MonsterSlayersAPI_HostAddress}}/Parametrization/Alive
 Accept: application/json
 
 ###
