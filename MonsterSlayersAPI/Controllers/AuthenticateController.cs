@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using MonsterSlayersAPI.BLL.Models.Security;
+using Newtonsoft.Json.Linq;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
@@ -51,11 +52,18 @@ namespace MonsterSlayersAPI.Controllers
 
                 return Ok(new
                 {
-                    token = new JwtSecurityTokenHandler().WriteToken(token),
-                    expiration = token.ValidTo
+                    token = tokenJWS,
+                    expiration = token.ValidTo,
+                    result = true
                 });
             }
-            return Unauthorized();
+
+            return Unauthorized(new
+            {
+                token = new JwtSecurityTokenHandler().WriteToken(GetToken(new List<Claim>())),
+                expiration = DateTime.MinValue,
+                result = true
+            });
         }
 
         [HttpPost]

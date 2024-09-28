@@ -13,10 +13,23 @@ using MonsterSlayersAPI.BLL.Interfaces.Services;
 using MonsterSlayersAPI.BLL.Services;
 using MonsterSlayersAPI.DAL.Data;
 
+var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+
 var builder = WebApplication.CreateBuilder(args);
 var config = builder.Configuration;
 
 // Add services to the container.
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: MyAllowSpecificOrigins,
+                      policy =>
+                      {
+                          policy.AllowAnyOrigin()
+                          .AllowAnyMethod()
+                          .AllowAnyHeader();
+                      });
+});
 
 // For Entity Framework
 builder.Services.AddDbContext<MonsterSlayersSecurityContext>(options => options.UseSqlServer(config.GetConnectionString("MonsterSlayersConnection")));
@@ -102,6 +115,8 @@ var app = builder.Build();
 //}
 
 app.UseHttpsRedirection();
+
+app.UseCors(MyAllowSpecificOrigins);
 
 app.UseAuthentication();
 app.UseAuthorization();

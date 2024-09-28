@@ -7,7 +7,7 @@ import { Observable, from } from 'rxjs';
 })
 export class AuthService {
 
-  private urlApi = 'https://fingerprintws.certicamara.co:8020/service';
+  private urlApi = 'https://localhost:7026/api/Authenticate';
   headerDict = {
     'Content-Type': 'application/json',
     'Accept': 'application/json',

@@ -15,12 +15,14 @@ export class LoginComponent implements OnInit {
   bgImgURL: string = "https://monsterslayersrepo.s3.amazonaws.com/Zones/CityBackground.gif";
   usernameTxt: string = "";
   passTxt: string = "";
+  passwordTypeTxt = true;
+  errorTxt = "";
 
   ngOnInit(): void {
   }
 
   loginBtn(){
-
+    this.ExecuteLogin();
   }
 
   registrarseBtn(){
@@ -32,6 +34,21 @@ export class LoginComponent implements OnInit {
       var response = JSON.parse(data);
       console.log(response);
     })
+  }
+
+  ExecuteLogin(){
+    this.authService.Login(this.usernameTxt, this.passTxt).subscribe(
+      data => {
+        console.log(data);
+      },
+      error => {
+        if(error.status == 401){
+          this.errorTxt = "Usuario o contraseña incorrectos."
+        }
+        else{
+          this.errorTxt = "Error interno."
+        }
+      });
   }
 
 }
