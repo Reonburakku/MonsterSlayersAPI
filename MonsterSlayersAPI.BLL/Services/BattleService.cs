@@ -396,7 +396,7 @@ namespace MonsterSlayersAPI.BLL.Services
 
         private async Task<BattleResultModel> EndBattleAsync(EndBattleModel model)
         {
-            Battle battleBasic = await _battleRepository.GetByIdAsync(model.BattleId);
+            Battle battleBasic = await _unitOfWork.BattleRepository.GetByIdAsync(model.BattleId);
             battleBasic.TeamWinner = model.TeamWinner;
             battleBasic.EndDate = DateTime.Now;
 
